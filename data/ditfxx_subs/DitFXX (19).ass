@@ -1,0 +1,356 @@
+[Script Info]
+Title: [Erai-raws] English (US)
+ScriptType: v4.00+
+WrapStyle: 0
+PlayResX: 640
+PlayResY: 360
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0020,1
+Style: Default - Top,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0010,0010,0020,1
+Style: main,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: top,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: italics,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: flashback,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,1
+Style: italicstop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: flashbackitalics,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,-1,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: flashbacktop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,0,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: flashbackitalicstop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,-1,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: songstop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H007B4D0D,&H00764504,0,-1,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: sign_33134_360_Episode_1,Times New Roman,12,&H00797A77,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,0030,0030,0070,1
+Style: sign_33134_361_Alone_and_Loneso,Verdana,14,&H00DAD9DA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,0,2,0030,0030,0200,1
+Style: sign_3381_17_2025_A_D_,Times New Roman,30,&H00EBF6F6,&H000000FF,&H00808C90,&H00000000,0,0,0,0,100,100,0,0,1,2,0,8,0030,0030,0050,1
+Style: sign_3811_23_Werner_Frank,Arial,16,&H00F8FFFF,&H000000FF,&H0068757C,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,0030,0030,0045,1
+Style: sign_6727_57_Karina_Milsa,Arial,16,&H00F8FFFF,&H000000FF,&H009A938C,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,0030,0265,0045,1
+Style: sign_12808_129_2036_A_D_,Times New Roman,30,&H00EBF6F6,&H000000FF,&H00586251,&H00000000,0,0,0,0,100,100,0,0,1,2,0,8,0030,0030,0050,1
+Style: sign_15196_155_2037_A_D_,Times New Roman,30,&H00EBF6F6,&H000000FF,&H00080808,&H00000000,0,0,0,0,100,100,0,0,1,2,0,8,0030,0030,0050,1
+Style: sign_15244_156_Offshore_Magma_E,Times New Roman,12,&H00FFF5E4,&H000000FF,&H00705948,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,1,0030,0030,0045,1
+Style: sign_17880_183_Startup_Trial_fo,Times New Roman,18,&H00EEEEEE,&H000000FF,&H00080808,&H00000000,0,0,0,0,100,100,0,0,1,2,0,8,0030,0030,0207,1
+Style: sign_17935_184_Number_Thirteen,Times New Roman,30,&H00EEEEEE,&H000000FF,&H00080808,&H00000000,0,0,0,0,100,100,0,0,1,2,0,2,0275,0030,0030,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.21,0:00:03.99,main,Fra,0000,0000,0000,,Of all the heavy-handed measures to take...
+Dialogue: 0,0:00:03.99,0:00:09.25,italics,SageE,0000,0000,0000,,We wanted to eliminate all irregularities \Nbefore this important operation.
+Dialogue: 0,0:00:09.25,0:00:10.37,italics,SageE,0000,0000,0000,,That is all.
+Dialogue: 0,0:00:11.25,0:00:13.48,main,Fra,0000,0000,0000,,If you keep doing this,
+Dialogue: 0,0:00:13.48,0:00:17.12,main,Fra,0000,0000,0000,,there's no guarantee that the \Nchildren will remain obedient.
+Dialogue: 0,0:00:17.12,0:00:18.77,italics,SageC,0000,0000,0000,,Don't worry.
+Dialogue: 0,0:00:18.77,0:00:22.50,italics,SageC,0000,0000,0000,,We haven't done anything to any \NSquad 13 members but those two.
+Dialogue: 0,0:00:22.97,0:00:24.46,main,Fra,0000,0000,0000,,But why?
+Dialogue: 0,0:00:24.46,0:00:26.04,italics,ViceChief,0000,0000,0000,,Since they're all together,
+Dialogue: 0,0:00:26.04,0:00:33.22,italics,ViceChief,0000,0000,0000,,we decided to rid the parasites of \Nall unneeded emotions and memories.
+Dialogue: 0,0:00:33.22,0:00:35.44,main,Fra,0000,0000,0000,,Why wasn't I consulted?
+Dialogue: 0,0:00:35.44,0:00:38.79,italics,Chief,0000,0000,0000,,Werner, please just behave for now.
+Dialogue: 0,0:00:38.79,0:00:42.18,italics,Chief,0000,0000,0000,,You wished to see this plan come \Nto fruition too, you know.
+Dialogue: 0,0:00:44.55,0:00:48.40,main,Fra,0000,0000,0000,,They don't hesitate to use forceful \Nmeans to achieve their ends.
+Dialogue: 0,0:00:48.40,0:00:50.01,main,Fra,0000,0000,0000,,But I'm no different.
+Dialogue: 0,0:02:20.99,0:02:24.10,sign_3381_17_2025_A_D_,Sign,0000,0000,0000,,{\fad(1,624)}2025 A.D.
+Dialogue: 0,0:02:27.72,0:02:28.87,flashback,G,0000,0000,0000,,Mr. Werner...
+Dialogue: 0,0:02:28.87,0:02:30.25,flashback,F,0000,0000,0000,,Don't just walk in here!
+Dialogue: 0,0:02:30.98,0:02:33.24,flashback,G,0000,0000,0000,,The chancellor asked me to get you.
+Dialogue: 0,0:02:35.65,0:02:36.72,flashback,F,0000,0000,0000,,APE?
+Dialogue: 0,0:02:36.72,0:02:38.92,flashback,C,0000,0000,0000,,Surely you've heard of them.
+Dialogue: 0,0:02:38.92,0:02:43.93,sign_3811_23_Werner_Frank,Sign,0000,0000,0000,,Werner Frank
+Dialogue: 0,0:02:40.79,0:02:43.93,flashbacktop,F,0000,0000,0000,,What does that upstart group want with me?
+Dialogue: 0,0:02:43.93,0:02:46.65,flashback,C,0000,0000,0000,,They say they want to hire you.
+Dialogue: 0,0:02:46.65,0:02:49.56,flashback,C,0000,0000,0000,,They're very impressed by your research.
+Dialogue: 0,0:02:49.56,0:02:52.84,flashback,F,0000,0000,0000,,My research? Which part?
+Dialogue: 0,0:02:53.35,0:02:56.12,flashback,C,0000,0000,0000,,Ask them for details when you're there.
+Dialogue: 0,0:02:56.12,0:02:58.10,flashback,C,0000,0000,0000,,I accepted their offer.
+Dialogue: 0,0:02:58.10,0:02:58.94,flashback,F,0000,0000,0000,,You accepted?
+Dialogue: 0,0:02:59.30,0:03:00.28,flashback,C,0000,0000,0000,,That's right.
+Dialogue: 0,0:03:00.28,0:03:02.16,flashback,F,0000,0000,0000,,Without asking me?
+Dialogue: 0,0:03:02.85,0:03:08.65,flashback,C,0000,0000,0000,,You show no signs of ceasing your illegal\Nexperiments, chief among them cloning.
+Dialogue: 0,0:03:08.65,0:03:10.62,flashback,C,0000,0000,0000,,The community is up in arms against you.
+Dialogue: 0,0:03:10.62,0:03:12.17,flashback,F,0000,0000,0000,,You call them illegal,
+Dialogue: 0,0:03:12.50,0:03:15.49,flashback,F,0000,0000,0000,,but the law only ever cracks \Ndown {\i1}after{\i0} I'm done.
+Dialogue: 0,0:03:15.96,0:03:22.49,flashback,C,0000,0000,0000,,There's no presumptive law because nobody \Nexpected a heathen like you to show up.
+Dialogue: 0,0:03:22.49,0:03:24.18,flashback,F,0000,0000,0000,,Well, I am an atheist.
+Dialogue: 0,0:03:24.51,0:03:26.65,flashback,C,0000,0000,0000,,This is a matter of ethics.
+Dialogue: 0,0:03:26.65,0:03:28.56,flashback,F,0000,0000,0000,,You can't deny that I'm producing results.
+Dialogue: 0,0:03:29.16,0:03:33.24,flashback,C,0000,0000,0000,,Sure. I admit that you're vastly talented.
+Dialogue: 0,0:03:33.24,0:03:35.81,flashback,C,0000,0000,0000,,But I find you terrifying.
+Dialogue: 0,0:03:36.66,0:03:38.69,flashback,F,0000,0000,0000,,Me? Terrifying?
+Dialogue: 0,0:03:40.90,0:03:45.82,italics,F,0000,0000,0000,,APE, a group of scientists with no \Nknown origins or nationalities.
+Dialogue: 0,0:03:46.13,0:03:49.33,italics,F,0000,0000,0000,,A mysterious organization that operated \Nwith the Lamarck Club at its core.
+Dialogue: 0,0:03:49.33,0:03:51.73,italics,F,0000,0000,0000,,They introduced revolutionary \Nmining technology,
+Dialogue: 0,0:03:51.73,0:03:55.82,italics,F,0000,0000,0000,,dug up magma energy from underground \Nreserves far deeper than man had ever ventured,
+Dialogue: 0,0:03:55.82,0:04:00.34,italics,F,0000,0000,0000,,and created a new energy source that \Nwas both all-encompassing and low-cost.
+Dialogue: 0,0:04:01.21,0:04:03.17,italics,F,0000,0000,0000,,With this energy revolution,
+Dialogue: 0,0:04:03.17,0:04:07.91,italics,F,0000,0000,0000,,humanity drastically sped up its progress \Ntoward the apex of material civilization.
+Dialogue: 0,0:04:07.91,0:04:14.60,italics,F,0000,0000,0000,,At the same time, APE gained huge influence \Nin international politics and the economy.
+Dialogue: 0,0:04:24.53,0:04:28.16,flashback,Karina,0000,0000,0000,,Pardon me for being presumptuous,\Nbut you're Werner Frank, aren't you?
+Dialogue: 0,0:04:29.40,0:04:30.41,flashback,F,0000,0000,0000,,That's right.
+Dialogue: 0,0:04:30.41,0:04:33.53,flashback,K,0000,0000,0000,,I knew it! It's an honor to meet you!
+Dialogue: 0,0:04:33.94,0:04:34.99,flashback,F,0000,0000,0000,,Is it?
+Dialogue: 0,0:04:34.99,0:04:39.04,flashback,K,0000,0000,0000,,It is! I've read all the \Npapers you've published!
+Dialogue: 0,0:04:40.55,0:04:43.76,flashbacktop,K,0000,0000,0000,,Oh, I haven't introduced myself.
+Dialogue: 0,0:04:40.55,0:04:44.34,sign_6727_57_Karina_Milsa,Sign,0000,0000,0000,,Karina Milsa
+Dialogue: 0,0:04:43.76,0:04:45.59,flashbacktop,K,0000,0000,0000,,I'm Karina Milsa.
+Dialogue: 0,0:04:49.17,0:04:50.68,flashback,F,0000,0000,0000,,"Karina Milsa"?
+Dialogue: 0,0:04:51.46,0:04:54.52,flashback,F,0000,0000,0000,,The Karina Milsa of regenerative \Ntelomere medicine fame?
+Dialogue: 0,0:04:54.92,0:04:56.02,flashback,K,0000,0000,0000,,That's me!
+Dialogue: 0,0:04:59.75,0:05:02.79,flashback,ViceChief,0000,0000,0000,,Do you have a problem with the contract?
+Dialogue: 0,0:05:03.35,0:05:04.03,flashback,F,0000,0000,0000,,No.
+Dialogue: 0,0:05:04.03,0:05:07.03,flashback,F,0000,0000,0000,,I was just surprised by \Nthe amount of funding.
+Dialogue: 0,0:05:07.03,0:05:10.71,flashback,Chief,0000,0000,0000,,It's simply a fair valuation of your talents.
+Dialogue: 0,0:05:10.71,0:05:14.29,flashback,F,0000,0000,0000,,But to be honest, what you expect from me
+Dialogue: 0,0:05:14.83,0:05:18.02,flashback,F,0000,0000,0000,,is somewhat outside my field of expertise.
+Dialogue: 0,0:05:18.02,0:05:22.87,flashback,ViceChief,0000,0000,0000,,With your abilities, you should be \Nable to contribute more than enough.
+Dialogue: 0,0:05:22.87,0:05:24.55,flashback,ViceChief,0000,0000,0000,,Immortality...
+Dialogue: 0,0:05:24.55,0:05:28.46,flashback,ViceChief,0000,0000,0000,,Magma energy can even make that a reality.
+Dialogue: 0,0:05:28.46,0:05:30.05,flashback,F,0000,0000,0000,,Magma energy?
+Dialogue: 0,0:05:31.49,0:05:34.11,italics,F,0000,0000,0000,,It was more than just an ideal energy source.
+Dialogue: 0,0:05:34.11,0:05:37.19,italics,F,0000,0000,0000,,They said magma energy could even \Nput immortality within our reach.
+Dialogue: 0,0:05:37.70,0:05:39.97,italics,F,0000,0000,0000,,Who would ever believe such a tall tale?
+Dialogue: 0,0:05:40.66,0:05:45.57,italics,F,0000,0000,0000,,But any scientist who said it didn't \Npique their curiosity would be lying.
+Dialogue: 0,0:05:48.07,0:05:50.97,sign_3381_17_2025_A_D_,Sign,0000,0000,0000,,{\fad(1,624)}2030 A.D.
+Dialogue: 0,0:05:52.25,0:05:55.04,flashback,ResA,0000,0000,0000,,We're not seeing any indicators of aging.
+Dialogue: 0,0:05:55.04,0:05:56.02,flashback,K,0000,0000,0000,,Right.
+Dialogue: 0,0:05:56.02,0:05:57.33,flashback,ResA,0000,0000,0000,,We did it!
+Dialogue: 0,0:05:57.33,0:05:59.95,flashbackitalics,SageA,0000,0000,0000,,So the research was a success?
+Dialogue: 0,0:05:59.95,0:06:01.59,flashback,K,0000,0000,0000,,I believe that's a safe assumption.
+Dialogue: 0,0:06:02.04,0:06:05.09,flashback,K,0000,0000,0000,,We couldn't have done it \Nwithout Dr. Frank's help.
+Dialogue: 0,0:06:06.65,0:06:08.84,flashback,K,0000,0000,0000,,You don't seem very happy about this.
+Dialogue: 0,0:06:09.30,0:06:10.63,flashback,F,0000,0000,0000,,Don't I?
+Dialogue: 0,0:06:11.27,0:06:13.42,flashback,K,0000,0000,0000,,Is something bothering you?
+Dialogue: 0,0:06:13.42,0:06:14.35,flashback,F,0000,0000,0000,,I'm only guessing,
+Dialogue: 0,0:06:14.81,0:06:19.43,flashback,F,0000,0000,0000,,but mankind might lose its reproductive \Nfunctions in exchange for its immortality.
+Dialogue: 0,0:06:19.88,0:06:22.11,flashback,K,0000,0000,0000,,We don't have any evidence indicating that.
+Dialogue: 0,0:06:22.11,0:06:24.36,flashback,F,0000,0000,0000,,No matter how we improve \Nourselves with science,
+Dialogue: 0,0:06:24.36,0:06:27.80,flashback,F,0000,0000,0000,,we can't make up for the inherent \Nfrailty of our bodies and minds.
+Dialogue: 0,0:06:28.71,0:06:30.73,flashback,F,0000,0000,0000,,More than anything,\Nit strips us of all beauty.
+Dialogue: 0,0:06:32.52,0:06:37.01,flashback,K,0000,0000,0000,,Are you saying it would be wrong \Nfor mankind to attain immortality?
+Dialogue: 0,0:06:37.01,0:06:38.37,flashback,F,0000,0000,0000,,I wouldn't go that far.
+Dialogue: 0,0:06:38.87,0:06:44.63,flashback,F,0000,0000,0000,,I've always wanted to know our pinnacle,\Nour limit, as an organism.
+Dialogue: 0,0:06:45.32,0:06:50.01,flashback,F,0000,0000,0000,,I might still find that answer in our \Nevolutionary process post-immortality.
+Dialogue: 0,0:06:50.52,0:06:54.59,flashback,F,0000,0000,0000,,But will we be able to call\Nwhat we become "human"?
+Dialogue: 0,0:06:54.59,0:06:56.37,flashback,K,0000,0000,0000,,Do you mean we'd be gods?
+Dialogue: 0,0:06:58.85,0:07:01.27,flashback,F,0000,0000,0000,,I'm an atheist, you see.
+Dialogue: 0,0:07:02.55,0:07:06.88,italics,F,0000,0000,0000,,Not long after that, it did indeed become \Nclear that the immortality procedure
+Dialogue: 0,0:07:06.88,0:07:09.86,italics,F,0000,0000,0000,,led to the loss of reproductive functions.
+Dialogue: 0,0:07:10.36,0:07:13.70,italics,F,0000,0000,0000,,But many people still made the \Nchoice to become immortal.
+Dialogue: 0,0:07:14.95,0:07:20.38,italics,F,0000,0000,0000,,Around that time, mankind recovered \Nfrom its rut thanks to magma energy
+Dialogue: 0,0:07:20.38,0:07:22.88,italics,F,0000,0000,0000,,and quickly approached the \Napex of material civilization.
+Dialogue: 0,0:07:23.46,0:07:28.07,italics,F,0000,0000,0000,,But the only ones to benefit from it were \Nthe rich, with access to immortality.
+Dialogue: 0,0:07:28.07,0:07:30.38,italics,F,0000,0000,0000,,The class divide continued to grow ever wider.
+Dialogue: 0,0:07:31.49,0:07:35.68,italics,F,0000,0000,0000,,Some years later, to combat the population\Nexplosion resulting from immortality,
+Dialogue: 0,0:07:35.68,0:07:39.62,italics,F,0000,0000,0000,,a law was passed in East Asia \Nto heavily tax childbirth.
+Dialogue: 0,0:07:40.41,0:07:43.90,italics,F,0000,0000,0000,,It was the first step toward mankind \Nabandoning its procreative instincts.
+Dialogue: 0,0:07:44.63,0:07:45.71,italics,F,0000,0000,0000,,At the same time,
+Dialogue: 0,0:07:45.71,0:07:49.77,italics,F,0000,0000,0000,,rapid desertification was observed in \Nthe southern parts of North America.
+Dialogue: 0,0:07:50.37,0:07:55.41,italics,F,0000,0000,0000,,Some identified the mining \Nof magma energy as the cause,
+Dialogue: 0,0:07:55.41,0:07:57.66,italics,F,0000,0000,0000,,but naturally, they were ignored.
+Dialogue: 0,0:07:57.66,0:08:00.25,main,214,0000,0000,0000,,This is really important!
+Dialogue: 0,0:08:00.25,0:08:03.32,main,214,0000,0000,0000,,I feel bad for you, but you're\Nnot changing my mind!
+Dialogue: 0,0:08:09.91,0:08:11.55,main,326,0000,0000,0000,,What were you talking about?
+Dialogue: 0,0:08:11.55,0:08:13.80,main,556,0000,0000,0000,,Oh, you saw that?
+Dialogue: 0,0:08:13.80,0:08:16.80,main,326,0000,0000,0000,,Sorry. I didn't mean to.
+Dialogue: 0,0:08:18.04,0:08:22.04,main,556,0000,0000,0000,,Futoshi doesn't want to \Nbe my partner anymore.
+Dialogue: 0,0:08:22.04,0:08:27.40,main,556,0000,0000,0000,,He says he'll team up with Ikuno, \Nand he wants me to team up with you.
+Dialogue: 0,0:08:27.40,0:08:29.05,main,326,0000,0000,0000,,But why?
+Dialogue: 0,0:08:29.05,0:08:31.78,main,556,0000,0000,0000,,It's too sudden, right?
+Dialogue: 0,0:08:32.68,0:08:37.28,main,326,0000,0000,0000,,They keep telling us about all this \Nstuff that happened between us,
+Dialogue: 0,0:08:37.80,0:08:40.02,main,326,0000,0000,0000,,but we don't remember any of it.
+Dialogue: 0,0:08:40.42,0:08:42.36,main,326,0000,0000,0000,,And even if they are telling the truth,
+Dialogue: 0,0:08:42.81,0:08:48.52,main,326,0000,0000,0000,,I don't believe I'll ever \Ndevelop those feelings for you.
+Dialogue: 0,0:08:49.05,0:08:50.17,main,556,0000,0000,0000,,Yeah.
+Dialogue: 0,0:08:51.56,0:08:53.48,main,556,0000,0000,0000,,It's probably the same for me.
+Dialogue: 0,0:08:54.17,0:08:58.41,sign_12808_129_2036_A_D_,Sign,0000,0000,0000,,{\fad(1,624)}2036 A.D.
+Dialogue: 0,0:08:55.24,0:08:59.19,italics,F,0000,0000,0000,,At this point, humanity's immortality \Nrate already exceeded 70 percent.
+Dialogue: 0,0:08:59.83,0:09:04.18,italics,F,0000,0000,0000,,And the rest were scheduled to complete \Ntheir procedures within two years.
+Dialogue: 0,0:09:04.18,0:09:06.25,italics,F,0000,0000,0000,,But I...
+Dialogue: 0,0:09:07.89,0:09:10.19,flashback,K,0000,0000,0000,,You still can't bring yourself \Nto undergo the procedure?
+Dialogue: 0,0:09:10.50,0:09:13.21,flashback,F,0000,0000,0000,,I don't like having my body messed with.
+Dialogue: 0,0:09:13.21,0:09:16.49,flashback,F,0000,0000,0000,,If I'm forced to, I would much prefer \Nto replace it with a mechanical one.
+Dialogue: 0,0:09:17.40,0:09:22.33,flashback,K,0000,0000,0000,,Don't you think it's about time you stopped \Nto think about your life and future?
+Dialogue: 0,0:09:22.73,0:09:25.61,flashback,F,0000,0000,0000,,Stop it. You know that's not my style.
+Dialogue: 0,0:09:26.07,0:09:27.96,flashback,F,0000,0000,0000,,What about you? Aren't you \Ngoing to go under the knife?
+Dialogue: 0,0:09:28.47,0:09:29.33,flashback,K,0000,0000,0000,,No.
+Dialogue: 0,0:09:30.42,0:09:32.71,flashback,K,0000,0000,0000,,I want to have a child, actually.
+Dialogue: 0,0:09:32.71,0:09:34.30,flashback,F,0000,0000,0000,,Oh?
+Dialogue: 0,0:09:34.30,0:09:35.84,flashback,K,0000,0000,0000,,Is that surprising?
+Dialogue: 0,0:09:35.84,0:09:38.93,flashback,F,0000,0000,0000,,I just didn't think you had a partner.
+Dialogue: 0,0:09:39.53,0:09:43.60,flashback,K,0000,0000,0000,,He's pretty dense, so he \Nhasn't noticed my feelings.
+Dialogue: 0,0:09:43.60,0:09:48.33,flashback,F,0000,0000,0000,,If you're in love with someone,\Nshouldn't you ask him out to dinner instead?
+Dialogue: 0,0:09:48.87,0:09:50.26,flashback,K,0000,0000,0000,,I did.
+Dialogue: 0,0:09:50.26,0:09:52.77,flashback,F,0000,0000,0000,,Oh, so you did what you could.
+Dialogue: 0,0:09:53.80,0:09:56.53,flashback,K,0000,0000,0000,,Don't you think you're being a bit {\i1}too{\i0} dense?
+Dialogue: 0,0:10:04.87,0:10:06.25,flashback,F,0000,0000,0000,,It's me?
+Dialogue: 0,0:10:11.85,0:10:13.64,flashback,F,0000,0000,0000,,You have terrible taste.
+Dialogue: 0,0:10:16.15,0:10:18.47,flashback,F,0000,0000,0000,,But I guess I don't really mind.
+Dialogue: 0,0:10:21.51,0:10:25.27,italics,F,0000,0000,0000,,By that time, desertification had become \Na serious issue across the globe,
+Dialogue: 0,0:10:25.83,0:10:30.52,italics,F,0000,0000,0000,,and APE presented to nations its plantation\Nproject, which would be humanity's ark.
+Dialogue: 0,0:10:30.97,0:10:33.77,italics,F,0000,0000,0000,,It essentially became the \Nleader of the whole world.
+Dialogue: 0,0:10:33.77,0:10:35.78,sign_15196_155_2037_A_D_,Sign,0000,0000,0000,,2037 A.D.
+Dialogue: 0,0:10:35.78,0:10:41.53,sign_15244_156_Offshore_Magma_E,Sign,0000,0000,0000,,Offshore Magma Energy Mine
+Dialogue: 0,0:10:36.13,0:10:41.53,italicstop,F,0000,0000,0000,,That year, it appeared in front of mankind.
+Dialogue: 0,0:10:44.58,0:10:48.09,italics,F,0000,0000,0000,,Crying like a newborn baby,
+Dialogue: 0,0:10:48.09,0:10:52.46,italics,F,0000,0000,0000,,it destroyed the mining facility \Nand proceeded to make landfall,
+Dialogue: 0,0:10:53.06,0:10:56.42,italics,F,0000,0000,0000,,only stopping after several \Nnuclear missiles hit it.
+Dialogue: 0,0:10:58.05,0:11:04.23,italics,F,0000,0000,0000,,As a result, the eastern half of the Australian \Ncontinent became an exclusion zone.
+Dialogue: 0,0:11:04.82,0:11:10.27,italics,F,0000,0000,0000,,Soon, the beings designated \Nklaxosaurs, for "screaming reptiles,"
+Dialogue: 0,0:11:10.27,0:11:12.84,italics,F,0000,0000,0000,,started showing up periodically everywhere.
+Dialogue: 0,0:11:13.56,0:11:19.82,italics,F,0000,0000,0000,,It became clear that they were \Nattracted to magma energy mines, too.
+Dialogue: 0,0:11:20.58,0:11:25.90,italics,F,0000,0000,0000,,The plantations turned into mobile \Nanti-klaxosaur fortresses,
+Dialogue: 0,0:11:25.90,0:11:27.33,italics,F,0000,0000,0000,,cities were abandoned,
+Dialogue: 0,0:11:27.33,0:11:30.33,italics,F,0000,0000,0000,,and mankind disappeared from the surface.
+Dialogue: 0,0:11:33.16,0:11:34.33,flashback,K,0000,0000,0000,,Where are you going?
+Dialogue: 0,0:11:34.78,0:11:39.59,flashback,F,0000,0000,0000,,It seems they've secured a decently\Npreserved klaxosaur corpse in Alaska.
+Dialogue: 0,0:11:39.59,0:11:43.66,flashback,K,0000,0000,0000,,But we're supposed to submit our \Nmarriage registration next week.
+Dialogue: 0,0:11:43.66,0:11:44.85,flashback,F,0000,0000,0000,,If I'm not back by then,
+Dialogue: 0,0:11:45.34,0:11:46.37,flashback,F,0000,0000,0000,,go ahead and submit it.
+Dialogue: 0,0:11:51.45,0:11:53.45,italics,F,0000,0000,0000,,I was enthralled.
+Dialogue: 0,0:11:54.20,0:11:57.65,italics,F,0000,0000,0000,,The body's composition could be \Ncalled both mechanical and organic,
+Dialogue: 0,0:11:57.65,0:12:00.89,italics,F,0000,0000,0000,,and it struck me as extremely beautiful.
+Dialogue: 0,0:12:01.35,0:12:07.06,italics,F,0000,0000,0000,,Eventually, I noticed that it contained the \Nsame XX chromosomes seen in female humans.
+Dialogue: 0,0:12:08.01,0:12:11.16,italics,F,0000,0000,0000,,I didn't know what that indicated,
+Dialogue: 0,0:12:11.16,0:12:13.27,italics,F,0000,0000,0000,,but I had a bad feeling about it.
+Dialogue: 0,0:12:14.33,0:12:16.17,italics,F,0000,0000,0000,,My research was recognized,
+Dialogue: 0,0:12:16.17,0:12:20.57,italics,F,0000,0000,0000,,and I was appointed lead developer \Nof an anti-klaxosaur weapon.
+Dialogue: 0,0:12:20.57,0:12:23.97,italics,F,0000,0000,0000,,That robot was called a FRANXX.
+Dialogue: 0,0:12:24.68,0:12:29.68,sign_15196_155_2037_A_D_,Sign,0000,0000,0000,,2042 A.D.
+Dialogue: 0,0:12:25.74,0:12:29.68,sign_17880_183_Startup_Trial_fo,Sign,0000,0000,0000,,{\fad(1673,1)}Startup Trial for the Anti-Klaxosaur FRANXX Prototype
+Dialogue: 0,0:12:28.03,0:12:29.68,sign_17935_184_Number_Thirteen,Sign,0000,0000,0000,,{\fad(843,1)}Number Thirteen
+Dialogue: 0,0:12:30.41,0:12:34.44,italics,F,0000,0000,0000,,After FRANXX development finally \Nreached the prototype stage,
+Dialogue: 0,0:12:34.44,0:12:36.90,italics,F,0000,0000,0000,,it hit a prolonged roadblock \Nwhere it wouldn't start up.
+Dialogue: 0,0:12:36.90,0:12:39.49,italics,F,0000,0000,0000,,After rigorous testing \Nunder various conditions,
+Dialogue: 0,0:12:39.49,0:12:45.45,italics,F,0000,0000,0000,,it was discovered that the pilot needed \Nto still possess reproductive functions.
+Dialogue: 0,0:12:46.15,0:12:48.24,flashback,F,0000,0000,0000,,You didn't have to volunteer \Nto pilot yourself.
+Dialogue: 0,0:12:48.58,0:12:51.50,flashback,K,0000,0000,0000,,You have a valuable test \Nsubject right under your nose.
+Dialogue: 0,0:12:51.50,0:12:53.79,flashback,K,0000,0000,0000,,It'd be a waste not to use her.
+Dialogue: 0,0:12:54.92,0:12:56.04,flashback,F,0000,0000,0000,,Sorry, and thanks.
+Dialogue: 0,0:12:56.04,0:12:58.38,flashback,K,0000,0000,0000,,Don't look at me like that.
+Dialogue: 0,0:12:58.38,0:13:00.47,flashback,K,0000,0000,0000,,See you later, then.
+Dialogue: 0,0:13:17.89,0:13:20.65,flashback,F,0000,0000,0000,,Is this a curse?
+Dialogue: 0,0:13:23.24,0:13:25.73,italics,F,0000,0000,0000,,The tests continued,
+Dialogue: 0,0:13:26.49,0:13:28.39,italics,F,0000,0000,0000,,and many lives were sacrificed.
+Dialogue: 0,0:13:29.32,0:13:32.74,italics,F,0000,0000,0000,,The pilots were put under extreme stress.
+Dialogue: 0,0:13:32.74,0:13:37.21,italics,F,0000,0000,0000,,By injecting them with yellow blood cells \Nthat acted as a conduit to the FRANXX
+Dialogue: 0,0:13:37.21,0:13:39.25,italics,F,0000,0000,0000,,and having them ride in male-female pairs,
+Dialogue: 0,0:13:39.25,0:13:41.49,italics,F,0000,0000,0000,,that stress was found to be alleviated.
+Dialogue: 0,0:13:43.14,0:13:45.69,italics,F,0000,0000,0000,,After losing its reproductive functions,
+Dialogue: 0,0:13:45.69,0:13:50.25,italics,F,0000,0000,0000,,mankind ironically found\Na need for new children.
+Dialogue: 0,0:13:50.93,0:13:53.89,italics,F,0000,0000,0000,,As parasites, pilots of the FRANXX,
+Dialogue: 0,0:13:53.89,0:13:56.32,italics,F,0000,0000,0000,,they were called "children,"
+Dialogue: 0,0:13:56.32,0:13:59.77,italics,F,0000,0000,0000,,and they were made to refer \Nto the rest of us as adults.
+Dialogue: 0,0:14:00.84,0:14:04.03,main,56,0000,0000,0000,,Those two didn't just have \Ntheir memories erased.
+Dialogue: 0,0:14:04.36,0:14:07.12,main,56,0000,0000,0000,,They were also implanted\Nwith elaborate, fake memories.
+Dialogue: 0,0:14:07.12,0:14:10.14,main,15,0000,0000,0000,,Are their real memories lost forever?
+Dialogue: 0,0:14:10.14,0:14:11.74,main,214,0000,0000,0000,,This is messed up.
+Dialogue: 0,0:14:12.28,0:14:16.75,main,214,0000,0000,0000,,Was what they did so bad that they \Ndeserved to have their memories erased?
+Dialogue: 0,0:14:16.75,0:14:20.13,main,666,0000,0000,0000,,I'm sure Papa has his reasons.
+Dialogue: 0,0:14:20.13,0:14:21.77,main,390,0000,0000,0000,,Zorome, are you serious?
+Dialogue: 0,0:14:21.77,0:14:25.00,main,196,0000,0000,0000,,They destroyed everything about the \Nwedding we worked so hard for!
+Dialogue: 0,0:14:25.00,0:14:29.72,main,666,0000,0000,0000,,Yeah, sure, but we've only \Never had Papa our whole lives.
+Dialogue: 0,0:14:29.72,0:14:32.64,main,390,0000,0000,0000,,This isn't like you! I thought \Nyou were better than that!
+Dialogue: 0,0:14:32.64,0:14:35.44,main,15,0000,0000,0000,,Oh, Hiro. How's Zero Two?
+Dialogue: 0,0:14:35.44,0:14:39.03,main,16,0000,0000,0000,,She's fine. She just needs \Nto get some final tune-ups.
+Dialogue: 0,0:14:42.10,0:14:47.74,main,16,0000,0000,0000,,I'm thinking of directly asking Papa \Nto return Mitsuru and Kokoro to normal.
+Dialogue: 0,0:14:48.42,0:14:50.42,main,16,0000,0000,0000,,Let's tell him how we feel.
+Dialogue: 0,0:14:53.61,0:14:55.97,italics,F,0000,0000,0000,,In the initial usage phase of the FRANXX,
+Dialogue: 0,0:14:55.97,0:14:59.41,italics,F,0000,0000,0000,,entire squads would die off, \Ntaking the klaxosaurs down with them.
+Dialogue: 0,0:15:00.42,0:15:03.79,italics,F,0000,0000,0000,,But we pushed on and succeeded in developing \Nweapons that worked on klaxosaurs.
+Dialogue: 0,0:15:04.55,0:15:08.73,italics,F,0000,0000,0000,,After massive sacrifices, we started \Nformulating an effective way to kill them.
+Dialogue: 0,0:15:10.04,0:15:13.51,italics,F,0000,0000,0000,,The Garden was founded as a \Nfacility to nurture the children.
+Dialogue: 0,0:15:14.15,0:15:20.39,italics,F,0000,0000,0000,,And the plantations were fitted with a \Nquarantine zone for parasites, Mistilteinn.
+Dialogue: 0,0:15:21.52,0:15:24.77,italics,F,0000,0000,0000,,It was because parasites needed emotions,
+Dialogue: 0,0:15:24.77,0:15:28.04,italics,F,0000,0000,0000,,and we'd found that antiquated environments \Nwere best suited to raising them.
+Dialogue: 0,0:15:28.76,0:15:32.40,italics,F,0000,0000,0000,,Their health is monitored in extreme detail,
+Dialogue: 0,0:15:32.40,0:15:36.53,italics,F,0000,0000,0000,,and everything is controlled to \Nkeep them in the best possible shape.
+Dialogue: 0,0:15:37.05,0:15:42.10,italics,F,0000,0000,0000,,Eventually, the humans holed up inside \Nthe plantations, the "adults,"
+Dialogue: 0,0:15:42.10,0:15:44.68,italics,F,0000,0000,0000,,forgot about the existence of klaxosaurs,
+Dialogue: 0,0:15:44.68,0:15:47.67,italics,F,0000,0000,0000,,and under the influence of magma energy \Nand their immortality treatments,
+Dialogue: 0,0:15:47.67,0:15:51.80,italics,F,0000,0000,0000,,they obtained a life of eternal tedium.
+Dialogue: 0,0:15:52.66,0:15:56.73,italics,F,0000,0000,0000,,I was looking for somewhere I belonged, \Na resting place for my heart.
+Dialogue: 0,0:15:57.33,0:16:01.45,italics,F,0000,0000,0000,,By this time, my interest in the \Nfuture of mankind had faded,
+Dialogue: 0,0:16:01.45,0:16:05.81,italics,F,0000,0000,0000,,and I engrossed myself in research, \Nseeking a more perfected lifeform.
+Dialogue: 0,0:16:06.18,0:16:09.57,italics,F,0000,0000,0000,,That's when a strange rumor \Nstarted making the rounds.
+Dialogue: 0,0:16:09.57,0:16:13.82,italics,F,0000,0000,0000,,A rumor that said the klaxosaurs \Nhad a leader, a queen bee of sorts.
+Dialogue: 0,0:16:14.76,0:16:19.40,italics,F,0000,0000,0000,,I don't know how, but APE discovered \Nwhere that leader was hiding.
+Dialogue: 0,0:16:19.81,0:16:23.58,flashback,Chief,0000,0000,0000,,You may go along, but on one condition.
+Dialogue: 0,0:16:23.89,0:16:25.37,flashbackitalics,F,0000,0000,0000,,One condition?
+Dialogue: 0,0:16:25.37,0:16:27.84,flashback,Chief,0000,0000,0000,,Should you encounter the klaxosaur queen,
+Dialogue: 0,0:16:27.84,0:16:31.59,flashback,Chief,0000,0000,0000,,bring back something, anything that\Ncould serve as a DNA sample.
+Dialogue: 0,0:16:32.52,0:16:34.09,italics,F,0000,0000,0000,,Shockingly,
+Dialogue: 0,0:16:34.09,0:16:39.56,italics,F,0000,0000,0000,,we found waiting for us the remains \Nof an unknown, ancient civilization.
+Dialogue: 0,0:16:42.12,0:16:44.14,flashback,Z1,0000,0000,0000,,What are you doing here?
+Dialogue: 0,0:16:44.14,0:16:45.09,flashback,SolA,0000,0000,0000,,Who's there?
+Dialogue: 0,0:16:46.37,0:16:49.48,flashback,Z1,0000,0000,0000,,Ignorant beings, why are you here?
+Dialogue: 0,0:16:49.97,0:16:52.42,flashback,Z1,0000,0000,0000,,Why do you kill our brethren?
+Dialogue: 0,0:16:52.42,0:16:55.47,flashback,SolA,0000,0000,0000,,What's this voice? Where is it coming from?
+Dialogue: 0,0:16:55.47,0:16:58.37,flashback,F,0000,0000,0000,,You're wrong. It's transmitting \Ndirectly into our brains.
+Dialogue: 0,0:16:58.68,0:16:59.81,flashback,SolB,0000,0000,0000,,Klaxosaurs detected!
+Dialogue: 0,0:16:59.81,0:17:01.12,flashback,SolA,0000,0000,0000,,What? From which direction?
+Dialogue: 0,0:17:01.12,0:17:02.82,flashback,SolB,0000,0000,0000,,From all directions!
+Dialogue: 0,0:17:02.82,0:17:03.75,flashback,SolA,0000,0000,0000,,All directions?
+Dialogue: 0,0:17:04.14,0:17:07.25,flashback,SolA,0000,0000,0000,,Prepare for combat! Form a circle!
+Dialogue: 0,0:17:07.66,0:17:10.59,flashback,Z1,0000,0000,0000,,Your species is so needlessly belligerent.
+Dialogue: 0,0:17:16.26,0:17:17.70,flashback,SolB,0000,0000,0000,,One enemy, approaching at speed!
+Dialogue: 0,0:17:30.58,0:17:33.99,flashback,Z1,0000,0000,0000,,Don't kill that one. Bring it to me.
+Dialogue: 0,0:17:54.29,0:17:55.85,italics,F,0000,0000,0000,,I was exhilarated.
+Dialogue: 0,0:17:56.39,0:18:01.59,italics,F,0000,0000,0000,,She was without a doubt the most beautiful \Nthing I'd ever seen in my life.
+Dialogue: 0,0:18:01.59,0:18:02.97,flashback,Z1,0000,0000,0000,,Hold out your hand.
+Dialogue: 0,0:18:14.89,0:18:17.82,flashback,Z1,0000,0000,0000,,I smell my brethren on you.
+Dialogue: 0,0:18:18.21,0:18:22.58,flashback,Z1,0000,0000,0000,,It seems your sins are far too grave \Nto be punished with mere death.
+Dialogue: 0,0:18:40.52,0:18:43.93,italics,F,0000,0000,0000,,Even as she bit off my arm,\NI remained entranced by klaxosaurs
+Dialogue: 0,0:18:44.65,0:18:47.04,italics,F,0000,0000,0000,,and remained in love with \Nthe klaxosaur princess.
+Dialogue: 0,0:18:47.04,0:18:52.94,italics,F,0000,0000,0000,,I might really have already \Nlost all of my humanity.
+Dialogue: 0,0:18:52.94,0:18:59.45,flashback,Z1,0000,0000,0000,,Begone! And tell your kind not to \Nlay a hand on my brethren anymore!
+Dialogue: 0,0:19:05.41,0:19:06.40,main,Fra,0000,0000,0000,,What is it?
+Dialogue: 0,0:19:06.40,0:19:07.75,italics,16,0000,0000,0000,,We have a request.
+Dialogue: 0,0:19:10.37,0:19:11.27,main,16,0000,0000,0000,,Return Mitsuru-
+Dialogue: 0,0:19:12.15,0:19:16.50,main,16,0000,0000,0000,,Return Code 326 and Code 556's\Nmemories to normal.
+Dialogue: 0,0:19:16.50,0:19:17.92,italics,Chief,0000,0000,0000,,That's impossible.
+Dialogue: 0,0:19:19.13,0:19:24.05,italics,Chief,0000,0000,0000,,We didn't seal off their memories.\NWe removed the unnecessary information.
+Dialogue: 0,0:19:24.05,0:19:26.83,italics,Chief,0000,0000,0000,,There's no way to bring them back.
+Dialogue: 0,0:19:26.83,0:19:28.31,main,390,0000,0000,0000,,No...
+Dialogue: 0,0:19:31.10,0:19:34.72,italics,ViceChief,0000,0000,0000,,What you're currently doing is \Na severe breach of protocol.
+Dialogue: 0,0:19:34.72,0:19:37.01,italics,ViceChief,0000,0000,0000,,Ordinarily, you would be punished,
+Dialogue: 0,0:19:37.01,0:19:42.01,italics,ViceChief,0000,0000,0000,,but given your accomplishments, we'll let \Nyou off with a mere mention on your record.
+Dialogue: 0,0:19:42.01,0:19:44.99,italics,ViceChief,0000,0000,0000,,Return to your waiting quarters at once.
+Dialogue: 0,0:19:45.59,0:19:46.17,main,15,0000,0000,0000,,Please wait...
+Dialogue: 0,0:19:46.17,0:19:48.95,main,214,0000,0000,0000,,Apologize! Apologize, damn it!
+Dialogue: 0,0:19:48.95,0:19:49.95,main,196,0000,0000,0000,,Futoshi?!
+Dialogue: 0,0:19:49.95,0:19:54.25,main,214,0000,0000,0000,,How can you act so carefree after \Nerasing someone's precious memories?!
+Dialogue: 0,0:19:52.12,0:19:54.25,top,56,0000,0000,0000,,Stop it! Don't get emotional!
+Dialogue: 0,0:19:54.25,0:19:56.81,main,214,0000,0000,0000,,Don't try to sweep this under the rug!
+Dialogue: 0,0:19:56.81,0:19:59.14,main,214,0000,0000,0000,,Look at least a little sorry \Nfor what you've done!
+Dialogue: 0,0:19:59.14,0:20:01.05,main,214,0000,0000,0000,,Would it kill you to utter \None damn apology?!
+Dialogue: 0,0:20:01.43,0:20:05.59,main,666,0000,0000,0000,,Um, can you tell us one thing?
+Dialogue: 0,0:20:05.59,0:20:06.55,italics,Chief,0000,0000,0000,,What is it?
+Dialogue: 0,0:20:06.92,0:20:08.57,main,666,0000,0000,0000,,Please tell us...
+Dialogue: 0,0:20:09.08,0:20:13.48,main,666,0000,0000,0000,,How many more klaxosaurs do we have \Nto kill before we can become adults?
+Dialogue: 0,0:20:27.03,0:20:31.17,main,666,0000,0000,0000,,What are we living for, then?
+Dialogue: 0,0:20:32.26,0:20:35.69,main,666,0000,0000,0000,,Do we really only exist \Nto pilot FRANXX and die?
+Dialogue: 0,0:20:36.71,0:20:39.42,main,666,0000,0000,0000,,At least tell us that much, Papa!
+Dialogue: 0,0:20:39.73,0:20:41.17,main,390,0000,0000,0000,,Zorome...
+Dialogue: 0,0:20:42.18,0:20:46.01,main,16,0000,0000,0000,,You guys took away Zero Two's \Nand my precious memories
+Dialogue: 0,0:20:46.34,0:20:47.89,main,16,0000,0000,0000,,and did the same to Mitsuru and Kokoro.
+Dialogue: 0,0:20:48.33,0:20:52.02,main,16,0000,0000,0000,,We can't see you as our Papa anymore.
+Dialogue: 0,0:20:52.77,0:20:56.69,main,16,0000,0000,0000,,Once this battle is over, set us free!
+Dialogue: 0,0:20:59.65,0:21:00.98,italics,Chief,0000,0000,0000,,Very well.
+Dialogue: 0,0:21:00.98,0:21:05.77,italics,Chief,0000,0000,0000,,As long as you fulfill your duties \Nin the next mission, that is.
+Dialogue: 0,0:21:05.77,0:21:07.49,italics,Chief,0000,0000,0000,,We're done here.
+Dialogue: 0,0:21:17.78,0:21:19.50,main,Fra,0000,0000,0000,,You rise up against fate?
+Dialogue: 0,0:21:19.98,0:21:21.97,main,Fra,0000,0000,0000,,Then show me
+Dialogue: 0,0:21:22.42,0:21:25.53,main,Fra,0000,0000,0000,,whether you kids can become \Nreal humans or not.
+Dialogue: 0,0:21:27.01,0:21:30.51,main,16,0000,0000,0000,,We'll decide our fate ourselves.
+Dialogue: 0,0:21:31.06,0:21:33.77,main,16,0000,0000,0000,,I saw you in Zero Two's memories.
+Dialogue: 0,0:21:34.37,0:21:36.52,main,16,0000,0000,0000,,I will never forgive you for what you did.
+Dialogue: 0,0:21:45.59,0:21:47.14,main,Z2,0000,0000,0000,,Darling, you pervert.
+Dialogue: 0,0:21:51.56,0:21:54.79,main,16,0000,0000,0000,,Hey, Zero Two. We've made our decision.
+Dialogue: 0,0:21:55.91,0:21:57.17,main,Z2,0000,0000,0000,,Right.
+Dialogue: 0,0:21:58.09,0:21:59.81,main,16,0000,0000,0000,,Let's go, Zero Two.
+Dialogue: 0,0:22:01.17,0:22:03.88,italics,Fra,0000,0000,0000,,Fate is cruel more often than not.
+Dialogue: 0,0:22:04.39,0:22:07.38,italics,Fra,0000,0000,0000,,But at times, it can be quite \Npowerless in the face of desire.
+Dialogue: 0,0:22:08.28,0:22:12.02,italics,Fra,0000,0000,0000,,Zero Two, you would probably\Nhate me if you knew.
+Dialogue: 0,0:22:27.35,0:22:29.03,italics,F,0000,0000,0000,,Soon...
+Dialogue: 0,0:22:29.62,0:22:32.28,italics,F,0000,0000,0000,,Soon, my dream will come true.
+Dialogue: 0,0:22:33.53,0:22:36.50,italics,F,0000,0000,0000,,Show me your perfected form,
+Dialogue: 0,0:22:36.89,0:22:39.30,italics,F,0000,0000,0000,,and how beautiful it can be!
+Dialogue: 0,0:22:48.01,0:22:50.01,sign_33134_360_Episode_1,Title,0000,0000,0000,,Episode 19
+Dialogue: 0,0:22:48.01,0:22:50.01,sign_33134_361_Alone_and_Loneso,Title,0000,0000,0000,,Inhumanity
+

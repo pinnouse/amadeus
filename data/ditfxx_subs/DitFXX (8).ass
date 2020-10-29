@@ -1,0 +1,328 @@
+[Script Info]
+Title: [Erai-raws] English (US)
+ScriptType: v4.00+
+WrapStyle: 0
+PlayResX: 640
+PlayResY: 360
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0020,1
+Style: main,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: top,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: italics,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: flashback,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,1
+Style: italicstop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: flashbackitalics,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,-1,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: flashbacktop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,0,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: flashbackitalicstop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,-1,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: sign_33134_360_Episode_1,Times New Roman,12,&H00797A77,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,0030,0030,0070,1
+Style: sign_33134_361_Alone_and_Loneso,Verdana,14,&H00DAD9DA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,0,2,0030,0030,0200,1
+Style: sign_6970_50_Bath_and_Changin,Trebuchet MS,20,&H004D5453,&H000000FF,&H00CAD2D0,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,0030,0030,0020,1
+Style: sign_13831_120_Your_First_Child,Trebuchet MS,16,&H0094A4CD,&H000000FF,&H00C8E3EA,&H00000000,-1,0,0,0,100,100,0,19,1,3,0,8,0030,0270,0060,1
+Style: sign_15999_143_Bath_and_Changin,Trebuchet MS,24,&H002E3332,&H000000FF,&H0098A09E,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,0030,0030,0020,1
+Style: sign_16262_147_Girls_Bathing,Times New Roman,24,&H00111D25,&H000000FF,&H00628599,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,0030,0030,0020,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:12.57,0:00:15.41,main,15,0000,0000,0000,,Almost done. Let's gang up and end it in one.
+Dialogue: 0,0:00:22.75,0:00:24.21,main,390,0000,0000,0000,,What is this? Gross!
+Dialogue: 0,0:00:24.21,0:00:25.58,main,556,0000,0000,0000,,It's all sticky!
+Dialogue: 0,0:00:26.57,0:00:27.33,main,196,0000,0000,0000,,But...
+Dialogue: 0,0:00:27.33,0:00:28.61,main,Z2,0000,0000,0000,,It doesn't hurt.
+Dialogue: 0,0:00:28.61,0:00:30.84,main,556,0000,0000,0000,,Yeah, seems fine.
+Dialogue: 0,0:00:30.84,0:00:33.01,main,390,0000,0000,0000,,So it's just for show?
+Dialogue: 0,0:00:33.01,0:00:36.05,main,390,0000,0000,0000,,How dare you spew this \Ndisgusting gunk all over us?!
+Dialogue: 0,0:00:36.05,0:00:38.22,main,15,0000,0000,0000,,Let's try it again, guys. Stick to the plan.
+Dialogue: 0,0:00:40.47,0:00:42.14,main,666,0000,0000,0000,,What the heck?
+Dialogue: 0,0:00:42.53,0:00:44.07,main,214,0000,0000,0000,,K-Kokoro!
+Dialogue: 0,0:00:56.67,0:00:58.99,main,390,0000,0000,0000,,Why are you spacing out, Zorome?
+Dialogue: 0,0:00:59.50,0:01:01.46,main,390,0000,0000,0000,,Hey, you listening to me?
+Dialogue: 0,0:01:01.46,0:01:04.00,main,666,0000,0000,0000,,Y-Yeah. It's nothing, really.
+Dialogue: 0,0:01:04.00,0:01:05.42,main,556,0000,0000,0000,,Futoshi?
+Dialogue: 0,0:01:06.27,0:01:08.00,main,214,0000,0000,0000,,Don't worry. It's nothing at all.
+Dialogue: 0,0:01:10.14,0:01:12.45,main,15,0000,0000,0000,,Focus. We're in the middle of a battle.
+Dialogue: 0,0:01:12.45,0:01:14.13,main,56,0000,0000,0000,,I-I know!
+Dialogue: 0,0:01:18.30,0:01:20.07,main,Z2,0000,0000,0000,,Let's finish it off, darling!
+Dialogue: 0,0:01:20.07,0:01:22.01,main,16,0000,0000,0000,,Huh? Y-Yeah.
+Dialogue: 0,0:01:37.79,0:01:39.07,main,Z2,0000,0000,0000,,Darling?
+Dialogue: 0,0:01:39.58,0:01:41.08,main,16,0000,0000,0000,,This is bad, Zero Two!
+Dialogue: 0,0:01:41.08,0:01:42.56,main,16,0000,0000,0000,,It's gonna be exposed!
+Dialogue: 0,0:01:42.56,0:01:43.83,italics,666214,0000,0000,0000,,Don't tell her, dumbass!
+Dialogue: 0,0:01:48.87,0:01:51.17,main,390,0000,0000,0000,,My parasite suit!
+Dialogue: 0,0:03:30.57,0:03:31.48,main,56,0000,0000,0000,,You've got the wrong idea!
+Dialogue: 0,0:03:31.48,0:03:37.66,main,56,0000,0000,0000,,We only didn't tell you because we didn't \Nwant to distract you during the battle.
+Dialogue: 0,0:03:37.66,0:03:38.57,main,214,0000,0000,0000,,As for me,
+Dialogue: 0,0:03:38.57,0:03:41.81,main,214,0000,0000,0000,,I simply found you amazingly \Nbeautiful, Kokoro!
+Dialogue: 0,0:03:41.81,0:03:44.19,main,214,0000,0000,0000,,Believe me! This is straight from the heart!
+Dialogue: 0,0:03:47.50,0:03:49.04,main,326,0000,0000,0000,,So stupid.
+Dialogue: 0,0:03:50.02,0:03:53.87,main,666,0000,0000,0000,,Y'know, it's not like being \Nseen hurts you or anything.
+Dialogue: 0,0:03:53.87,0:03:55.99,main,390,0000,0000,0000,,Excuse me? What did you just say?
+Dialogue: 0,0:03:55.99,0:03:56.92,main,16,0000,0000,0000,,Wait, guys.
+Dialogue: 0,0:03:56.92,0:04:01.26,main,16,0000,0000,0000,,Zero Two told me that parasites are, uh...
+Dialogue: 0,0:04:02.14,0:04:05.01,main,16,0000,0000,0000,,better off being a little pervy!
+Dialogue: 0,0:04:05.01,0:04:07.09,main,16,0000,0000,0000,,Right, Zero Two?
+Dialogue: 0,0:04:07.09,0:04:08.39,main,Z2,0000,0000,0000,,Yup, yup.
+Dialogue: 0,0:04:09.29,0:04:10.14,main,15,0000,0000,0000,,What the hell?
+Dialogue: 0,0:04:15.42,0:04:18.29,main,390,0000,0000,0000,,I can't believe they've been ogling us.
+Dialogue: 0,0:04:18.29,0:04:21.76,main,390,0000,0000,0000,,Wait, were they doing it \Nback at the beach, too?
+Dialogue: 0,0:04:21.76,0:04:23.65,main,196,0000,0000,0000,,That's how boys are.
+Dialogue: 0,0:04:23.65,0:04:26.16,main,390,0000,0000,0000,,Unbelievable! They're such creeps!
+Dialogue: 0,0:04:26.51,0:04:29.09,main,15,0000,0000,0000,,And here I thought we'd finally \Nstarted to link up well.
+Dialogue: 0,0:04:29.71,0:04:32.04,main,15,0000,0000,0000,,This is a matter that can \Ndeeply affect squad morale.
+Dialogue: 0,0:04:32.50,0:04:35.00,main,556,0000,0000,0000,,All of you need to calm down a little.
+Dialogue: 0,0:04:35.00,0:04:38.92,main,390,0000,0000,0000,,I've had it! I don't wanna be \Nanywhere near the boys anymore!
+Dialogue: 0,0:04:39.31,0:04:41.80,main,390,0000,0000,0000,,I know what to do. We should quit.
+Dialogue: 0,0:04:41.80,0:04:43.92,main,390,0000,0000,0000,,Let's put an end to our communal \Nlife with the boys!
+Dialogue: 0,0:04:50.68,0:04:52.06,sign_6970_50_Bath_and_Changin,Sign,0000,0000,0000,,Bath and Changing Area\NNo Boys Allowed!!
+Dialogue: 0,0:04:54.94,0:04:56.37,main,390,0000,0000,0000,,Listen up.
+Dialogue: 0,0:04:56.83,0:04:59.31,main,390,0000,0000,0000,,Boys are banned from \Nsetting foot on this side.
+Dialogue: 0,0:04:59.31,0:05:02.87,main,666,0000,0000,0000,,Wh-Who died and made you \Nthe boss? This is messed up!
+Dialogue: 0,0:05:02.87,0:05:03.89,main,390,0000,0000,0000,,Zorome.
+Dialogue: 0,0:05:04.65,0:05:08.03,main,390,0000,0000,0000,,Cross that line, and you will regret it.
+Dialogue: 0,0:05:13.93,0:05:15.91,italics,Fra,0000,0000,0000,,Ah, puberty.
+Dialogue: 0,0:05:16.46,0:05:21.67,main,8,0000,0000,0000,,It's unprecedented for so many members \Nof a squad to hit puberty at once.
+Dialogue: 0,0:05:21.67,0:05:26.68,main,7,0000,0000,0000,,Statistics indicate that it has always \Nbeen at most one or two together.
+Dialogue: 0,0:05:27.00,0:05:29.46,main,8,0000,0000,0000,,But this time, it's practically everyone.
+Dialogue: 0,0:05:29.46,0:05:31.10,main,8,0000,0000,0000,,It's clearly an abnormal case.
+Dialogue: 0,0:05:31.68,0:05:34.60,italics,Fra,0000,0000,0000,,But that's what makes it so intriguing.
+Dialogue: 0,0:05:34.60,0:05:40.48,main,7,0000,0000,0000,,If we go by APE's manual, we should \Nintervene and resolve the issue immediately.
+Dialogue: 0,0:05:41.38,0:05:45.32,italics,Fra,0000,0000,0000,,Listen to yourself. What would be the \Npoint of this test team if we did that?
+Dialogue: 0,0:05:46.09,0:05:49.77,italics,Fra,0000,0000,0000,,Just observe what happens and \Ngive me detailed reports.
+Dialogue: 0,0:05:50.22,0:05:55.33,italics,Fra,0000,0000,0000,,Don't you dare interfere \Nor let the geezers know.
+Dialogue: 0,0:05:58.08,0:06:00.83,main,390,0000,0000,0000,,Did you see the look on the \Nboys' faces back there?
+Dialogue: 0,0:06:00.83,0:06:02.66,main,390,0000,0000,0000,,Serves them right!
+Dialogue: 0,0:06:04.93,0:06:05.97,main,196,0000,0000,0000,,What's the matter?
+Dialogue: 0,0:06:12.10,0:06:14.27,main,390,0000,0000,0000,,Now we've just gotta rein her in.
+Dialogue: 0,0:06:19.44,0:06:22.28,main,390,0000,0000,0000,,H-Hey, what do you think you're doing?
+Dialogue: 0,0:06:22.28,0:06:25.48,main,666,0000,0000,0000,,Well, seeing as we can't use the \Nbath, we took a dip in the lake.
+Dialogue: 0,0:06:25.48,0:06:27.41,main,666,0000,0000,0000,,It felt amazing.
+Dialogue: 0,0:06:27.41,0:06:29.41,main,390,0000,0000,0000,,W-Would it kill you to get dressed?
+Dialogue: 0,0:06:29.41,0:06:31.26,main,390,0000,0000,0000,,Are you listening to me?
+Dialogue: 0,0:06:31.26,0:06:34.91,main,666,0000,0000,0000,,What we do in our territory \Nis none of your damn business.
+Dialogue: 0,0:06:41.42,0:06:44.42,main,390,0000,0000,0000,,What was that all about?!
+Dialogue: 0,0:06:44.83,0:06:46.70,main,196,0000,0000,0000,,They're trying to provoke us.
+Dialogue: 0,0:06:46.70,0:06:48.31,main,16,0000,0000,0000,,I bet it was Goro's idea.
+Dialogue: 0,0:06:48.74,0:06:52.14,main,16,0000,0000,0000,,Zorome and Futoshi couldn't \Nhave thought of it.
+Dialogue: 0,0:06:52.58,0:06:56.85,main,390,0000,0000,0000,,They get to have fun in the lake, \Nand we're stuck cleaning the bath?
+Dialogue: 0,0:06:56.85,0:06:58.02,main,390,0000,0000,0000,,It's not fair!
+Dialogue: 0,0:06:58.02,0:07:00.30,main,556,0000,0000,0000,,We can't really complain about that.
+Dialogue: 0,0:07:00.30,0:07:04.73,main,196,0000,0000,0000,,We're the ones who declared \Nthe bath off-limits to the boys.
+Dialogue: 0,0:07:04.73,0:07:06.91,main,390,0000,0000,0000,,I know, but still!
+Dialogue: 0,0:07:06.91,0:07:12.18,main,390,0000,0000,0000,,Man, why must cleaning be the only \Nthing we have to do ourselves?
+Dialogue: 0,0:07:12.18,0:07:17.54,main,390,0000,0000,0000,,I wish the invisible caretakers would handle it, \Nlike they do with our food and laundry!
+Dialogue: 0,0:07:22.21,0:07:25.04,main,56,0000,0000,0000,,Sorry, but we've taken over this area.
+Dialogue: 0,0:07:25.04,0:07:28.17,main,56,0000,0000,0000,,We noticed that you girls \Nhadn't taped it off.
+Dialogue: 0,0:07:31.45,0:07:32.68,main,666,0000,0000,0000,,So good!
+Dialogue: 0,0:07:32.68,0:07:35.56,main,666,0000,0000,0000,,Today's breakfast is extraordinary!
+Dialogue: 0,0:07:35.56,0:07:37.60,main,390,0000,0000,0000,,No fair! You're heartless!
+Dialogue: 0,0:07:37.60,0:07:39.23,main,56,0000,0000,0000,,You're right.
+Dialogue: 0,0:07:39.23,0:07:44.81,main,56,0000,0000,0000,,So what say we both drop all the \Nsilly rules and eat together?
+Dialogue: 0,0:07:45.73,0:07:46.54,main,196,0000,0000,0000,,It's a trap.
+Dialogue: 0,0:07:46.54,0:07:47.67,main,16,0000,0000,0000,,Agreed.
+Dialogue: 0,0:07:47.67,0:07:49.03,main,16,0000,0000,0000,,Don't go, Miku!
+Dialogue: 0,0:07:57.41,0:07:59.87,main,390,0000,0000,0000,,No!
+Dialogue: 0,0:08:01.06,0:08:02.59,main,56,0000,0000,0000,,Talk about pigheaded.
+Dialogue: 0,0:08:04.07,0:08:06.38,main,16,0000,0000,0000,,Everyone's gotten too stubborn about this.
+Dialogue: 0,0:08:06.78,0:08:10.39,main,16,0000,0000,0000,,This is looking really bad. We need\Nto hurry up and do something.
+Dialogue: 0,0:08:10.91,0:08:12.67,main,Z2,0000,0000,0000,,Is that how you feel, darling?
+Dialogue: 0,0:08:13.71,0:08:15.13,main,Z2,0000,0000,0000,,I'm the opposite.
+Dialogue: 0,0:08:16.43,0:08:18.72,main,Z2,0000,0000,0000,,I think it could use a \Nlittle spicing up, in fact.
+Dialogue: 0,0:08:33.59,0:08:36.62,main,556,0000,0000,0000,,Could it be you have an interest in plants?
+Dialogue: 0,0:08:36.62,0:08:37.78,main,326,0000,0000,0000,,Not really.
+Dialogue: 0,0:08:37.78,0:08:39.43,main,556,0000,0000,0000,,Then why are you here?
+Dialogue: 0,0:08:39.43,0:08:43.66,main,326,0000,0000,0000,,This place is the perfect getaway \Nwhen I want to be alone. That's all.
+Dialogue: 0,0:08:45.98,0:08:50.89,main,556,0000,0000,0000,,I begged Nana to let me take \Ncare of this greenhouse.
+Dialogue: 0,0:08:50.89,0:08:55.18,main,556,0000,0000,0000,,We had seeds, so I've been planting and \Ngrowing them while studying up on things.
+Dialogue: 0,0:08:57.73,0:08:59.86,main,556,0000,0000,0000,,Have you ever heard of \Nthe language of flowers?
+Dialogue: 0,0:08:59.86,0:09:04.06,main,556,0000,0000,0000,,This is a hibiscus. Its floral \Nmeaning is "delicate beauty."
+Dialogue: 0,0:09:04.93,0:09:08.21,main,556,0000,0000,0000,,And the cattleya over \Nthere stands for "alluring."
+Dialogue: 0,0:09:12.03,0:09:16.75,main,556,0000,0000,0000,,Hey, do you really not mind \Nchatting with me like this?
+Dialogue: 0,0:09:16.75,0:09:18.35,main,326,0000,0000,0000,,Are you talking about the fight?
+Dialogue: 0,0:09:18.35,0:09:21.67,main,326,0000,0000,0000,,It's stupid. I can't be bothered to play along.
+Dialogue: 0,0:09:21.67,0:09:24.09,main,556,0000,0000,0000,,Really? That's so cool!
+Dialogue: 0,0:09:24.09,0:09:25.08,main,326,0000,0000,0000,,Cool?
+Dialogue: 0,0:09:25.08,0:09:29.83,main,556,0000,0000,0000,,It takes a lot of courage \Nto refuse to toe the line.
+Dialogue: 0,0:09:30.57,0:09:32.55,main,556,0000,0000,0000,,I was too scared to say anything.
+Dialogue: 0,0:09:36.86,0:09:37.18,sign_13831_120_Your_First_Child,Sign,0000,0000,0000,,Your First Childbirth\N{\fs12\c&H8FB1D2&}- What's Best for Your Baby -
+Dialogue: 0,0:09:40.01,0:09:41.81,main,326,0000,0000,0000,,You brought it back with you?
+Dialogue: 0,0:09:42.25,0:09:43.60,main,556,0000,0000,0000,,Y-Yeah...
+Dialogue: 0,0:09:45.24,0:09:48.10,main,326,0000,0000,0000,,Not that it matters to me.
+Dialogue: 0,0:10:00.43,0:10:01.84,main,390,0000,0000,0000,,I'm starving.
+Dialogue: 0,0:10:01.84,0:10:02.86,main,196,0000,0000,0000,,And whose fault is that?
+Dialogue: 0,0:10:02.86,0:10:06.83,main,390,0000,0000,0000,,Hey, that's why I'm looking \Nfor things to eat, isn't it?
+Dialogue: 0,0:10:08.25,0:10:11.97,main,390,0000,0000,0000,,So this is what the first floor's like.\NI've never come here before.
+Dialogue: 0,0:10:16.66,0:10:18.04,main,15,0000,0000,0000,,It's sealed off.
+Dialogue: 0,0:10:18.04,0:10:20.34,main,390,0000,0000,0000,,Nobody's using it?
+Dialogue: 0,0:10:22.65,0:10:25.35,main,15,0000,0000,0000,,How long will this fight go on?
+Dialogue: 0,0:10:25.35,0:10:29.85,main,196,0000,0000,0000,,Well... I wouldn't mind if \Nthings stayed this way forever.
+Dialogue: 0,0:10:31.98,0:10:33.98,main,Z2,0000,0000,0000,,I taste a secret.
+Dialogue: 0,0:10:34.75,0:10:35.90,main,196,0000,0000,0000,,What?!
+Dialogue: 0,0:10:37.82,0:10:38.79,main,15,0000,0000,0000,,Wait!
+Dialogue: 0,0:10:40.74,0:10:42.53,main,390,0000,0000,0000,,Whose side are you on?
+Dialogue: 0,0:10:43.09,0:10:45.42,main,15,0000,0000,0000,,We'd like you to cooperate, if you could.
+Dialogue: 0,0:10:46.07,0:10:50.21,main,Z2,0000,0000,0000,,What you're doing is lame. \NYou're just playing around.
+Dialogue: 0,0:10:50.21,0:10:52.70,main,390,0000,0000,0000,,Wha... You don't know that!
+Dialogue: 0,0:10:53.51,0:10:56.01,main,15,0000,0000,0000,,Believe it or not, we're serious.
+Dialogue: 0,0:10:56.01,0:10:57.38,main,556,0000,0000,0000,,H-Hey...
+Dialogue: 0,0:10:57.38,0:10:59.55,main,Z2,0000,0000,0000,,You're serious, huh?
+Dialogue: 0,0:11:02.82,0:11:05.26,main,Z2,0000,0000,0000,,All right. I'll join you.
+Dialogue: 0,0:11:07.27,0:11:09.79,sign_15999_143_Bath_and_Changin,Sign,0000,0000,0000,,Bath and Changing Area\NNo Boys Allowed!!
+Dialogue: 0,0:11:10.99,0:11:11.58,main,666,0000,0000,0000,,Huh?
+Dialogue: 0,0:11:11.58,0:11:12.48,main,214,0000,0000,0000,,What's up?
+Dialogue: 0,0:11:12.48,0:11:14.42,main,Z2,0000,0000,0000,,They said you can use the bath now.
+Dialogue: 0,0:11:18.24,0:11:18.88,sign_16262_147_Girls_Bathing,Sign,0000,0000,0000,,Girls Bathing
+Dialogue: 0,0:11:19.26,0:11:20.20,sign_16262_147_Girls_Bathing,Sign,0000,0000,0000,,Boys Bathing
+Dialogue: 0,0:11:24.45,0:11:27.45,sign_16262_147_Girls_Bathing,Sign,0000,0000,0000,,Boys Bathing
+Dialogue: 0,0:11:25.09,0:11:27.45,main,16,0000,0000,0000,,Zero Two said it was okay \Nfor us to use the bath?
+Dialogue: 0,0:11:28.58,0:11:29.45,main,16,0000,0000,0000,,Really?
+Dialogue: 0,0:11:29.45,0:11:33.59,main,666,0000,0000,0000,,Really. The girls must've \Nwaved the white flag.
+Dialogue: 0,0:11:50.70,0:11:52.34,main,56,0000,0000,0000,,Wait! I-It's not what it looks like!
+Dialogue: 0,0:11:53.44,0:11:56.27,main,666,0000,0000,0000,,Hear us out! It was Zero Two!
+Dialogue: 0,0:11:56.69,0:11:59.41,main,56,0000,0000,0000,,Crap. We can't stop them now.
+Dialogue: 0,0:12:05.35,0:12:06.66,main,16,0000,0000,0000,,Stop!
+Dialogue: 0,0:12:08.66,0:12:11.12,main,16,0000,0000,0000,,Why would you do this, Zero Two?
+Dialogue: 0,0:12:11.12,0:12:15.63,main,Z2,0000,0000,0000,,This is a real fight. Come at \Nme with all you've got, darling.
+Dialogue: 0,0:12:25.22,0:12:28.14,main,214,0000,0000,0000,,We were set up!
+Dialogue: 0,0:12:28.14,0:12:29.77,main,15,0000,0000,0000,,Enough excuses!
+Dialogue: 0,0:12:33.66,0:12:34.73,main,16,0000,0000,0000,,Hold it!
+Dialogue: 0,0:12:37.94,0:12:41.49,main,Z2,0000,0000,0000,,Hurry up and catch me if you can, darling!
+Dialogue: 0,0:12:43.10,0:12:44.61,main,16,0000,0000,0000,,You're on!
+Dialogue: 0,0:12:44.61,0:12:46.42,main,390,0000,0000,0000,,Perverts! You horny perverts!
+Dialogue: 0,0:12:46.42,0:12:48.49,main,390,0000,0000,0000,,Fiends! I'm gonna break you in half!
+Dialogue: 0,0:12:48.49,0:12:50.37,main,56,0000,0000,0000,,We should leave for now.
+Dialogue: 0,0:12:50.37,0:12:52.46,main,214,0000,0000,0000,,Hey, our clothes are gone!
+Dialogue: 0,0:12:52.46,0:12:53.87,main,666,0000,0000,0000,,What?!
+Dialogue: 0,0:13:07.31,0:13:09.89,main,16,0000,0000,0000,,This is it. There's nowhere\Nleft for you to run-
+Dialogue: 0,0:13:13.73,0:13:15.77,main,Z2,0000,0000,0000,,Darling, you pervert!
+Dialogue: 0,0:13:35.16,0:13:37.57,main,16,0000,0000,0000,,Why'd you do this, though?
+Dialogue: 0,0:13:37.98,0:13:42.67,main,Z2,0000,0000,0000,,The fight. I wanted to try \Ntaking part in a human fight.
+Dialogue: 0,0:13:43.94,0:13:45.13,main,16,0000,0000,0000,,Zero Two...
+Dialogue: 0,0:13:45.98,0:13:50.91,main,Z2,0000,0000,0000,,Hey, darling, do I seem \Na little more human now?
+Dialogue: 0,0:13:55.41,0:13:56.89,main,16,0000,0000,0000,,Zero Two!
+Dialogue: 0,0:14:12.59,0:14:15.75,main,666,0000,0000,0000,,That's it! We've had it with this crap!
+Dialogue: 0,0:14:15.75,0:14:17.71,main,390,0000,0000,0000,,We're the ones running out of patience!
+Dialogue: 0,0:14:18.04,0:14:20.84,main,666,0000,0000,0000,,Shut up! Don't look down on us boys!
+Dialogue: 0,0:14:20.84,0:14:23.67,main,390,0000,0000,0000,,Why don't {\i1}you{\i0} try sparing \Na thought for us girls?!
+Dialogue: 0,0:14:23.67,0:14:25.57,main,666,0000,0000,0000,,Shut up! All of you-
+Dialogue: 0,0:14:25.57,0:14:27.72,main,7,0000,0000,0000,,Knock it off!
+Dialogue: 0,0:14:32.22,0:14:35.97,main,7,0000,0000,0000,,What were you going to do if \Nklaxosaurs attacked right now?
+Dialogue: 0,0:14:36.30,0:14:40.50,main,7,0000,0000,0000,,Can you really sortie like this? \NI certainly don't think so.
+Dialogue: 0,0:14:40.50,0:14:45.36,main,8,0000,0000,0000,,You're parasites. Don't forget \Nwhat comes first and foremost.
+Dialogue: 0,0:14:46.75,0:14:47.81,main,All,0000,0000,0000,,Yes, sir.
+Dialogue: 0,0:14:50.85,0:14:53.34,main,7,0000,0000,0000,,Could they be any more \Nunlike the other children?
+Dialogue: 0,0:14:53.83,0:14:57.25,main,8,0000,0000,0000,,I wasn't expecting Zero Two to join in, too.
+Dialogue: 0,0:14:58.23,0:14:59.75,main,Z2,0000,0000,0000,,I had so much fun!
+Dialogue: 0,0:15:00.12,0:15:03.00,main,Z2,0000,0000,0000,,I loved how naughty and rebellious that was!
+Dialogue: 0,0:15:03.40,0:15:06.31,main,15,0000,0000,0000,,What were you thinking? Explain yourself.
+Dialogue: 0,0:15:06.73,0:15:10.95,main,Z2,0000,0000,0000,,If you keep half-assing things like that, \Nyou'll end up like the adults one day.
+Dialogue: 0,0:15:12.01,0:15:16.93,main,Z2,0000,0000,0000,,If you have anything you wanna say, \Nyou'd better spit it out while you can.
+Dialogue: 0,0:15:21.33,0:15:24.52,main,Z2,0000,0000,0000,,Because you're all going \Nto die sooner or later.
+Dialogue: 0,0:15:32.02,0:15:33.33,main,666,0000,0000,0000,,I'm so pissed off!
+Dialogue: 0,0:15:33.33,0:15:36.41,main,666,0000,0000,0000,,Why are the girls so condescending, anyway?
+Dialogue: 0,0:15:37.14,0:15:39.88,main,326,0000,0000,0000,,They look down on us boys, obviously.
+Dialogue: 0,0:15:39.88,0:15:43.17,main,666,0000,0000,0000,,Nobody asked for a calm \Nand composed analysis!
+Dialogue: 0,0:15:43.17,0:15:45.90,main,666,0000,0000,0000,,Damn it. Screw it, I'm done.
+Dialogue: 0,0:15:45.90,0:15:47.73,main,666,0000,0000,0000,,I'm through with the girls.
+Dialogue: 0,0:15:48.83,0:15:53.89,main,16,0000,0000,0000,,I feel bad saying this, but I \Nthought that was kind of fun.
+Dialogue: 0,0:15:53.89,0:15:54.72,main,666,0000,0000,0000,,What?!
+Dialogue: 0,0:15:55.42,0:15:59.38,main,16,0000,0000,0000,,Zero Two was laughing her heart out,\Nlike she was enjoying herself.
+Dialogue: 0,0:16:00.19,0:16:05.44,main,16,0000,0000,0000,,I'd never spared much thought \Nfor how girls felt before now...
+Dialogue: 0,0:16:05.44,0:16:09.94,main,666,0000,0000,0000,,Why bother? They're weirdo whack jobs.
+Dialogue: 0,0:16:10.43,0:16:12.51,main,16,0000,0000,0000,,Yeah, I don't get them at all.
+Dialogue: 0,0:16:12.98,0:16:16.45,main,16,0000,0000,0000,,But that's exactly why I started \Nwanting to know more about her.
+Dialogue: 0,0:16:16.93,0:16:21.09,main,16,0000,0000,0000,,That way, I might be able \Nto offer her more support.
+Dialogue: 0,0:16:21.55,0:16:25.46,main,326,0000,0000,0000,,If you're talking about Zero Two, \Nyou're barking up the wrong tree.
+Dialogue: 0,0:16:25.46,0:16:29.50,main,326,0000,0000,0000,,She's the ultimate pistil.\NShe doesn't need your support.
+Dialogue: 0,0:16:29.97,0:16:32.34,main,16,0000,0000,0000,,No, Zero Two is a normal girl.
+Dialogue: 0,0:16:32.70,0:16:34.13,main,16,0000,0000,0000,,And it's not just her.
+Dialogue: 0,0:16:34.65,0:16:38.69,main,16,0000,0000,0000,,Pistils let us stamens \Nhandle all the controls,
+Dialogue: 0,0:16:38.69,0:16:43.73,main,16,0000,0000,0000,,but their frail bodies are the ones \Nbearing the brunt of each battle.
+Dialogue: 0,0:16:43.73,0:16:47.45,main,214,0000,0000,0000,,Oh, yeah. That must be rough.
+Dialogue: 0,0:16:48.07,0:16:51.61,main,16,0000,0000,0000,,Even so, they connect to the \NFRANXX and do their best,
+Dialogue: 0,0:16:52.01,0:16:53.90,main,16,0000,0000,0000,,placing all their trust in us.
+Dialogue: 0,0:16:54.25,0:16:57.73,main,16,0000,0000,0000,,Watching her like that \Nreally made me think...
+Dialogue: 0,0:16:58.94,0:17:03.75,main,16,0000,0000,0000,,I want to be stronger and \Ntake better care of her.
+Dialogue: 0,0:17:05.93,0:17:09.00,main,56,0000,0000,0000,,Well, the girls are always \Ngiving it their all in battle.
+Dialogue: 0,0:17:09.63,0:17:12.63,main,56,0000,0000,0000,,And if we ogle them while they are...
+Dialogue: 0,0:17:12.98,0:17:15.38,main,214,0000,0000,0000,,Of course they'd hate it.
+Dialogue: 0,0:17:17.21,0:17:19.38,main,666,0000,0000,0000,,Hey, I'm a man, too.
+Dialogue: 0,0:17:19.38,0:17:23.14,main,666,0000,0000,0000,,Even I feel the need to look after \Nmy partner and take care of her.
+Dialogue: 0,0:17:23.71,0:17:27.78,main,666,0000,0000,0000,,And I don't wanna see any \Nof them in pain, either.
+Dialogue: 0,0:17:28.31,0:17:31.27,main,56,0000,0000,0000,,That means there's only \None thing for us to do.
+Dialogue: 0,0:17:32.33,0:17:35.02,main,15,0000,0000,0000,,"Die sooner or later," huh?
+Dialogue: 0,0:17:40.37,0:17:42.93,main,556,0000,0000,0000,,H-Hey, you know what?
+Dialogue: 0,0:17:43.99,0:17:46.33,main,556,0000,0000,0000,,I really think this can't go on!
+Dialogue: 0,0:17:46.33,0:17:52.02,main,556,0000,0000,0000,,There are things that we can't do alone, \Nbut can do if we work with the boys!
+Dialogue: 0,0:17:52.02,0:17:55.09,main,556,0000,0000,0000,,And there are lots of things \Nlike that, aren't there?
+Dialogue: 0,0:17:55.09,0:17:57.34,main,556,0000,0000,0000,,Piloting the FRANXX is one of them!
+Dialogue: 0,0:17:57.93,0:18:04.35,main,556,0000,0000,0000,,Yeah, the boys are perverts, and I have \Nno idea what goes through their heads.
+Dialogue: 0,0:18:04.35,0:18:09.35,main,556,0000,0000,0000,,Boys and girls are nothing alike, but that's \Nwhy it's good for us to be together!
+Dialogue: 0,0:18:09.69,0:18:14.94,main,556,0000,0000,0000,,After all, that's how... \Nuh... it's born, I think.
+Dialogue: 0,0:18:15.45,0:18:19.14,main,556,0000,0000,0000,,You know, like... the future, hope, and stuff.
+Dialogue: 0,0:18:19.65,0:18:22.45,main,556,0000,0000,0000,,So... so...
+Dialogue: 0,0:18:22.82,0:18:26.27,main,15,0000,0000,0000,,It's really unusual for \Nyou to be so assertive.
+Dialogue: 0,0:18:26.27,0:18:28.46,main,196,0000,0000,0000,,Yeah, it surprised me.
+Dialogue: 0,0:18:29.09,0:18:32.57,main,15,0000,0000,0000,,What you said did sting, though.
+Dialogue: 0,0:18:33.21,0:18:37.38,main,196,0000,0000,0000,,We can't just be the ones who \Ncomplain all the time.
+Dialogue: 0,0:18:37.38,0:18:41.14,main,390,0000,0000,0000,,W-Wait a second! Are you \Nthinking of forgiving the boys?
+Dialogue: 0,0:18:41.14,0:18:44.06,main,15,0000,0000,0000,,Well, we won't get anywhere as things stand.
+Dialogue: 0,0:18:45.18,0:18:47.48,main,390,0000,0000,0000,,Oh, really? Suit yourselves, then!
+Dialogue: 0,0:18:47.95,0:18:50.98,main,390,0000,0000,0000,,I'm not letting this go, \Neven if I'm left all alone!
+Dialogue: 0,0:18:50.98,0:18:52.49,main,556,0000,0000,0000,,Wait, Miku!
+Dialogue: 0,0:18:53.53,0:18:56.46,main,666,0000,0000,0000,,I'm not gonna beg and plead \Nfor forgiveness, okay?
+Dialogue: 0,0:18:56.46,0:18:58.34,main,56,0000,0000,0000,,You're still going on about that?
+Dialogue: 0,0:18:59.49,0:19:00.65,main,15,0000,0000,0000,,Goro...
+Dialogue: 0,0:19:02.17,0:19:03.74,main,15,0000,0000,0000,,Miku's missing.
+Dialogue: 0,0:19:03.74,0:19:05.98,main,15,0000,0000,0000,,Please help us find her.
+Dialogue: 0,0:19:05.98,0:19:07.00,main,,0000,0000,0000,,What?
+Dialogue: 0,0:19:07.65,0:19:10.29,main,214,0000,0000,0000,,Miku! Hey!
+Dialogue: 0,0:19:08.01,0:19:08.88,main,556,0000,0000,0000,,Miku!
+Dialogue: 0,0:19:08.88,0:19:09.28,main,196,0000,0000,0000,,Miku!
+Dialogue: 0,0:19:09.28,0:19:11.22,main,666,0000,0000,0000,,Hey, Miku!
+Dialogue: 0,0:19:10.37,0:19:11.22,main,15,0000,0000,0000,,Miku?
+Dialogue: 0,0:19:11.22,0:19:12.00,main,Someone,0000,0000,0000,,Miku!
+Dialogue: 0,0:19:12.71,0:19:15.00,main,666,0000,0000,0000,,Come on out!
+Dialogue: 0,0:19:15.00,0:19:16.47,main,Someone,0000,0000,0000,,Miku!
+Dialogue: 0,0:19:17.51,0:19:21.45,main,390,0000,0000,0000,,Listen to that. They've all made up already.
+Dialogue: 0,0:19:23.61,0:19:25.77,main,390,0000,0000,0000,,Well, I'm still not leaving this room.
+Dialogue: 0,0:19:42.56,0:19:43.83,main,390,0000,0000,0000,,Is this...
+Dialogue: 0,0:19:47.73,0:19:48.73,main,390,0000,0000,0000,,No...
+Dialogue: 0,0:20:02.26,0:20:03.26,main,556,0000,0000,0000,,Miku!
+Dialogue: 0,0:20:04.34,0:20:07.60,main,556,0000,0000,0000,,Thank goodness. We were so worried.
+Dialogue: 0,0:20:07.93,0:20:09.11,main,556,0000,0000,0000,,What's wrong?
+Dialogue: 0,0:20:11.17,0:20:12.35,main,16,0000,0000,0000,,What's this room?
+Dialogue: 0,0:20:12.35,0:20:16.75,main,Z2,0000,0000,0000,,Probably one of the rooms the \Nformer Squad 13 parasites used.
+Dialogue: 0,0:20:17.31,0:20:18.17,main,326,0000,0000,0000,,Former...
+Dialogue: 0,0:20:18.81,0:20:20.61,main,196,0000,0000,0000,,...Squad 13?
+Dialogue: 0,0:20:20.61,0:20:28.15,main,56,0000,0000,0000,,Oh, of course this plantation had a defensive \Nsquad before we were assigned here.
+Dialogue: 0,0:20:30.06,0:20:32.62,main,666,0000,0000,0000,,So how come they aren't here now?
+Dialogue: 0,0:20:33.30,0:20:34.98,main,666,0000,0000,0000,,Why's that?
+Dialogue: 0,0:20:37.38,0:20:38.63,main,Z2,0000,0000,0000,,They were wiped out, obviously.
+Dialogue: 0,0:20:40.30,0:20:43.14,main,15,0000,0000,0000,,They couldn't come back alive.
+Dialogue: 0,0:20:51.23,0:20:55.07,main,56,0000,0000,0000,,We won't survive unless we all \Nget to know each other better.
+Dialogue: 0,0:20:56.54,0:20:59.09,main,56,0000,0000,0000,,Let's make up, guys.
+Dialogue: 0,0:21:02.53,0:21:03.57,main,666,0000,0000,0000,,Well...
+Dialogue: 0,0:21:05.35,0:21:07.43,main,666,0000,0000,0000,,I'm sorry, okay? I apologize!
+Dialogue: 0,0:21:08.31,0:21:12.70,main,666,0000,0000,0000,,I'll try my best not to leer at you anymore.
+Dialogue: 0,0:21:14.18,0:21:16.02,main,390,0000,0000,0000,,I bet you'll fail.
+Dialogue: 0,0:21:17.73,0:21:20.53,main,390,0000,0000,0000,,I'm way too cute, after all.
+Dialogue: 0,0:21:23.22,0:21:26.51,main,390,0000,0000,0000,,So you can do it a little, \Nbut don't take it too far.
+Dialogue: 0,0:21:28.10,0:21:29.86,main,,0000,0000,0000,,O-Okay, then...
+Dialogue: 0,0:21:33.23,0:21:39.31,italics,390,0000,0000,0000,,The vase by the window had lilacs in it.
+Dialogue: 0,0:21:40.15,0:21:47.78,italics,390,0000,0000,0000,,What were the former Squad 13 parasites \Nthinking when they placed them there?
+Dialogue: 0,0:21:48.61,0:21:51.06,italics,390,0000,0000,0000,,There's no way for us to find out now,
+Dialogue: 0,0:21:51.99,0:21:58.14,italics,390,0000,0000,0000,,but the next day, we went back and \Nreplaced them with fresh lilacs.
+Dialogue: 0,0:21:59.51,0:22:07.13,italics,390,0000,0000,0000,,In the language of flowers, lilacs represent \Nfriendship, fond memories, and youth.
+Dialogue: 0,0:22:12.09,0:22:13.86,main,390,0000,0000,0000,,Would you cut it out?
+Dialogue: 0,0:22:13.86,0:22:15.12,main,666,0000,0000,0000,,I didn't do anything!
+Dialogue: 0,0:22:15.12,0:22:16.85,main,390,0000,0000,0000,,You were ogling me again, weren't you?
+Dialogue: 0,0:22:16.85,0:22:17.69,main,666,0000,0000,0000,,I was not!
+Dialogue: 0,0:22:17.69,0:22:19.01,main,390,0000,0000,0000,,Ugh!
+Dialogue: 0,0:22:28.15,0:22:32.70,main,16,0000,0000,0000,,Zero Two, I want you to speak \Nyour mind with me from now on.
+Dialogue: 0,0:22:32.70,0:22:35.83,main,Z2,0000,0000,0000,,Oh? Why is that?
+Dialogue: 0,0:22:36.54,0:22:39.58,main,16,0000,0000,0000,,Because I want to get to know you better.
+Dialogue: 0,0:22:43.53,0:22:47.27,main,Z2,0000,0000,0000,,Darling... Grab on to me \Nand never let go, okay?
+Dialogue: 0,0:22:47.97,0:22:49.97,sign_33134_360_Episode_1,Title,0000,0000,0000,,Episode 8
+Dialogue: 0,0:22:47.97,0:22:49.97,sign_33134_361_Alone_and_Loneso,Title,0000,0000,0000,,Boys x Girls
+

@@ -1,0 +1,403 @@
+[Script Info]
+Title: [Erai-raws] English (US)
+ScriptType: v4.00+
+WrapStyle: 0
+PlayResX: 640
+PlayResY: 360
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0020,1
+Style: main,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: top,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: italics,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: flashback,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,0,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,1
+Style: italicstop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: flashbackitalics,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,-1,0,0,100,100,0,0,1,2,1,2,0010,0010,0018,0
+Style: flashbacktop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,0,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: flashbackitalicstop,Trebuchet MS,24,&H00FFFFFF,&H000000FF,&H00400000,&H00400000,0,-1,0,0,100,100,0,0,1,2,1,8,0010,0010,0018,0
+Style: sign_33134_360_Episode_1,Times New Roman,12,&H00797A77,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,0030,0030,0070,1
+Style: sign_33134_361_Alone_and_Loneso,Verdana,14,&H00DAD9DA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,0,2,0030,0030,0200,1
+Style: sign_0_1_Plantation__26__,Times New Roman,12,&H00EBF5F3,&H000000FF,&H00070707,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,1,0032,0320,0045,1
+Style: sign_42_2_Plantation__13__,Times New Roman,12,&H00EBF5F3,&H000000FF,&H00070707,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,3,0320,0032,0045,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.85,sign_0_1_Plantation__26__,Sign,0000,0000,0000,,Plantation #26: "Chrysanthemum"
+Dialogue: 0,0:00:01.73,0:00:03.85,sign_42_2_Plantation__13__,Sign,0000,0000,0000,,Plantation #13: "Cerasus"
+Dialogue: 0,0:00:02.26,0:00:08.11,italicstop,PA,0000,0000,0000,,Plantation 13 will now carry out \Nthe kissing with Plantation 26.
+Dialogue: 0,0:00:08.50,0:00:14.60,italics,16,0000,0000,0000,,When we first met, Zero Two told me, \N"A kiss is a very special thing."
+Dialogue: 0,0:00:09.80,0:00:10.98,italicstop,PA,0000,0000,0000,,I repeat:
+Dialogue: 0,0:00:12.07,0:00:18.13,italicstop,PA,0000,0000,0000,,Plantation 13 will now carry out \Nthe kissing with Plantation 26.
+Dialogue: 0,0:00:15.27,0:00:17.62,italics,16,0000,0000,0000,,Do the adults kiss?
+Dialogue: 0,0:00:18.13,0:00:19.12,italics,16,0000,0000,0000,,If so,
+Dialogue: 0,0:00:19.12,0:00:24.92,italics,16,0000,0000,0000,,who was it that likened plantations \Nmaking contact to a kiss?
+Dialogue: 0,0:00:26.58,0:00:29.99,main,666,0000,0000,0000,,Say, what is "kissing," anyway?
+Dialogue: 0,0:00:29.99,0:00:32.53,main,390,0000,0000,0000,,You were watching all this time\Nwithout knowing a thing?
+Dialogue: 0,0:00:32.53,0:00:36.14,main,666,0000,0000,0000,,Shut up, dumbass! Do you know all about it?
+Dialogue: 0,0:00:36.53,0:00:40.09,main,390,0000,0000,0000,,I-It's when two plantations \Nare stuck together, right?
+Dialogue: 0,0:00:40.09,0:00:41.35,main,556,0000,0000,0000,,That's not all.
+Dialogue: 0,0:00:41.73,0:00:45.27,main,196,0000,0000,0000,,It's a transfer of magma fuel reserves \Nfrom one plantation to another
+Dialogue: 0,0:00:45.27,0:00:46.56,main,196,0000,0000,0000,,through that big pipe.
+Dialogue: 0,0:00:46.56,0:00:50.94,main,326,0000,0000,0000,,That fuel is essential for both \Nthe adults and us to live.
+Dialogue: 0,0:00:50.94,0:00:52.70,main,326,0000,0000,0000,,FRANXX can't be operated without it, either.
+Dialogue: 0,0:00:52.70,0:00:54.57,main,666,0000,0000,0000,,So we can relax now, right?
+Dialogue: 0,0:00:54.57,0:00:58.38,main,56,0000,0000,0000,,Not exactly. This is a large-scale \Ntransfer of magma energy.
+Dialogue: 0,0:00:58.38,0:01:01.16,main,56,0000,0000,0000,,I've heard it'll attract a \Nhuge number of klaxosaurs.
+Dialogue: 0,0:01:01.16,0:01:02.20,main,666,0000,0000,0000,,Are you serious?
+Dialogue: 0,0:01:02.20,0:01:04.63,main,214,0000,0000,0000,,A huge number, huh?
+Dialogue: 0,0:01:05.96,0:01:07.12,main,16,0000,0000,0000,,Don't worry.
+Dialogue: 0,0:01:08.12,0:01:12.51,main,16,0000,0000,0000,,If we work together, we'll be fine.\NWe even have Strelizia now.
+Dialogue: 0,0:01:12.98,0:01:13.91,main,56,0000,0000,0000,,Hiro...
+Dialogue: 0,0:01:14.79,0:01:15.63,main,15,0000,0000,0000,,Yeah.
+Dialogue: 0,0:01:15.94,0:01:17.48,main,15,0000,0000,0000,,Hiro's right.
+Dialogue: 0,0:01:20.35,0:01:24.06,italics,16,0000,0000,0000,,A grand ceremony was conducted \Nwith the utmost solemnity.
+Dialogue: 0,0:01:24.74,0:01:29.73,italics,16,0000,0000,0000,,The children of Plantation 26's FRANXX \Nsquad were also in attendance,
+Dialogue: 0,0:01:29.73,0:01:33.07,italics,16,0000,0000,0000,,and they seemed a lot more \Ncalm and composed than us.
+Dialogue: 0,0:01:33.42,0:01:34.33,main,26Head,0000,0000,0000,,Boys and girls!
+Dialogue: 0,0:01:34.76,0:01:39.70,main,26Head,0000,0000,0000,,The dreadful klaxosaurs are sure to attack \Nthe magma reserves in great numbers.
+Dialogue: 0,0:01:39.70,0:01:43.70,main,26Head,0000,0000,0000,,The fate of these two plantations rests \Nsquarely on your shoulders, parasites.
+Dialogue: 0,0:01:43.70,0:01:45.70,main,26Head,0000,0000,0000,,You are strong!
+Dialogue: 0,0:01:45.70,0:01:49.21,main,26Head,0000,0000,0000,,We believe that you will \Nsurely bring us victory!
+Dialogue: 0,0:01:49.93,0:01:54.17,italics,16,0000,0000,0000,,Being treated like VIPs gave \Nour morale a big boost.
+Dialogue: 0,0:01:55.40,0:01:56.47,italics,16,0000,0000,0000,,But at the same time,
+Dialogue: 0,0:01:56.80,0:02:02.98,italics,16,0000,0000,0000,,we clearly sensed the coming of a fiercer \Nbattle than we had ever experienced before.
+Dialogue: 0,0:03:42.61,0:03:44.74,main,56,0000,0000,0000,,Hey, Hiro. Wake up.
+Dialogue: 0,0:03:48.26,0:03:50.04,main,56,0000,0000,0000,,It's morning. Rise and shine.
+Dialogue: 0,0:03:56.92,0:03:58.80,main,56,0000,0000,0000,,Are you okay?
+Dialogue: 0,0:03:59.32,0:04:01.30,main,56,0000,0000,0000,,Your body was burning up like crazy.
+Dialogue: 0,0:04:02.50,0:04:06.63,main,15,0000,0000,0000,,I'm perfectly fine. If anything, \NI feel really light on my feet.
+Dialogue: 0,0:04:07.37,0:04:08.60,main,56,0000,0000,0000,,You're not lying, are you?
+Dialogue: 0,0:04:08.60,0:04:09.31,main,15,0000,0000,0000,,Of course not.
+Dialogue: 0,0:04:09.67,0:04:12.14,main,15,0000,0000,0000,,I actually want to go train right now.
+Dialogue: 0,0:04:14.13,0:04:14.90,main,56,0000,0000,0000,,Okay, then.
+Dialogue: 0,0:04:15.85,0:04:17.98,main,556,0000,0000,0000,,Yesterday's ceremony was something else, huh?
+Dialogue: 0,0:04:18.42,0:04:21.16,main,556,0000,0000,0000,,I was so excited, I had trouble \Ngetting to sleep last night.
+Dialogue: 0,0:04:21.16,0:04:24.70,main,390,0000,0000,0000,,Plantation 26's squad leader \Nseemed like a nice guy.
+Dialogue: 0,0:04:24.70,0:04:27.16,main,556,0000,0000,0000,,Is he the kind of guy \Nyou'd like to ride with?
+Dialogue: 0,0:04:27.16,0:04:29.55,main,390,0000,0000,0000,,Better him than the boys we're stuck with.
+Dialogue: 0,0:04:29.55,0:04:30.74,main,390,0000,0000,0000,,Don't you agree?
+Dialogue: 0,0:04:30.74,0:04:32.83,main,196,0000,0000,0000,,No. I don't really care.
+Dialogue: 0,0:04:32.83,0:04:34.08,main,390,0000,0000,0000,,Wow, what a wet blanket.
+Dialogue: 0,0:04:34.08,0:04:37.49,main,666,0000,0000,0000,,It gives you a real lift when the \Nadults have high hopes for you, huh?
+Dialogue: 0,0:04:37.49,0:04:40.66,main,214,0000,0000,0000,,Yeah. It shows they really need us.
+Dialogue: 0,0:04:40.66,0:04:42.72,main,666,0000,0000,0000,,"Boys and girls! You are strong!
+Dialogue: 0,0:04:43.13,0:04:46.82,main,666,0000,0000,0000,,We believe that you will \Nsurely bring us victory!"
+Dialogue: 0,0:04:47.96,0:04:51.22,main,666,0000,0000,0000,,And I'll be the one who \Nleads us to that victory!
+Dialogue: 0,0:04:51.69,0:04:53.64,main,15,0000,0000,0000,,You mean Hiro will.
+Dialogue: 0,0:04:56.42,0:05:00.66,main,556,0000,0000,0000,,Oh, yeah. You really shone \Nin the previous battle.
+Dialogue: 0,0:05:00.66,0:05:03.11,main,214,0000,0000,0000,,But how are you feeling? All good?
+Dialogue: 0,0:05:03.11,0:05:06.60,main,16,0000,0000,0000,,Well, yeah. Everything's fine.
+Dialogue: 0,0:05:06.60,0:05:07.53,main,214,0000,0000,0000,,Awesome!
+Dialogue: 0,0:05:07.53,0:05:11.68,main,390,0000,0000,0000,,Looks like the "three times and you die" \Nrumor was all nonsense, then.
+Dialogue: 0,0:05:11.68,0:05:14.57,main,196,0000,0000,0000,,That, or he's extremely compatible with her.
+Dialogue: 0,0:05:14.57,0:05:15.46,main,16,0000,0000,0000,,Thanks.
+Dialogue: 0,0:05:15.46,0:05:18.65,main,16,0000,0000,0000,,But we wouldn't have won without you guys.
+Dialogue: 0,0:05:18.65,0:05:22.21,main,16,0000,0000,0000,,I had a hard time keeping up with everything\Nhappening, but it all felt just right.
+Dialogue: 0,0:05:22.68,0:05:26.55,main,16,0000,0000,0000,,If I can keep riding, I hope you'll let \Nme fight with you as part of the team.
+Dialogue: 0,0:05:26.55,0:05:29.14,main,666,0000,0000,0000,,Don't get cocky, man.
+Dialogue: 0,0:05:29.14,0:05:31.25,main,666,0000,0000,0000,,All you did was get through the one time.
+Dialogue: 0,0:05:31.25,0:05:33.80,main,56,0000,0000,0000,,Do you really have to be such a spoilsport?
+Dialogue: 0,0:05:33.80,0:05:34.31,main,16,0000,0000,0000,,Zorome...
+Dialogue: 0,0:05:34.31,0:05:34.98,main,666,0000,0000,0000,,Huh?
+Dialogue: 0,0:05:35.57,0:05:38.69,main,16,0000,0000,0000,,I'll do my best not to be a burden.
+Dialogue: 0,0:05:39.07,0:05:40.53,main,16,0000,0000,0000,,Let's keep fighting together.
+Dialogue: 0,0:05:40.53,0:05:41.99,main,666,0000,0000,0000,,O-Okay...
+Dialogue: 0,0:05:42.57,0:05:45.86,main,666,0000,0000,0000,,Jeez, fine. Keep it up, all right?
+Dialogue: 0,0:05:45.86,0:05:47.70,main,390,0000,0000,0000,,Big words, little man.
+Dialogue: 0,0:05:47.70,0:05:50.28,main,666,0000,0000,0000,,Oh, shut up! I just, uh...
+Dialogue: 0,0:05:50.28,0:05:53.75,main,666,0000,0000,0000,,You know, as the team's ace pilot, I'm trying to...
+Dialogue: 0,0:05:54.18,0:05:55.45,main,390,0000,0000,0000,,Okay, okay.
+Dialogue: 0,0:05:56.39,0:05:57.46,main,214,0000,0000,0000,,Breakfast time!
+Dialogue: 0,0:05:57.46,0:06:01.38,top,214,0000,0000,0000,,Breakfast, breakfast...
+Dialogue: 0,0:05:58.71,0:06:00.69,main,15,0000,0000,0000,,Hang on, Hiro.
+Dialogue: 0,0:06:04.31,0:06:06.33,main,15,0000,0000,0000,,Your collar was bent out of shape.
+Dialogue: 0,0:06:07.91,0:06:10.87,main,15,0000,0000,0000,,When will you learn to take \Nbetter care of these things?
+Dialogue: 0,0:06:12.47,0:06:16.76,main,15,0000,0000,0000,,By the way, I was amazed you realized \Nwhat I was going for in the last battle.
+Dialogue: 0,0:06:16.76,0:06:19.23,main,16,0000,0000,0000,,Well, I have known you forever.
+Dialogue: 0,0:06:19.72,0:06:22.71,main,15,0000,0000,0000,,I knew you'd work something out.
+Dialogue: 0,0:06:22.71,0:06:24.73,main,16,0000,0000,0000,,I'm glad you trust me so much.
+Dialogue: 0,0:06:24.73,0:06:28.42,main,15,0000,0000,0000,,I was going to yell at you \Nif you'd messed up, though.
+Dialogue: 0,0:06:29.13,0:06:30.70,main,16,0000,0000,0000,,Wow, hardass.
+Dialogue: 0,0:06:30.70,0:06:33.24,main,15,0000,0000,0000,,Anyway, back then...
+Dialogue: 0,0:06:33.24,0:06:34.62,main,Z2,0000,0000,0000,,Morning, darling!
+Dialogue: 0,0:06:34.97,0:06:36.50,main,16,0000,0000,0000,,M-Morning.
+Dialogue: 0,0:06:37.56,0:06:38.33,main,Z2,0000,0000,0000,,This way.
+Dialogue: 0,0:06:39.19,0:06:40.74,main,16,0000,0000,0000,,Uh, wait...
+Dialogue: 0,0:06:41.40,0:06:43.17,main,666,0000,0000,0000,,You're a girl! Why're you coming to sit here?
+Dialogue: 0,0:06:43.17,0:06:45.04,main,214,0000,0000,0000,,And that's my seat...
+Dialogue: 0,0:06:45.04,0:06:46.96,main,666,0000,0000,0000,,Y-Yeah! Get back to your table!
+Dialogue: 0,0:06:46.96,0:06:47.76,main,15,0000,0000,0000,,Pipe down.
+Dialogue: 0,0:06:48.23,0:06:50.77,main,15,0000,0000,0000,,Take your seats already. It's time to pray.
+Dialogue: 0,0:06:50.77,0:06:53.24,main,214,0000,0000,0000,,But... my seat...
+Dialogue: 0,0:06:53.24,0:06:55.31,main,556,0000,0000,0000,,Want to sit over here, then?
+Dialogue: 0,0:06:55.99,0:06:56.95,main,214,0000,0000,0000,,Can I really?
+Dialogue: 0,0:06:58.07,0:07:00.14,main,15,0000,0000,0000,,May Papa never thirst.
+Dialogue: 0,0:07:00.60,0:07:04.40,main,15,0000,0000,0000,,May Papa's heart be filled \Nwith peace for eternity.
+Dialogue: 0,0:07:04.40,0:07:05.85,main,15,0000,0000,0000,,Let's eat.
+Dialogue: 0,0:07:05.85,0:07:07.65,main,All,0000,0000,0000,,Let's eat.
+Dialogue: 0,0:07:07.65,0:07:09.11,main,Z2,0000,0000,0000,,Here, darling.
+Dialogue: 0,0:07:09.11,0:07:10.32,main,Z2,0000,0000,0000,,Say, "Ahh."
+Dialogue: 0,0:07:16.25,0:07:16.81,main,Z2,0000,0000,0000,,Like it?
+Dialogue: 0,0:07:16.81,0:07:18.66,main,16,0000,0000,0000,,Y-Yeah, it's good.
+Dialogue: 0,0:07:18.66,0:07:21.17,top,Z2,0000,0000,0000,,You can eat my share.
+Dialogue: 0,0:07:20.36,0:07:23.92,main,666,0000,0000,0000,,Lucky him. I wanna try \Nsomething like that, too.
+Dialogue: 0,0:07:23.92,0:07:26.16,main,56,0000,0000,0000,,Why not ask your partner, then?
+Dialogue: 0,0:07:26.16,0:07:30.81,main,666,0000,0000,0000,,What? I'd rather ask a cute girl, like Kokoro.
+Dialogue: 0,0:07:31.46,0:07:32.41,main,556,0000,0000,0000,,We see, we do.
+Dialogue: 0,0:07:32.41,0:07:35.77,main,390,0000,0000,0000,,What's with you? So easily influenced.
+Dialogue: 0,0:07:37.47,0:07:39.10,main,Z2,0000,0000,0000,,One more time. Say, "Ahh."
+Dialogue: 0,0:07:44.45,0:07:45.36,main,16,0000,0000,0000,,Over here,
+Dialogue: 0,0:07:45.36,0:07:50.79,main,16,0000,0000,0000,,we have fixed times for waking up, \Nbathing, and going to sleep. All of it.
+Dialogue: 0,0:07:50.79,0:07:54.68,main,16,0000,0000,0000,,Everything's laid out for us, even the \Nclothes we wear and the food we eat.
+Dialogue: 0,0:07:56.52,0:08:01.75,main,16,0000,0000,0000,,This entire forest was built to fine-tune \Nthe parasites' numbers, apparently.
+Dialogue: 0,0:08:01.75,0:08:04.20,main,Z2,0000,0000,0000,,Is that why there's a ceiling, too?
+Dialogue: 0,0:08:04.20,0:08:05.00,main,16,0000,0000,0000,,Probably.
+Dialogue: 0,0:08:05.00,0:08:08.32,main,16,0000,0000,0000,,But even with the ceiling, it does rain here.
+Dialogue: 0,0:08:08.32,0:08:09.00,main,Z2,0000,0000,0000,,"Rain"?
+Dialogue: 0,0:08:09.00,0:08:11.94,main,16,0000,0000,0000,,Yeah. Water comes pouring \Ndown from the ceiling.
+Dialogue: 0,0:08:12.82,0:08:14.72,main,Z2,0000,0000,0000,,Wow, I wanna see that! Do it for me!
+Dialogue: 0,0:08:16.50,0:08:19.71,main,16,0000,0000,0000,,I can't. Papa and the others \Ndecide when it happens.
+Dialogue: 0,0:08:19.71,0:08:21.34,main,Z2,0000,0000,0000,,I wanna see it right now.
+Dialogue: 0,0:08:21.34,0:08:22.44,main,Z2,0000,0000,0000,,Do it.
+Dialogue: 0,0:08:23.21,0:08:24.21,main,16,0000,0000,0000,,But...
+Dialogue: 0,0:08:31.81,0:08:36.15,main,16,0000,0000,0000,,By the way, why'd you suddenly \Nask me to show you around?
+Dialogue: 0,0:08:36.95,0:08:38.69,main,Z2,0000,0000,0000,,Why? Because...
+Dialogue: 0,0:08:38.69,0:08:41.08,main,Z2,0000,0000,0000,,I'm going to live here, too.
+Dialogue: 0,0:08:43.96,0:08:46.25,main,666,0000,0000,0000,,Wh-What's a girl doing here?
+Dialogue: 0,0:08:46.25,0:08:47.86,main,666,0000,0000,0000,,Stay out of the boys' wing!
+Dialogue: 0,0:08:47.86,0:08:49.96,main,16,0000,0000,0000,,S-Sorry! We'll be right out!
+Dialogue: 0,0:08:50.29,0:08:51.72,main,16,0000,0000,0000,,Let's go, Zero Two!
+Dialogue: 0,0:08:57.27,0:08:58.22,main,666,0000,0000,0000,,The heck?
+Dialogue: 0,0:08:58.22,0:09:00.60,main,666,0000,0000,0000,,Look at them, holding hands and all.
+Dialogue: 0,0:09:01.93,0:09:04.98,main,7,0000,0000,0000,,Zero Two is going to remain here for a while.
+Dialogue: 0,0:09:05.36,0:09:07.18,main,7,0000,0000,0000,,Papa gave her permission.
+Dialogue: 0,0:09:07.18,0:09:09.73,main,15,0000,0000,0000,,Does that mean Hiro's an \Nofficial parasite now?
+Dialogue: 0,0:09:09.73,0:09:13.99,main,7,0000,0000,0000,,That's still under consideration, \Nbut I'm assuming it'll happen.
+Dialogue: 0,0:09:14.42,0:09:15.24,main,7,0000,0000,0000,,Ichigo.
+Dialogue: 0,0:09:15.68,0:09:17.99,main,7,0000,0000,0000,,Make Zero Two feel at home.
+Dialogue: 0,0:09:18.81,0:09:20.02,main,56,0000,0000,0000,,What do you think?
+Dialogue: 0,0:09:20.02,0:09:21.20,main,15,0000,0000,0000,,About what?
+Dialogue: 0,0:09:21.20,0:09:22.37,main,56,0000,0000,0000,,How Hiro was acting today.
+Dialogue: 0,0:09:23.16,0:09:26.72,main,15,0000,0000,0000,,Well, it's been a long time since \NI saw him smile so much.
+Dialogue: 0,0:09:26.72,0:09:32.08,main,56,0000,0000,0000,,Yeah. But what if he was forcing \Nhimself to be all cheery?
+Dialogue: 0,0:09:32.08,0:09:33.75,main,15,0000,0000,0000,,Did he say that?
+Dialogue: 0,0:09:33.75,0:09:37.01,main,56,0000,0000,0000,,Nah. You know he wouldn't \Ntell us straight up.
+Dialogue: 0,0:09:37.73,0:09:39.48,main,56,0000,0000,0000,,Look, you could talk to him-
+Dialogue: 0,0:09:39.48,0:09:40.39,main,15,0000,0000,0000,,Goro.
+Dialogue: 0,0:09:44.18,0:09:48.87,main,15,0000,0000,0000,,Worrying about Hiro is fine, but we've also got ourselves to worry about.
+Dialogue: 0,0:09:49.40,0:09:50.99,main,56,0000,0000,0000,,What's that supposed to mean?
+Dialogue: 0,0:09:50.99,0:09:54.36,main,15,0000,0000,0000,,The upcoming battle will be fiercer \Nthan any we've experienced.
+Dialogue: 0,0:09:55.11,0:09:59.57,main,15,0000,0000,0000,,You're my partner. If you're not focused,\NI can't do my best, either.
+Dialogue: 0,0:10:01.13,0:10:02.66,main,326,0000,0000,0000,,Why me, and not him?
+Dialogue: 0,0:10:06.52,0:10:08.87,main,326,0000,0000,0000,,What's the difference between Hiro and me?
+Dialogue: 0,0:10:11.29,0:10:12.38,main,556,0000,0000,0000,,Mitsuru?
+Dialogue: 0,0:10:13.64,0:10:14.94,main,326,0000,0000,0000,,What is it?
+Dialogue: 0,0:10:14.94,0:10:18.44,main,556,0000,0000,0000,,Oh, uh, I saw you walking in here.
+Dialogue: 0,0:10:19.11,0:10:22.97,main,556,0000,0000,0000,,Are you okay? You've been looking \Nuncomfortable for a while.
+Dialogue: 0,0:10:22.97,0:10:24.43,main,326,0000,0000,0000,,I'm fine.
+Dialogue: 0,0:10:25.56,0:10:28.55,main,556,0000,0000,0000,,Is there anything I can do for you?
+Dialogue: 0,0:10:28.55,0:10:30.99,main,556,0000,0000,0000,,You never lean on others-
+Dialogue: 0,0:10:30.99,0:10:32.12,main,326,0000,0000,0000,,Are you pitying me?
+Dialogue: 0,0:10:33.67,0:10:35.69,main,556,0000,0000,0000,,I didn't mean to...
+Dialogue: 0,0:10:35.69,0:10:37.15,main,326,0000,0000,0000,,Leave me alone.
+Dialogue: 0,0:10:40.45,0:10:42.45,main,15,0000,0000,0000,,This room is yours to use.
+Dialogue: 0,0:10:42.89,0:10:45.32,main,Z2,0000,0000,0000,,I'd rather have been with my darling.
+Dialogue: 0,0:10:45.32,0:10:47.51,main,15,0000,0000,0000,,You're going to live here for a while, right?
+Dialogue: 0,0:10:47.51,0:10:49.17,main,15,0000,0000,0000,,Then you'll have to follow our rules.
+Dialogue: 0,0:10:49.17,0:10:51.21,main,15,0000,0000,0000,,Don't expect any special treatment.
+Dialogue: 0,0:10:52.13,0:10:55.01,main,15,0000,0000,0000,,Also, take care of Hiro.
+Dialogue: 0,0:10:55.01,0:10:57.29,main,Z2,0000,0000,0000,,I don't need you to tell me that.
+Dialogue: 0,0:10:57.29,0:10:59.27,main,Z2,0000,0000,0000,,My darling belongs to me.
+Dialogue: 0,0:11:02.29,0:11:04.15,main,15,0000,0000,0000,,Hiro doesn't belong to anyone.
+Dialogue: 0,0:11:05.40,0:11:06.72,main,Z2,0000,0000,0000,,You're pretty bossy, huh?
+Dialogue: 0,0:11:08.28,0:11:09.50,main,15,0000,0000,0000,,Thanks for the compliment.
+Dialogue: 0,0:11:35.72,0:11:37.67,main,666,0000,0000,0000,,Hey, Goro!
+Dialogue: 0,0:11:40.45,0:11:43.99,main,090,0000,0000,0000,,Your FRANXX all have unique designs.
+Dialogue: 0,0:11:44.55,0:11:46.14,main,56,0000,0000,0000,,What are you talking about?
+Dialogue: 0,0:11:46.14,0:11:48.43,main,196,0000,0000,0000,,We thought that was standard.
+Dialogue: 0,0:11:48.43,0:11:52.26,main,090,0000,0000,0000,,Of course not. Our FRANXX have similar \Nbodies and equipment all around.
+Dialogue: 0,0:11:52.26,0:11:55.02,main,090,0000,0000,0000,,That makes it easier to fight as a team.
+Dialogue: 0,0:11:55.02,0:11:56.46,main,214,0000,0000,0000,,Huh...
+Dialogue: 0,0:11:56.46,0:12:00.18,main,090,0000,0000,0000,,I've been told you're a \Nhastily-assembled test team.
+Dialogue: 0,0:12:00.18,0:12:02.28,main,090,0000,0000,0000,,Is this your first taste of kissing?
+Dialogue: 0,0:12:02.28,0:12:03.04,main,56,0000,0000,0000,,Yeah.
+Dialogue: 0,0:12:03.04,0:12:03.95,main,,0000,0000,0000,,I see.
+Dialogue: 0,0:12:04.39,0:12:06.62,main,090,0000,0000,0000,,We are vastly more experienced.
+Dialogue: 0,0:12:07.24,0:12:09.56,main,090,0000,0000,0000,,If there's anything you don't \Nunderstand, just ask.
+Dialogue: 0,0:12:09.56,0:12:10.37,main,666,0000,0000,0000,,Me!
+Dialogue: 0,0:12:10.37,0:12:12.66,main,666,0000,0000,0000,,Me, me, me! I've got a question!
+Dialogue: 0,0:12:13.19,0:12:16.96,main,666,0000,0000,0000,,Have any children from your \Nsquad become adults?
+Dialogue: 0,0:12:18.07,0:12:19.59,main,090,0000,0000,0000,,"Become adults"?
+Dialogue: 0,0:12:20.34,0:12:21.72,main,Vice,0000,0000,0000,,He probably doesn't know.
+Dialogue: 0,0:12:22.15,0:12:24.10,main,090,0000,0000,0000,,Oh, that's what you mean.
+Dialogue: 0,0:12:24.81,0:12:26.90,main,090,0000,0000,0000,,Not from our squad, no.
+Dialogue: 0,0:12:26.90,0:12:30.12,main,666,0000,0000,0000,,Really? Have you at least \Nheard any rumors about it?
+Dialogue: 0,0:12:30.12,0:12:31.01,main,090,0000,0000,0000,,No, sorry.
+Dialogue: 0,0:12:32.68,0:12:34.73,main,666,0000,0000,0000,,What the heck?
+Dialogue: 0,0:12:35.08,0:12:37.30,main,214,0000,0000,0000,,You really care about that, huh, Zorome?
+Dialogue: 0,0:12:37.30,0:12:39.49,main,666,0000,0000,0000,,I'm not a simpleton like you, Futoshi!
+Dialogue: 0,0:12:39.49,0:12:40.86,main,090,0000,0000,0000,,How peculiar.
+Dialogue: 0,0:12:41.54,0:12:42.90,main,090,0000,0000,0000,,I mean, your nicknames.
+Dialogue: 0,0:12:42.90,0:12:46.98,main,090,0000,0000,0000,,Code 016 was the one who started \Ncoming up with them, I think?
+Dialogue: 0,0:12:46.98,0:12:49.24,main,56,0000,0000,0000,,You've heard of Hiro?
+Dialogue: 0,0:12:49.24,0:12:52.87,main,090,0000,0000,0000,,Yeah. He's famous among us children.
+Dialogue: 0,0:12:53.41,0:12:55.25,main,090,0000,0000,0000,,You guys are really unusual.
+Dialogue: 0,0:12:55.25,0:12:57.17,main,090,0000,0000,0000,,Your FRANXX designs are all over the place,
+Dialogue: 0,0:12:57.17,0:12:59.38,main,090,0000,0000,0000,,and you refer to each other \Nby nicknames instead of codes.
+Dialogue: 0,0:13:00.33,0:13:02.45,main,090,0000,0000,0000,,What's the point of that?
+Dialogue: 0,0:13:09.21,0:13:09.89,main,56,0000,0000,0000,,H...
+Dialogue: 0,0:13:09.89,0:13:10.92,main,56,0000,0000,0000,,Hiro!
+Dialogue: 0,0:13:15.99,0:13:19.15,main,7,0000,0000,0000,,What is with these abnormal \Nyellow blood cell counts?
+Dialogue: 0,0:13:19.15,0:13:21.48,main,7,0000,0000,0000,,I'm amazed he's even alive.
+Dialogue: 0,0:13:21.48,0:13:25.90,main,8,0000,0000,0000,,Yeah. It's a polar opposite reaction to the \Nother parasites that rode with Zero Two.
+Dialogue: 0,0:13:27.03,0:13:30.53,main,7,0000,0000,0000,,It'd be dangerous to let him ride with her \Nagain when we don't know the cause.
+Dialogue: 0,0:13:30.86,0:13:34.91,main,8,0000,0000,0000,,But we need Strelizia in the upcoming battle.
+Dialogue: 0,0:13:36.12,0:13:38.79,main,7,0000,0000,0000,,The next time is the third.
+Dialogue: 0,0:13:38.79,0:13:39.79,main,56,0000,0000,0000,,Hey, Hiro!
+Dialogue: 0,0:13:39.79,0:13:41.09,main,56,0000,0000,0000,,What's wrong?
+Dialogue: 0,0:13:41.83,0:13:43.71,main,16,0000,0000,0000,,Nothing...
+Dialogue: 0,0:13:43.71,0:13:45.68,main,56,0000,0000,0000,,Nothing, my ass!
+Dialogue: 0,0:13:45.68,0:13:47.09,main,56,0000,0000,0000,,Are you hurt?
+Dialogue: 0,0:13:51.80,0:13:55.46,main,56,0000,0000,0000,,How long has that been there? \NSince you rode with Zero Two?
+Dialogue: 0,0:13:57.08,0:13:58.19,main,56,0000,0000,0000,,Tch...
+Dialogue: 0,0:14:00.10,0:14:01.30,main,56,0000,0000,0000,,Hey!
+Dialogue: 0,0:14:07.53,0:14:09.81,main,56,0000,0000,0000,,Don't pilot Strelizia again.
+Dialogue: 0,0:14:09.81,0:14:11.32,main,16,0000,0000,0000,,That's for me to decide.
+Dialogue: 0,0:14:11.32,0:14:13.12,main,56,0000,0000,0000,,You know the next time \Ncould kill you, don't you?!
+Dialogue: 0,0:14:15.08,0:14:20.04,main,16,0000,0000,0000,,Goro... I feel really alive right now.
+Dialogue: 0,0:14:21.29,0:14:23.88,main,16,0000,0000,0000,,I haven't felt this way in a long time.
+Dialogue: 0,0:14:24.89,0:14:27.49,main,16,0000,0000,0000,,I want to give it my all \Nin the upcoming mission.
+Dialogue: 0,0:14:28.25,0:14:30.02,main,16,0000,0000,0000,,I don't want things to end in failure.
+Dialogue: 0,0:14:30.49,0:14:31.20,main,16,0000,0000,0000,,So...
+Dialogue: 0,0:14:31.20,0:14:32.52,main,56,0000,0000,0000,,You want me turn a blind eye?
+Dialogue: 0,0:14:33.21,0:14:34.01,main,16,0000,0000,0000,,Yeah.
+Dialogue: 0,0:14:34.01,0:14:36.39,main,56,0000,0000,0000,,Are you going to keep this from everyone?
+Dialogue: 0,0:14:37.14,0:14:37.77,main,16,0000,0000,0000,,Yeah.
+Dialogue: 0,0:14:38.14,0:14:39.14,main,56,0000,0000,0000,,Even Ichigo?
+Dialogue: 0,0:14:39.74,0:14:40.40,main,16,0000,0000,0000,,Yeah.
+Dialogue: 0,0:14:42.57,0:14:43.65,main,56,0000,0000,0000,,Look, you-
+Dialogue: 0,0:14:46.13,0:14:46.78,main,16,0000,0000,0000,,Sorry.
+Dialogue: 0,0:14:51.43,0:14:54.49,main,56,0000,0000,0000,,You... You're...
+Dialogue: 0,0:14:54.82,0:14:56.49,main,56,0000,0000,0000,,a complete and utter fool!
+Dialogue: 0,0:14:57.17,0:15:02.25,main,8,0000,0000,0000,,We detected klaxosaurs an hour ago, \Nat a distance of approximately 3,000.
+Dialogue: 0,0:15:02.25,0:15:05.00,main,8,0000,0000,0000,,They number anywhere from 100 to 150.
+Dialogue: 0,0:15:05.00,0:15:06.87,main,214,0000,0000,0000,,O-One hundred and fifty?!
+Dialogue: 0,0:15:06.87,0:15:09.05,main,8,0000,0000,0000,,That number is expected to go even higher.
+Dialogue: 0,0:15:09.05,0:15:12.68,main,8,0000,0000,0000,,Their estimated time of arrival \Nis around 33 hours from now.
+Dialogue: 0,0:15:13.35,0:15:17.48,main,8,0000,0000,0000,,No matter how we rush, we can't complete \Nthe kissing process before they get here.
+Dialogue: 0,0:15:17.90,0:15:23.07,main,8,0000,0000,0000,,So we're going to place a line of defense \Nhere, with Squad 26 at the vanguard.
+Dialogue: 0,0:15:23.07,0:15:26.32,main,8,0000,0000,0000,,Squad 13 will stand by in the rear as backup.
+Dialogue: 0,0:15:26.32,0:15:28.46,main,666,0000,0000,0000,,What? Backup?
+Dialogue: 0,0:15:28.46,0:15:30.53,main,090,0000,0000,0000,,This will be a chaotic dogfight.
+Dialogue: 0,0:15:31.09,0:15:33.57,main,090,0000,0000,0000,,Our squad can link up better \Nif we go at it by ourselves.
+Dialogue: 0,0:15:33.57,0:15:34.49,main,666,0000,0000,0000,,Wha...
+Dialogue: 0,0:15:34.49,0:15:37.16,main,390,0000,0000,0000,,Did he just call us dead weight?
+Dialogue: 0,0:15:38.65,0:15:43.14,main,8,0000,0000,0000,,Defending the main pipe linking the two \Nplantations together takes top priority.
+Dialogue: 0,0:15:43.14,0:15:47.92,main,8,0000,0000,0000,,So I decided to deploy a FRANXX \Nthat's capable of solo combat here.
+Dialogue: 0,0:15:47.92,0:15:50.15,main,090,0000,0000,0000,,Do we really have such a FRANXX?
+Dialogue: 0,0:15:51.64,0:15:53.51,main,8,0000,0000,0000,,Strelizia will be placed here.
+Dialogue: 0,0:15:56.35,0:15:57.85,main,090,0000,0000,0000,,Strelizia?
+Dialogue: 0,0:15:57.85,0:16:00.45,main,090,0000,0000,0000,,What are you...
+Dialogue: 0,0:16:00.45,0:16:02.81,main,7,0000,0000,0000,,Sorry we're late.
+Dialogue: 0,0:16:03.85,0:16:05.36,main,090,0000,0000,0000,,Code 002!
+Dialogue: 0,0:16:05.36,0:16:06.73,main,8,0000,0000,0000,,Did we receive Papa's permission?
+Dialogue: 0,0:16:06.73,0:16:08.25,main,7,0000,0000,0000,,Yes, we are a go.
+Dialogue: 0,0:16:08.25,0:16:12.70,main,7,0000,0000,0000,,Hiro will pilot Strelizia as Zero Two's partner.
+Dialogue: 0,0:16:12.70,0:16:14.93,main,8,0000,0000,0000,,This is the best course of action right now.
+Dialogue: 0,0:16:14.93,0:16:15.45,main,16,0000,0000,0000,,Got it.
+Dialogue: 0,0:16:15.45,0:16:16.41,main,090,0000,0000,0000,,Wait a second.
+Dialogue: 0,0:16:16.77,0:16:19.97,main,090,0000,0000,0000,,We can't fight alongside Strelizia.
+Dialogue: 0,0:16:20.66,0:16:22.13,main,8,0000,0000,0000,,The plan is final.
+Dialogue: 0,0:16:22.13,0:16:22.66,main,090,0000,0000,0000,,But...
+Dialogue: 0,0:16:22.66,0:16:25.68,main,090,0000,0000,0000,,That girl doesn't care about her allies!
+Dialogue: 0,0:16:25.68,0:16:28.13,main,090,0000,0000,0000,,We can't trust her to have our backs!
+Dialogue: 0,0:16:28.13,0:16:32.15,main,090,0000,0000,0000,,Code 002, you know what I mean.
+Dialogue: 0,0:16:32.15,0:16:33.21,main,Z2,0000,0000,0000,,What are you talking about?
+Dialogue: 0,0:16:33.21,0:16:35.05,main,090,0000,0000,0000,,The joint operation two years ago!
+Dialogue: 0,0:16:35.41,0:16:40.14,main,090,0000,0000,0000,,Your reckless fighting style got \Nus isolated on the battlefield,
+Dialogue: 0,0:16:40.14,0:16:42.98,main,090,0000,0000,0000,,and I lost my partner!
+Dialogue: 0,0:16:47.25,0:16:50.23,main,Z2,0000,0000,0000,,Huh... Doesn't ring a bell.
+Dialogue: 0,0:16:50.23,0:16:53.36,main,Z2,0000,0000,0000,,Weaklings die. Big deal.
+Dialogue: 0,0:16:58.26,0:17:01.48,main,16,0000,0000,0000,,I'll keep Zero Two from going out of control.
+Dialogue: 0,0:17:01.48,0:17:04.58,main,16,0000,0000,0000,,I'm Strelizia's stamen.
+Dialogue: 0,0:17:05.57,0:17:09.06,main,666,0000,0000,0000,,What the hell, man?\N Treating us like dead weight...
+Dialogue: 0,0:17:09.06,0:17:12.62,main,326,0000,0000,0000,,It's the truth. We are a makeshift team.
+Dialogue: 0,0:17:12.62,0:17:14.90,main,196,0000,0000,0000,,But it still pisses you off, doesn't it?
+Dialogue: 0,0:17:15.54,0:17:17.97,main,56,0000,0000,0000,,I agree with them.
+Dialogue: 0,0:17:19.11,0:17:22.01,main,56,0000,0000,0000,,Strelizia shouldn't be part of the mission-
+Dialogue: 0,0:17:22.01,0:17:23.09,main,16,0000,0000,0000,,I've got this.
+Dialogue: 0,0:17:23.64,0:17:26.16,main,16,0000,0000,0000,,Let's show them what we're made of!
+Dialogue: 0,0:17:26.16,0:17:28.77,main,16,0000,0000,0000,,You guys don't want to take \Ntheir insults lying down, right?
+Dialogue: 0,0:17:28.77,0:17:30.90,main,666,0000,0000,0000,,Y-Yeah...
+Dialogue: 0,0:17:30.90,0:17:34.33,main,666,0000,0000,0000,,He's right, Goro. Don't go all timid on us now.
+Dialogue: 0,0:17:36.45,0:17:37.83,main,56,0000,0000,0000,,What do you think, Ichigo?
+Dialogue: 0,0:17:39.54,0:17:41.33,main,15,0000,0000,0000,,We need Strelizia.
+Dialogue: 0,0:18:17.22,0:18:18.66,main,56,0000,0000,0000,,Where are they going?
+Dialogue: 0,0:18:18.66,0:18:22.66,main,15,0000,0000,0000,,I'm not going to say anything \Nabout your past with Squad 26.
+Dialogue: 0,0:18:22.66,0:18:26.93,main,15,0000,0000,0000,,But I want you to stay in \Nline during the mission.
+Dialogue: 0,0:18:26.93,0:18:29.67,main,15,0000,0000,0000,,I'm the leader, and you \Nwill follow my orders.
+Dialogue: 0,0:18:29.67,0:18:31.86,main,Z2,0000,0000,0000,,Ordering me around again?
+Dialogue: 0,0:18:31.86,0:18:33.37,main,Z2,0000,0000,0000,,You really are bossy.
+Dialogue: 0,0:18:33.37,0:18:34.46,main,15,0000,0000,0000,,W-Wait!
+Dialogue: 0,0:18:34.46,0:18:35.42,main,15,0000,0000,0000,,I'm not done-
+Dialogue: 0,0:18:38.26,0:18:38.93,main,Z2,0000,0000,0000,,What?
+Dialogue: 0,0:18:40.29,0:18:42.74,main,15,0000,0000,0000,,Please don't push Hiro too hard.
+Dialogue: 0,0:18:43.53,0:18:46.76,main,Z2,0000,0000,0000,,Darling was the one who said \Nhe wanted to ride with me.
+Dialogue: 0,0:18:46.76,0:18:47.83,main,15,0000,0000,0000,,Yes, I know.
+Dialogue: 0,0:18:48.25,0:18:51.94,main,15,0000,0000,0000,,But try not to put a heavy \Nburden on him, at least.
+Dialogue: 0,0:18:53.21,0:18:54.94,main,Z2,0000,0000,0000,,Do you want me to give him to you?
+Dialogue: 0,0:18:55.38,0:18:58.46,main,Z2,0000,0000,0000,,But you tried to ride with him already,\Nand it didn't work.
+Dialogue: 0,0:18:58.46,0:19:00.02,main,15,0000,0000,0000,,Leave me out of this!
+Dialogue: 0,0:19:00.02,0:19:02.02,main,Z2,0000,0000,0000,,Then {\i1}stay{\i0} out of it.
+Dialogue: 0,0:19:03.49,0:19:06.08,main,15,0000,0000,0000,,Are you trying to suck Hiro dry?
+Dialogue: 0,0:19:06.08,0:19:07.79,main,Z2,0000,0000,0000,,My darling belongs to me.
+Dialogue: 0,0:19:08.47,0:19:10.12,main,15,0000,0000,0000,,He could die, you know!
+Dialogue: 0,0:19:10.12,0:19:12.63,main,Z2,0000,0000,0000,,Sure, he could. But that'd just \Nmean he didn't amount to much.
+Dialogue: 0,0:19:19.61,0:19:20.89,main,15,0000,0000,0000,,You're heartless!
+Dialogue: 0,0:19:21.33,0:19:24.17,main,15,0000,0000,0000,,You really aren't human!
+Dialogue: 0,0:19:25.99,0:19:27.13,main,Z2,0000,0000,0000,,Human?
+Dialogue: 0,0:19:28.04,0:19:29.40,main,Z2,0000,0000,0000,,Human, huh?
+Dialogue: 0,0:19:29.83,0:19:31.85,main,Z2,0000,0000,0000,,Let me ask you something, then.
+Dialogue: 0,0:19:32.49,0:19:36.11,main,Z2,0000,0000,0000,,What is "human" to you people?
+Dialogue: 0,0:19:59.78,0:20:01.09,main,56,0000,0000,0000,,You'll catch a cold.
+Dialogue: 0,0:20:04.71,0:20:07.76,main,15,0000,0000,0000,,Thanks. I just went out \Nto take care of something.
+Dialogue: 0,0:20:07.76,0:20:08.60,main,56,0000,0000,0000,,I know.
+Dialogue: 0,0:20:09.43,0:20:11.72,main,15,0000,0000,0000,,Did you see the whole thing?
+Dialogue: 0,0:20:11.72,0:20:12.50,main,56,0000,0000,0000,,Yeah.
+Dialogue: 0,0:20:15.22,0:20:18.27,main,15,0000,0000,0000,,I don't know what to do.
+Dialogue: 0,0:20:18.89,0:20:22.28,main,15,0000,0000,0000,,I'm supposed to be the leader, \Nand he and I go way back,
+Dialogue: 0,0:20:22.68,0:20:25.62,main,15,0000,0000,0000,,but I couldn't help Hiro pilot.
+Dialogue: 0,0:20:26.42,0:20:29.37,main,15,0000,0000,0000,,I couldn't stop him.
+Dialogue: 0,0:20:30.18,0:20:34.57,main,15,0000,0000,0000,,But she's there for him now, \Nand that's what Hiro wants.
+Dialogue: 0,0:20:36.79,0:20:41.72,main,15,0000,0000,0000,,But I... Something's wrong with me!
+Dialogue: 0,0:20:41.72,0:20:42.75,main,56,0000,0000,0000,,Ichigo?
+Dialogue: 0,0:20:42.75,0:20:43.80,main,15,0000,0000,0000,,I...
+Dialogue: 0,0:20:44.18,0:20:45.80,main,15,0000,0000,0000,,I hate this!
+Dialogue: 0,0:20:46.74,0:20:49.62,main,15,0000,0000,0000,,I can't stand it. My mind's a mess.
+Dialogue: 0,0:20:50.25,0:20:51.54,main,15,0000,0000,0000,,What's going on?
+Dialogue: 0,0:20:52.76,0:20:55.81,main,15,0000,0000,0000,,But... Hiro...
+Dialogue: 0,0:20:55.81,0:20:56.75,main,56,0000,0000,0000,,Ichi-
+Dialogue: 0,0:20:56.75,0:20:57.81,main,15,0000,0000,0000,,Hiro...
+Dialogue: 0,0:20:58.45,0:21:00.61,main,56,0000,0000,0000,,What is this feeling?
+Dialogue: 0,0:21:19.54,0:21:22.71,main,Z2,0000,0000,0000,,Everything smells nice after it rains, huh?
+Dialogue: 0,0:21:23.24,0:21:24.60,main,Z2,0000,0000,0000,,Make it rain again sometime.
+Dialogue: 0,0:21:25.35,0:21:28.47,main,Z2,0000,0000,0000,,Oh, right. You can't do it.
+Dialogue: 0,0:21:29.09,0:21:31.65,main,16,0000,0000,0000,,I can't say that for sure yet.
+Dialogue: 0,0:21:38.23,0:21:41.15,main,Z2,0000,0000,0000,,This is where we first met.
+Dialogue: 0,0:21:41.15,0:21:44.48,main,16,0000,0000,0000,,It's only because I met you \Nthat I stand here right now.
+Dialogue: 0,0:21:44.48,0:21:46.73,main,16,0000,0000,0000,,That I can pilot a FRANXX.
+Dialogue: 0,0:21:46.73,0:21:50.07,main,Z2,0000,0000,0000,,That's right. Your partner \Nis me, and me alone.
+Dialogue: 0,0:21:51.09,0:21:53.22,main,Z2,0000,0000,0000,,You already know, don't you?
+Dialogue: 0,0:21:53.22,0:21:57.81,main,Z2,0000,0000,0000,,None of my partners could ever ride \Nwith me more than three times.
+Dialogue: 0,0:21:57.81,0:21:58.83,main,16,0000,0000,0000,,Yeah.
+Dialogue: 0,0:21:59.16,0:22:01.46,main,Z2,0000,0000,0000,,It hurts, right? The pain is unbearable, isn't it?
+Dialogue: 0,0:22:01.97,0:22:04.09,main,Z2,0000,0000,0000,,But it looks beautiful.
+Dialogue: 0,0:22:04.66,0:22:07.72,main,Z2,0000,0000,0000,,What'll it be? If you want off \Nthis ride, now's your chance.
+Dialogue: 0,0:22:09.22,0:22:10.97,main,16,0000,0000,0000,,I'll ride with you.
+Dialogue: 0,0:22:17.25,0:22:21.22,italics,16,0000,0000,0000,,Even if these wings I reached out \Nand grabbed are to snap one day,
+Dialogue: 0,0:22:21.89,0:22:23.52,italics,16,0000,0000,0000,,I'll still take flight into the sky.
+Dialogue: 0,0:22:23.86,0:22:28.05,italics,16,0000,0000,0000,,Because I feel that's why I'm here right now.
+Dialogue: 0,0:22:30.03,0:22:32.12,sign_33134_360_Episode_1,Title,0000,0000,0000,,Episode 5
+Dialogue: 0,0:22:30.03,0:22:32.12,sign_33134_361_Alone_and_Loneso,Title,0000,0000,0000,,Your Thorn, My Badge
+
