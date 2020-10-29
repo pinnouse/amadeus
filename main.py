@@ -10,7 +10,7 @@ from typing import Dict, Tuple, List, Optional
 import re
 import random
 from datetime import datetime
-from argparse import ArgumentParser
+from argparse import ArgumentParser, ArgumentTypeError
 
 import torch
 import torch.nn as nn
@@ -22,10 +22,23 @@ from performer_pytorch import PerformerLM
 
 from adafactor import Adafactor
 
-device = 'cuda' if torch.has_cuda else 'cpu'
+def str2bool(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise ArgumentTypeError('Boolean value expected.')
 
 parser = ArgumentParser()
 parser.add_argument('-o', '--o', default='./', dest='output', help='Location of output(s)')
+parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help="Use cuda if cuda supported")
+
+use_cuda = parser.parse_args().use_cuda
+
+device = 'cuda' if torch.has_cuda and use_cuda else 'cpu'
 
 model_dir = parser.parse_args().output
 

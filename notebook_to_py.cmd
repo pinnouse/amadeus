@@ -1,1 +1,1 @@
-ipython nbconvert --to python main.ipynb
+jupyter nbconvert --to python main.ipynb
