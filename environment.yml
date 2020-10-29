@@ -1,6 +1,7 @@
 name: pytorch_env
 channels:
   - pytorch
+  - anaconda
   - defaults
 dependencies:
   - argon2-cffi=20.1.0=py38he774522_1
@@ -8,7 +9,7 @@ dependencies:
   - backcall=0.2.0=py_0
   - blas=1.0=mkl
   - bleach=3.2.1=py_0
-  - ca-certificates=2020.7.22=0
+  - ca-certificates=2020.10.14=0
   - certifi=2020.6.20=py38_0
   - cffi=1.14.3=py38h7a1dbc1_0
   - colorama=0.4.3=py_0
@@ -17,6 +18,7 @@ dependencies:
   - defusedxml=0.6.0=py_0
   - entrypoints=0.3=py38_0
   - freetype=2.10.2=hd328e21_0
+  - graphviz=2.38=hfd603c8_2
   - importlib-metadata=1.7.0=py38_0
   - importlib_metadata=1.7.0=0
   - intel-openmp=2020.2=254
@@ -97,6 +99,8 @@ dependencies:
   - pip:
     - einops==0.3.0
     - future==0.18.2
-    - performer-pytorch==0.1.6
+    - performer-pytorch==0.2.0
+    - python-graphviz==0.14.2
     - pytorch-fast-transformers==0.3.0
+    - torchviz==0.0.1
 prefix: C:\ProgramData\Anaconda3\envs\pytorch_env
