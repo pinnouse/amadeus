@@ -1,0 +1,1 @@
+ipython nbconvert --to python main.ipynb
