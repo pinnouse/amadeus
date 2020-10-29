@@ -10,6 +10,7 @@ from typing import Dict, Tuple, List, Optional
 import re
 import random
 from datetime import datetime
+from argparse import ArgumentParser
 
 import torch
 import torch.nn as nn
@@ -22,6 +23,11 @@ from performer_pytorch import PerformerLM
 from adafactor import Adafactor
 
 device = 'cuda' if torch.has_cuda else 'cpu'
+
+parser = ArgumentParser()
+parser.add_argument('-o', '--o', default='./', dest='output', help='Location of output(s)')
+
+model_dir = parser.parse_args().output
 
 
 # # Data Parsing
@@ -412,7 +418,7 @@ def save_checkpoint(epoch: int):
         'epoch': epoch,
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict()
-    }, f'checkpoints/amadeus-performer-{epoch}.pt')
+    }, os.path.join(model_dir, f'checkpoints/amadeus-performer-{epoch}.pt'))
 
 for epoch in range(TRAIN_EPOCHS):
     print(f'Training epoch #{epoch+1} of {TRAIN_EPOCHS}:')
