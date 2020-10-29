@@ -1,0 +1,2 @@
+performer-pytorch==0.3.0
+torchviz==0.0.1
