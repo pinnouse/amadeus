@@ -7,3 +7,6 @@ __pycache__
 .ipynb_checkpoints
 
 gradient_run.cmd
+
+models/
+.pt
