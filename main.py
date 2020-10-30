@@ -11,6 +11,7 @@ import re
 import random
 from datetime import datetime
 from argparse import ArgumentParser, ArgumentTypeError
+from pathlib import Path
 
 import torch
 import torch.nn as nn
@@ -41,6 +42,7 @@ use_cuda = parser.parse_args().use_cuda
 device = 'cuda' if torch.has_cuda and use_cuda else 'cpu'
 
 model_dir = parser.parse_args().output
+Path(os.path.join(model_dir, 'checkpoints')).mkdir(parents=True, exist_ok=True)
 
 
 # # Data Parsing
