@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[8]:
 
 
 import math
@@ -19,7 +19,9 @@ import torch.nn.functional as F
 
 from performer_pytorch import PerformerLM
 
-# from torchviz import make_dot
+from tokenizers import BertWordPieceTokenizer, Encoding
+
+from torchviz import make_dot
 
 from adafactor import Adafactor
 
@@ -35,20 +37,31 @@ def str2bool(v):
 
 parser = ArgumentParser()
 parser.add_argument('-o', '--o', default='./', dest='output', help='Location of output(s)')
-parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help="Use cuda if cuda supported")
+parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
+parser.add_argument('-a', '--artifacts', dest='artifacts', default='./', help='Directory to save artifacts such as checkpoints')
+parser.add_argument('-e', '--epochs', type=int, dest='train_epochs', default=1, help='Number of epochs to train on')
+parser.add_argument('-p', '--print_every', type=int, dest='print_every', default=100, help='After how many iterations to print a status')
 
-use_cuda = parser.parse_args().use_cuda
+args, unknown = parser.parse_known_args()
+
+use_cuda = args.use_cuda
 
 device = 'cuda' if torch.has_cuda and use_cuda else 'cpu'
 
-model_dir = parser.parse_args().output
-Path(os.path.join(model_dir, 'checkpoints')).mkdir(parents=True, exist_ok=True)
+model_dir = args.output
+artifacts_dir = args.artifacts
+Path(os.path.join(artifacts_dir, 'checkpoints')).mkdir(parents=True, exist_ok=True)
+
+train_epochs = max(args.train_epochs, 1)
+print_every = max(args.print_every, 1)
+
+tokenizer = BertWordPieceTokenizer('data/bert-base-uncased-vocab.txt', lowercase=True)
 
 
 # # Data Parsing
 # Parse through subtitles
 
-# In[2]:
+# In[9]:
 
 
 SOS_TOKEN = '<sos>'
@@ -173,6 +186,7 @@ class Vocab:
         self._held_conversations = {}
         self.conversation_depth = conversation_depth
         self.longest = 0
+        self.longest_tokenized = 0
 
     def add_word(self, word: str) -> None:
         word = word.lower()
@@ -197,9 +211,13 @@ class Vocab:
             self._held_conversations[self._context] = [conversation]
             return
         self.add_line(conversation)
-        line = self._held_conversations[self._context][-1]['line'].split()
+        lc = self._held_conversations[self._context][-1]
+        line = lc['line'].split()
         if len(line) > self.longest:
             self.longest = len(line)
+        tokenized = tokenizer.encode(lc['line'])
+        if len(tokenized.ids) > self.longest_tokenized:
+            self.longest_tokenized = len(tokenized.ids)
     
     def add_line(self, conversation: Dict[str, object]) -> bool:
         if not self._context in self._held_conversations or len(self._held_conversations[self._context]) == 0:
@@ -224,7 +242,7 @@ class Vocab:
         return ParsedVocab(words, self.longest)
 
 
-# In[3]:
+# In[10]:
 
 
 FOLDERS = ['ditfxx_subs', 'steins_gate_subs']
@@ -297,43 +315,63 @@ for folder in FOLDERS:
                 })
                 vocab.add_sentence(text)
             
-
+# tokenizer.enable_padding(length=vocab.longest_tokenized)
 pv = vocab.parse_vocab()
 convos = 0
 for k, c in vocab.conversations.items():
     convos += len(c)
-print(f'Done! Num conversations: {convos}, num words: {len(pv.get_words())}, longest convo: {vocab.longest}')
+print(f'Done! Num conversations: {convos}, num words: {len(pv.get_words())}, longest convo: {vocab.longest_tokenized}')
 # print(words[:100])
 
 
-# In[4]:
+# In[11]:
 
 
 x = list(vocab.conversations)
 c = vocab.conversations[x[0]]
+
+for cc in c[:5]:
+    l = [x['line'] for x in cc]
+    print(f'\n{l}')
+    output = tokenizer.encode_batch(l)
+    # print([o.tokens for o in output])
+    # print([o.tokens[0 if i == 0 else 1:] for i, o in enumerate(output)])
+    # cat = sum([o.ids[0 if i == 0 else 1:] for i, o in enumerate(output)], [])
+    # output[1].pad(100)
+    # print(output[0].merge(output[1:2]).ids)
+    # print(tokenizer.decode(cat))
+    # output = tokenizer.encode(l[0], pair=l[1])
+    output = Encoding.merge(output, growing_offsets=False)
+    print(output.tokens)
+
+print(tokenizer.get_vocab_size())
+
+tokenizer.enable_padding()
+print(tokenizer.padding)
+
 c[0][:]
 
 
 # # Define Model
 # Defining the actual AI model
 
-# In[5]:
+# In[12]:
 
 
 # 3 Sentences with 2 delims
-seq_len = vocab.longest * (vocab.conversation_depth - 1) + 2
+seq_len = vocab.longest_tokenized * (vocab.conversation_depth - 1)
 
 # Thanks to
 # https://github.com/lucidrains/performer-pytorch
 model = PerformerLM(
-    num_tokens=len(pv.get_words()),
+    num_tokens=tokenizer.get_vocab_size(),
     max_seq_len=seq_len,
     dim=512,
     depth=6,
     heads=8,
     causal=False,
     nb_features=256,
-    generalized_attention=False,
+    generalized_attention=True,
     kernel_fn=nn.ReLU(),
     reversible=True,
     ff_chunks=10,
@@ -347,20 +385,18 @@ mask = torch.ones_like(x).bool()
 y = model(x, mask=mask)
 
 print(y.size())
-
-# make_dot(y.mean(), params=dict(model.named_parameters()))
 print(x.shape)
+
+make_dot(y.mean(), params=dict(model.named_parameters()))
 
 
 # # Train model
 
-# In[6]:
+# In[13]:
 
 
 optimizer = Adafactor(model.parameters())
 criterion = nn.CrossEntropyLoss()
-
-PRINT_EVERY = 40
 
 class ConversationIter:
 
@@ -377,12 +413,23 @@ class ConversationIter:
         self._i = 0
         return self
 
-    def __next__(self):
+    def __next__(self) -> Tuple[Encoding, Encoding]:
         if self._i >= len(self._vocab.conversations[self._context]):
             raise StopIteration
         x = self._vocab.conversations[self._context][self._i]
-        input = torch.tensor(self._parsed_vocab.conv_to_seq(x[:-1], self.max_seq_len))
-        target = torch.tensor(self._parsed_vocab.sen_to_seq(x[-1]['line'], seq_len=self.max_seq_len, add_pad=True))
+        l = [tokenizer.encode(y['line']) for y in x]
+        # i = Encoding.merge()
+        input = Encoding.merge(l[:-1])
+        target = l[-1]
+        input.pad(self._vocab.longest_tokenized)
+        target.pad(self._vocab.longest_tokenized)
+        # i = sum([j.ids[0 if i == 0 else 1:] for i, j in enumerate(l[-1])], [])
+        # t = l[-1].ids
+        # i.extend([tokenizer.pad_id] * (len(i) - vocab.longest_tokenized))
+        # input = torch.tensor()
+        # target = torch.tensor(l[-1].ids)
+        # input = torch.tensor(self._parsed_vocab.conv_to_seq(x[:-1], self.max_seq_len))
+        # target = torch.tensor(self._parsed_vocab.sen_to_seq(x[-1]['line'], seq_len=self.max_seq_len, add_pad=True))
         self._i += 1
         return input, target
 
@@ -391,10 +438,14 @@ def train(conv_iter: ConversationIter):
     accrued_loss = 0
     start = datetime.now()
     for i, (input, target) in enumerate(conv_iter):
+        # mask = torch.tensor(pv.gen_mask(input))
+        mask = torch.tensor(input.attention_mask).bool()
+
+        input = torch.tensor(input.ids)
+        target = torch.tensor(target.ids)
+
         input.to(device)
         target.to(device)
-
-        mask = torch.tensor(pv.gen_mask(input))
 
         input.unsqueeze_(0)
         target.unsqueeze_(0)
@@ -414,16 +465,15 @@ def train(conv_iter: ConversationIter):
         
         accrued_loss += loss.item()
         
-        if (i + 1) % PRINT_EVERY == 0:
-            print(f'  Iter {i+1} (Took {(datetime.now() - start).total_seconds():.3f}s): AverageLoss: {accrued_loss/PRINT_EVERY:.4f}')
+        if (i + 1) % print_every == 0:
+            print(f'  Iter {i+1} (Took {(datetime.now() - start).total_seconds():.3f}s): AverageLoss: {accrued_loss/print_every:.4f}')
             accrued_loss = 0
             start = datetime.now()
 
 
-# In[ ]:
+# In[14]:
 
 
-TRAIN_EPOCHS = 40
 SAVE_EVERY = 5
 
 conv_iter = ConversationIter(vocab, pv, seq_len)
@@ -433,10 +483,10 @@ def save_checkpoint(epoch: int):
         'epoch': epoch,
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict()
-    }, os.path.join(model_dir, f'checkpoints/amadeus-performer-{epoch}.pt'))
+    }, os.path.join(artifacts_dir, f'checkpoints/amadeus-performer-{epoch}.pt'))
 
-for epoch in range(TRAIN_EPOCHS):
-    print(f'Training epoch #{epoch+1} of {TRAIN_EPOCHS}:')
+for epoch in range(train_epochs):
+    print(f'Training epoch #{epoch+1} of {train_epochs}:')
     total = datetime.now()
     train(conv_iter)
     print(f'Epoch {epoch+1} took {(datetime.now()-total).total_seconds():.3f}s\n\n')
