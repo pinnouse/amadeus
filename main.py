@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[8]:
+# In[1]:
 
 
 import math
@@ -27,7 +27,7 @@ from adafactor import Adafactor
 
 def str2bool(v):
     if isinstance(v, bool):
-       return v
+        return v
     if v.lower() in ('yes', 'true', 't', 'y', '1'):
         return True
     elif v.lower() in ('no', 'false', 'f', 'n', '0'):
@@ -61,7 +61,7 @@ tokenizer = BertWordPieceTokenizer('data/bert-base-uncased-vocab.txt', lowercase
 # # Data Parsing
 # Parse through subtitles
 
-# In[9]:
+# In[2]:
 
 
 SOS_TOKEN = '<sos>'
@@ -242,7 +242,7 @@ class Vocab:
         return ParsedVocab(words, self.longest)
 
 
-# In[10]:
+# In[3]:
 
 
 FOLDERS = ['ditfxx_subs', 'steins_gate_subs']
@@ -324,7 +324,7 @@ print(f'Done! Num conversations: {convos}, num words: {len(pv.get_words())}, lon
 # print(words[:100])
 
 
-# In[11]:
+# In[4]:
 
 
 x = list(vocab.conversations)
@@ -355,7 +355,7 @@ c[0][:]
 # # Define Model
 # Defining the actual AI model
 
-# In[12]:
+# In[5]:
 
 
 # 3 Sentences with 2 delims
@@ -392,7 +392,7 @@ make_dot(y.mean(), params=dict(model.named_parameters()))
 
 # # Train model
 
-# In[13]:
+# In[6]:
 
 
 optimizer = Adafactor(model.parameters())
@@ -421,8 +421,8 @@ class ConversationIter:
         # i = Encoding.merge()
         input = Encoding.merge(l[:-1])
         target = l[-1]
-        input.pad(self._vocab.longest_tokenized)
-        target.pad(self._vocab.longest_tokenized)
+        input.pad(seq_len)
+        target.pad(seq_len)
         # i = sum([j.ids[0 if i == 0 else 1:] for i, j in enumerate(l[-1])], [])
         # t = l[-1].ids
         # i.extend([tokenizer.pad_id] * (len(i) - vocab.longest_tokenized))
@@ -471,7 +471,7 @@ def train(conv_iter: ConversationIter):
             start = datetime.now()
 
 
-# In[14]:
+# In[7]:
 
 
 SAVE_EVERY = 5
@@ -493,7 +493,7 @@ for epoch in range(train_epochs):
     
     if (epoch + 1) % SAVE_EVERY == 0:
         print('Saving checkpoint...')
-        save_checkpoint(epoch)
+        save_checkpoint(epoch + 1)
 
 
 # In[ ]:
