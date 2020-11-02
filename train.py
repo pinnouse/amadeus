@@ -27,13 +27,13 @@ def str2bool(v):
 
 parser = ArgumentParser()
 parser.add_argument('-o', '--o', dest='output', default='', help='Location of output(s)')
-parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
+parser.add_argument('-g', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
 parser.add_argument('-a', '--artifacts', dest='artifacts', default='', help='Directory to save artifacts such as checkpoints')
 parser.add_argument('-e', '--epochs', type=int, dest='train_epochs', default=10, help='Number of epochs to train on')
 parser.add_argument('-p', '--print_every', type=int, dest='print_every', default=100, help='After how many iterations to print a status')
-parser.add_argument('-v', '--validate_every', type=int, dest='validate_every', default=10, help='After how many epochs to validate loss on test set')
-parser.add_argument('-s', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
-parser.add_argument('-b', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
+parser.add_argument('-t', '--validate_every', type=int, dest='validate_every', default=10, help='After how many epochs to validate loss on test set')
+parser.add_argument('-T', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
+parser.add_argument('-A', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
 
 args, unknown = parser.parse_known_args()
 
