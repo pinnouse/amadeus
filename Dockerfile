@@ -1,9 +1,9 @@
 FROM pytorch/pytorch:latest
 
-RUN apt-get update
-RUN apt-get install -y build-essential
+RUN apt-get -q update
+RUN apt-get -qy install g\+\+ wget
 
-RUN curl https://amadeus-pinnouse.s3.ca-central-1.amazonaws.com/data.tar.gz | tar -xz
+RUN wget -c https://amadeus-pinnouse.s3.ca-central-1.amazonaws.com/data.tar.gz -O - | tar -x
 
 RUN pip install scikit-learn==0.23.2
 RUN pip install pytorch-fast-transformers==0.3.0
