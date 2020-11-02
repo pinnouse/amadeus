@@ -102,11 +102,16 @@ dependencies:
   - zlib=1.2.11=h62dcd97_4
   - zstd=1.4.5=h04227a9_0
   - pip:
+    - axial-positional-embedding==0.2.1
     - einops==0.3.0
     - future==0.18.2
-    - performer-pytorch==0.5.0
+    - local-attention==1.0.2
+    - performer-pytorch==0.5.1
+    - product-key-memory==0.1.10
     - python-graphviz==0.14.2
     - pytorch-fast-transformers==0.3.0
+    - reformer-pytorch==1.2.0
     - tokenizers==0.9.3
     - torchviz==0.0.1
+    - tqdm==4.51.0
 prefix: C:\ProgramData\Anaconda3\envs\pytorch_env
