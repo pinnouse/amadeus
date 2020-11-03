@@ -35,6 +35,9 @@ parser.add_argument('-t', '--validate_every', type=int, dest='validate_every', d
 parser.add_argument('-T', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
 parser.add_argument('-A', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
 
+parser.add_argument('--input_length', type=int, dest='input_length', default=4096, help='Maximum input sequence length')
+parser.add_argument('--output_length', type=int, dest='output_length', default=1024, help='Maximum output sequence length')
+
 args, unknown = parser.parse_known_args()
 
 use_cuda = args.use_cuda and torch.has_cuda
@@ -43,6 +46,9 @@ device = 'cuda' if use_cuda else 'cpu'
 
 model_dir = args.output
 artifacts_dir = args.artifacts
+
+input_length = args.input_length
+output_length = args.output_length
 
 train_epochs = max(args.train_epochs, 1)
 print_every = max(args.print_every, 1)
@@ -168,7 +174,7 @@ print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longes
 
 from amadeus_model import Amadeus
 
-model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=4096, dec_seq_len=512)
+model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=input_length, dec_seq_len=output_length)
 
 
 # In[5]:
