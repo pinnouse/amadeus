@@ -168,7 +168,7 @@ print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longes
 
 from amadeus_model import Amadeus
 
-model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=2048, dec_seq_len=512)
+model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=4096, dec_seq_len=512)
 
 
 # In[5]:
