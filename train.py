@@ -66,7 +66,11 @@ vocab = Vocab(conversation_depth=4)
 # In[3]:
 
 
-FOLDERS = ['ditfxx_subs', 'steins_gate_subs', 'guilty_crown_subs', 'ngnl_subs', 'rezero_subs']
+FOLDERS = [
+    'ditfxx_subs', 'steins_gate_subs', 'guilty_crown_subs',
+    'ngnl_subs', 'rezero_subs', 'promised_neverland_subs', 'your_lie_subs',
+    'shield_hero_subs', 'fate_ubw_subs'
+    ]
 CONVERSATION_DEPTH = 4
 
 multiplier = [60, 60 * 60, 24 * 60 * 60]
@@ -208,10 +212,13 @@ test_set = ConversationIter(test_set, in_seq_len=model.in_seq_len,     out_seq_l
 
 from adafactor import Adafactor
 
+has_gradient = False
 try:
     from gradient_statsd import Client
     has_gradient = True
     client = Client()
+except ImportError:
+    print('gradient_statsd package is not installed, not using gradient metrics.')
 
 optimizer = Adafactor(model.parameters())
 
