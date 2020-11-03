@@ -285,12 +285,14 @@ def validate(conv_iter: ConversationIter):
     return loss.item()
 
 def save_checkpoint(epoch: int):
+    checkpoint_name = f'amadeus-performer-{format_time(start_time)}-{epoch}.pt'
     Path(os.path.join(artifacts_dir, 'checkpoints')).mkdir(parents=True, exist_ok=True)
     torch.save({
         'epoch': epoch,
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict()
-    }, os.path.join(artifacts_dir, 'checkpoints', f'amadeus-performer-{format_time(start_time)}-{epoch}.pt'))
+    }, os.path.join(artifacts_dir, 'checkpoints', checkpoint_name))
+    print(f'Saved checkpoint: {checkpoint_name}')
 
 
 # In[8]:
