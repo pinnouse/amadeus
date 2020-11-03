@@ -250,14 +250,15 @@ def train(conv_iter: ConversationIter):
         optimizer.step()
         
         accrued_loss += loss.item()
+        total_loss += loss.item()
+        counter += 1
         
         if (i + 1) % print_every == 0:
             print(f'  Iter {i+1} (Took {(datetime.now() - start).total_seconds():.3f}s): AverageLoss: {accrued_loss/print_every:.4f}')
             total_loss += accrued_loss
             accrued_loss = 0
             start = datetime.now()
-        counter += 1
-    return total_loss / counter
+    return total_loss / max(counter, 1)
 
 def validate(conv_iter: ConversationIter):
     model.eval(False)
