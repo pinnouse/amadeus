@@ -44,7 +44,7 @@ device = 'cuda' if use_cuda else 'cpu'
 model_dir = args.output
 artifacts_dir = args.artifacts
 
-train_epochs = max(args.train_epochs, 10)
+train_epochs = max(args.train_epochs, 1)
 print_every = max(args.print_every, 1)
 validate_every = max(args.validate_every, 0)
 save_every = max(args.save_every, 0)
@@ -208,6 +208,11 @@ test_set = ConversationIter(test_set, in_seq_len=model.in_seq_len,     out_seq_l
 
 from adafactor import Adafactor
 
+try:
+    from gradient_statsd import Client
+    has_gradient = True
+    client = Client()
+
 optimizer = Adafactor(model.parameters())
 
 start_time = datetime.now()
@@ -217,6 +222,8 @@ def format_time(dt: datetime) -> str:
 
 def train(conv_iter: ConversationIter):
     model.train()
+    total_loss = 0
+    counter = 0
     accrued_loss = 0
     start = datetime.now()
     for i, (inputs, targets) in enumerate(conv_iter):
@@ -239,8 +246,11 @@ def train(conv_iter: ConversationIter):
         
         if (i + 1) % print_every == 0:
             print(f'  Iter {i+1} (Took {(datetime.now() - start).total_seconds():.3f}s): AverageLoss: {accrued_loss/print_every:.4f}')
+            total_loss += accrued_loss
             accrued_loss = 0
             start = datetime.now()
+        counter += 1
+    return total_loss / counter
 
 def validate(conv_iter: ConversationIter):
     model.eval(False)
@@ -257,6 +267,7 @@ def validate(conv_iter: ConversationIter):
         
         loss = model(inputs, targets, mask=mask)
         print(f'Validation loss: {loss.item()}')
+    return loss.item()
 
 def save_checkpoint(epoch: int):
     Path(os.path.join(artifacts_dir, 'checkpoints')).mkdir(parents=True, exist_ok=True)
@@ -270,19 +281,28 @@ def save_checkpoint(epoch: int):
 # In[8]:
 
 
-print(f'Starting train on device: {device}\n')
+print(f'Starting train on device: {device}')
+print(f'Training on {train_epochs} epochs with batch size of {batch_size}')
+print(f'Validating every {validate_every} and saving every {save_every}\n')
+
 for epoch in range(train_epochs):
     prompt = f'Training epoch #{epoch+1} of {train_epochs}:'
     print(f'{prompt}\n{"=" * len(prompt)}')
 
     total = datetime.now()
 
-    train(train_set)
+    total_loss = train(train_set)
+
+    if has_gradient:
+        client.increment('EPOCHS', 1)
+        client.gauge('LOSS_PER_EPOCH', total_loss)
 
     print(f'Epoch {epoch+1} took {(datetime.now()-total).total_seconds():.3f}s')
 
     if validate_every > 0 and (epoch + 1) % validate_every == 0:
-        validate(test_set)
+        validate_loss = validate(test_set)
+        if has_gradient:
+            client.gauge('VALIDATE_LOSS', validate_loss)
 
     if save_every > 0 and (epoch + 1) % save_every == 0:
         save_checkpoint(epoch + 1)
