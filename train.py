@@ -198,6 +198,7 @@ from sklearn.model_selection import train_test_split
 from vocab import ConversationIter
 
 conversations = list(vocab.conversations.values())
+conversations = filter(lambda c: len(c) > 0, conversations)
 
 train_set, test_set = train_test_split(conversations, test_size=0.2)
 
