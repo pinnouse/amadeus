@@ -140,7 +140,7 @@ class Amadeus(nn.Module):
         return out
 
 
-    def forward(self, inputs: torch.Tensor, targets: torch.Tensor, **kwargs):
+    def forward(self, inputs: torch.Tensor, targets: torch.Tensor, return_loss: bool = False, **kwargs):
         """Forward pass calculates loss for model
         
         Args:
@@ -150,8 +150,10 @@ class Amadeus(nn.Module):
         """
 
         mask = kwargs.pop('mask', torch.ones_like(inputs, dtype=bool))
-        
         enc_keys = self.enc(inputs, mask=mask, **kwargs)
+
+        if not return_loss:
+            return self.dec(targets, keys=enc_keys)
 
         # Split to train spitting out next word
         xi = targets[:, :-1]
