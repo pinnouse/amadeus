@@ -252,7 +252,7 @@ def train(conv_iter: ConversationIter):
             mask = mask.cuda()
 
         optimizer.zero_grad()
-        loss = model(inputs, targets, mask=mask)
+        loss = model(inputs, targets, mask=mask, return_loss=True)
         loss.backward()
         optimizer.step()
         
@@ -280,7 +280,7 @@ def validate(conv_iter: ConversationIter):
             targets = targets.cuda()
             mask = mask.cuda()
         
-        loss = model(inputs, targets, mask=mask)
+        loss = model(inputs, targets, mask=mask, return_loss=True)
         print(f'Validation loss: {loss.item()}')
     return loss.item()
 
