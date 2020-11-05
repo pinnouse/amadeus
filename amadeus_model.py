@@ -32,8 +32,8 @@ class Amadeus(nn.Module):
     def __init__(self, num_tokens: int, dims: int = 256, \
         enc_seq_len: int = 1024, enc_layers: int = 1, \
         dec_seq_len: int = 1024, dec_layers: int = 10, \
-        heads: int = 8, nb_features: int = 256, kernel_fn: nn.Module = nn.LeakyReLU(), \
-        pad_token_id: int = 0):
+        heads: int = 8, local_attn_heads: int = 4, nb_features: int = 256, \
+        kernel_fn: nn.Module = nn.LeakyReLU(), pad_token_id: int = 0):
         """Initializer for Amadeus model
 
         Args:
@@ -56,7 +56,8 @@ class Amadeus(nn.Module):
         enc = PerformerLM(num_tokens=num_tokens, max_seq_len=enc_seq_len, \
             dim=dims, depth=enc_layers, heads=heads, nb_features=nb_features, \
             generalized_attention=True, kernel_fn=kernel_fn, reversible=True, \
-            emb_dropout=0.1, ff_dropout=0., attn_dropout=0.1)
+            emb_dropout=0.1, ff_dropout=0., attn_dropout=0.1, \
+            local_attn_heads=local_attn_heads)
         enc.to_logits = nn.modules.Identity()
         dec = ReformerLM(num_tokens=num_tokens, max_seq_len=dec_seq_len, \
             n_hashes=4, dim=dims, depth=dec_layers, heads=heads, causal=True)
