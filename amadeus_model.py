@@ -6,9 +6,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from performer_pytorch import PerformerLM
-from reformer_pytorch import ReformerLM
-from reformer_pytorch.autopadder import Autopadder
+from performer_pytorch import PerformerLM, AutoregressiveWrapper
+from torch.nn.functional import pad
+# from reformer_pytorch import ReformerLM
+# from reformer_pytorch.autopadder import Autopadder
 
 def top_k(logits, thresh = 0.9):
     k = int((1 - thresh) * logits.shape[-1])
@@ -59,14 +60,27 @@ class Amadeus(nn.Module):
             emb_dropout=0.1, ff_dropout=0., attn_dropout=0.1, \
             local_attn_heads=local_attn_heads)
         enc.to_logits = nn.modules.Identity()
-        dec = ReformerLM(num_tokens=num_tokens, max_seq_len=dec_seq_len, \
-            n_hashes=4, dim=dims, depth=dec_layers, heads=heads, causal=True)
+        # dec = ReformerLM(num_tokens=num_tokens, max_seq_len=dec_seq_len, \
+        #     n_hashes=4, dim=dims, depth=dec_layers, heads=heads, causal=True)
+        dec = PerformerLM(num_tokens=num_tokens, max_seq_len=dec_seq_len, \
+            dim=dims, depth=dec_layers, heads=heads, nb_features=nb_features, \
+            generalized_attention=True, kernel_fn=kernel_fn, reversible=True, \
+            emb_dropout=0.1, ff_dropout=0.1, attn_dropout=0.1, ff_glu=True)
 
-        self.enc = enc
-        self.dec = Autopadder(dec)
+        self.enc = AutoregressiveWrapper(enc)
+        # self.dec = Autopadder(dec)
+        self.dec = AutoregressiveWrapper(dec, ignore_index=0, pad_value=0)
         
         self.in_seq_len = enc.max_seq_len
         self.out_seq_len = dec.max_seq_len
+
+    def copy_weights(self):
+        self.enc.net.fix_projection_matrices_()
+        for i in range(min(len(self.enc.net.performer.net.blocks), len(self.dec.net.performer.net.blocks))):
+            self.dec.net.performer.net.blocks[i].f.net.fn.to_q.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_q.weight
+            self.dec.net.performer.net.blocks[i].f.net.fn.to_k.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_k.weight
+            self.dec.net.performer.net.blocks[i].f.net.fn.to_v.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_v.weight
+            self.dec.net.performer.net.blocks[i].f.net.fn.to_out.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_out.weight
 
     def eval(self, fix_proj_matrices: bool = True):
         """Set to eval mode"""
@@ -75,7 +89,7 @@ class Amadeus(nn.Module):
         self.dec.eval()
         
         if fix_proj_matrices:
-            self.enc.fix_projection_matrices_() # As of performer-pytorch 0.5.1
+            self.enc.net.fix_projection_matrices_() # As of performer-pytorch 0.5.1
 
         # https://github.com/lucidrains/performer-pytorch/issues/10
         # for layer in self.dec.performer.performer.net.layers:
@@ -101,44 +115,56 @@ class Amadeus(nn.Module):
         """
         assert len(input_seq.shape) == len(start_tokens.shape)
         num_dims = len(input_seq.shape)
-
         if num_dims == 1:
             input_seq = input_seq[None, :]
             start_tokens = start_tokens[None, :]
 
-        self.enc.eval()
-        self.dec.eval()
-
-        b, t = start_tokens.shape
-
-        enc_keys = self.enc(input_seq)
-
-        out = start_tokens
-
-        if mask is None:
-            mask = torch.full_like(out, True, dtype=torch.bool, device=out.device)
-
-        for _ in range(self.out_seq_len):
-            x = out[:, -self.out_seq_len:]
-            mask = mask[:, -self.out_seq_len:]
-
-            logits = self.dec(x, input_mask=mask, keys=enc_keys)[:, -1, :] # Get the last predicted element's probabilities
-            filtered_logits = top_k(logits, thresh=filter_thresh)
-            probs = F.softmax(filtered_logits / temperature, dim=1)
-            sample = torch.multinomial(probs, 1)
-
-            out = torch.cat((out, sample), dim=-1)
-            mask = F.pad(mask, (0, 1), value=True)
-
-            if eos_token >= 0 and (sample == eos_token).all():
-                break
-        
-        out = out[:, t:] # Truncate the start
-
+        self.enc(input_seq, mask=mask)
+        self.copy_weights()
+        dec = self.dec.generate(start_tokens, self.out_seq_len, \
+            eos_token=eos_token, temperature=temperature, filter_thres=filter_thresh)
         if num_dims == 1:
-            out = out.squeeze(0)
+            dec = dec.squeeze(0)
+        return dec
+        # num_dims = len(input_seq.shape)
 
-        return out
+        # if num_dims == 1:
+        #     input_seq = input_seq[None, :]
+        #     start_tokens = start_tokens[None, :]
+
+        # self.enc.eval()
+        # self.dec.eval()
+
+        # b, t = start_tokens.shape
+
+        # enc_keys = self.enc(input_seq)
+
+        # out = start_tokens
+
+        # if mask is None:
+        #     mask = torch.full_like(out, True, dtype=torch.bool, device=out.device)
+
+        # for _ in range(self.out_seq_len):
+        #     x = out[:, -self.out_seq_len:]
+        #     mask = mask[:, -self.out_seq_len:]
+
+        #     logits = self.dec(x, input_mask=mask, keys=enc_keys)[:, -1, :] # Get the last predicted element's probabilities
+        #     filtered_logits = top_k(logits, thresh=filter_thresh)
+        #     probs = F.softmax(filtered_logits / temperature, dim=1)
+        #     sample = torch.multinomial(probs, 1)
+
+        #     out = torch.cat((out, sample), dim=-1)
+        #     mask = F.pad(mask, (0, 1), value=True)
+
+        #     if eos_token >= 0 and (sample == eos_token).all():
+        #         break
+        
+        # out = out[:, t:] # Truncate the start
+
+        # if num_dims == 1:
+        #     out = out.squeeze(0)
+
+        # return out
 
 
     def forward(self, inputs: torch.Tensor, targets: torch.Tensor, return_loss: bool = False, **kwargs):
@@ -151,15 +177,18 @@ class Amadeus(nn.Module):
         """
 
         mask = kwargs.pop('mask', torch.ones_like(inputs, dtype=bool))
-        enc_keys = self.enc(inputs, mask=mask, **kwargs)
+        self.enc(inputs, mask=mask, **kwargs)
+        self.copy_weights()
 
-        if not return_loss:
-            return self.dec(targets, keys=enc_keys)
+        return self.dec(targets, return_loss=return_loss)
 
-        # Split to train spitting out next word
-        xi = targets[:, :-1]
-        xo = targets[:, 1:]
-        dec = self.dec(xi, keys=enc_keys)
+        # if not return_loss:
+        #     return self.dec(targets, keys=enc_keys)
 
-        loss = F.cross_entropy(dec.transpose(1, 2), xo, ignore_index=self.ignore_index)
-        return loss
+        # # Split to train spitting out next word
+        # xi = targets[:, :-1]
+        # xo = targets[:, 1:]
+        # dec = self.dec(xi, keys=enc_keys)
+
+        # loss = F.cross_entropy(dec.transpose(1, 2), xo, ignore_index=self.ignore_index)
+        # return loss

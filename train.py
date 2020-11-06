@@ -104,9 +104,11 @@ def normalize_text(text: str) -> str:
 number_match = re.compile(r'\d+')
 def match_num(text: str) -> int:
     x = number_match.findall(text)
-    return int(x[0] if len(x) > 0 else 0)
+    return int(''.join(x) if len(x) > 0 else 0)
 
-for folder in FOLDERS:
+for folder in os.listdir('data'):
+    if not os.path.isdir(os.path.join('data', folder)):
+        continue
     dir = os.listdir(os.path.join('data', folder))
     dir.sort(key=match_num)
     print(f'Parsing folder: {folder}')
@@ -169,7 +171,7 @@ print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longes
 # 
 # Using preset hyperparameters from Amadeus
 
-# In[7]:
+# In[4]:
 
 
 from amadeus_model import Amadeus
@@ -177,10 +179,12 @@ from amadeus_model import Amadeus
 model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=input_length, dec_seq_len=output_length)
 
 
+# # Train the model
+
 # In[5]:
 
 
-from torchviz import make_dot
+# from torchviz import make_dot
 
 in_seq = torch.randint(0, vocab.tokenizer.get_vocab_size(), (1, model.in_seq_len))
 out_seq = torch.randint(0, vocab.tokenizer.get_vocab_size(), (1, model.out_seq_len))
@@ -188,15 +192,19 @@ mask = torch.ones(1, model.in_seq_len).bool()
 
 y = model(in_seq, out_seq, mask=mask)
 
+# make_dot(y.mean(), params=dict(model.named_parameters()))
+
+
+# In[6]:
+
+
 if use_cuda:
     model.cuda()
 
 
-# # Train the model
-
 # ## Split train/test data
 
-# In[6]:
+# In[7]:
 
 
 from sklearn.model_selection import train_test_split
@@ -214,7 +222,7 @@ test_set = ConversationIter(test_set, in_seq_len=model.in_seq_len,     out_seq_l
 
 # ## Train the model
 
-# In[7]:
+# In[8]:
 
 
 from adafactor import Adafactor
@@ -295,7 +303,7 @@ def save_checkpoint(epoch: int):
     print(f'Saved checkpoint: {checkpoint_name}')
 
 
-# In[8]:
+# In[9]:
 
 
 print(f'Starting train on device: {device}')

@@ -6,9 +6,9 @@ from amadeus_model import Amadeus
 tokenizer = BertWordPieceTokenizer('data/bert-base-uncased-vocab.txt', lowercase=True)
 
 model = Amadeus(num_tokens=tokenizer.get_vocab_size(), enc_seq_len=4096, dec_seq_len=1024)
-model.load_state_dict(torch.load('models/amadeus-performer-2020-11-03-16.54.13.pt'))
+model.eval(True)
+model.load_state_dict(torch.load('models/amadeus-performer-2020-11-06-12.47.52.pt'))
 model.cuda()
-model.eval()
 
 run = True
 
