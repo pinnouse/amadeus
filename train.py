@@ -36,7 +36,7 @@ parser.add_argument('-T', '--save_every', type=int, dest='save_every', default=0
 parser.add_argument('-A', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
 
 parser.add_argument('--input_length', type=int, dest='input_length', default=4096, help='Maximum input sequence length')
-parser.add_argument('--output_length', type=int, dest='output_length', default=1024, help='Maximum output sequence length')
+parser.add_argument('--output_length', type=int, dest='output_length', default=4096, help='Maximum output sequence length')
 
 args, unknown = parser.parse_known_args()
 
@@ -199,7 +199,7 @@ y = model(in_seq, out_seq, mask=mask)
 
 
 if use_cuda:
-    model.cuda()
+    model = model.cuda()
 
 
 # ## Split train/test data
@@ -261,7 +261,7 @@ def train(conv_iter: ConversationIter):
 
         optimizer.zero_grad()
         loss = model(inputs, targets, mask=mask, return_loss=True)
-        loss.backward()
+        loss.mean().backward()
         optimizer.step()
         
         accrued_loss += loss.item()

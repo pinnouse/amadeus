@@ -1,6 +1,7 @@
 name: pytorch_env
 channels:
   - pytorch
+  - conda-forge
   - anaconda
   - defaults
 dependencies:
@@ -9,11 +10,11 @@ dependencies:
   - backcall=0.2.0=py_0
   - blas=1.0=mkl
   - bleach=3.2.1=py_0
-  - ca-certificates=2020.10.14=0
-  - certifi=2020.6.20=pyhd3eb1b0_3
+  - ca-certificates=2020.11.8=h5b45459_0
+  - certifi=2020.11.8=py38haa244fe_0
   - cffi=1.14.3=py38h7a1dbc1_0
   - colorama=0.4.3=py_0
-  - cudatoolkit=10.2.89=h74a9793_1
+  - cudatoolkit=11.0.221=h74a9793_0
   - decorator=4.4.2=py_0
   - defusedxml=0.6.0=py_0
   - entrypoints=0.3=py38_0
@@ -52,7 +53,7 @@ dependencies:
   - msys2-conda-epoch=20160418=1
   - nbconvert=5.6.1=py38_0
   - nbformat=5.0.7=py_0
-  - ninja=1.10.1=py38h7ef1ec2_0
+  - ninja=1.10.1=h587dcfd_2
   - notebook=6.1.1=py38_0
   - numpy=1.19.1=py38h5510c5b_0
   - numpy-base=1.19.1=py38ha3acd2a_0
@@ -73,7 +74,8 @@ dependencies:
   - pyrsistent=0.17.3=py38he774522_0
   - python=3.8.5=h5fd99cc_1
   - python-dateutil=2.8.1=py_0
-  - pytorch=1.7.0=py3.8_cuda102_cudnn7_0
+  - python_abi=3.8=1_cp38
+  - pytorch=1.7.0=py3.8_cuda110_cudnn8_0
   - pywin32=227=py38he774522_1
   - pywinpty=0.5.7=py38_0
   - pyzmq=19.0.2=py38ha925a31_1
@@ -88,7 +90,7 @@ dependencies:
   - threadpoolctl=2.1.0=pyh5ca1d4c_0
   - tk=8.6.10=he774522_0
   - torchaudio=0.7.0=py38
-  - torchvision=0.8.1=py38_cu102
+  - torchvision=0.8.1=py38_cu110
   - tornado=6.0.4=py38he774522_1
   - traitlets=5.0.4=py_0
   - typing_extensions=3.7.4.3=py_0
@@ -106,13 +108,15 @@ dependencies:
   - zstd=1.4.5=h04227a9_0
   - pip:
     - axial-positional-embedding==0.2.1
+    - dataclasses==0.6
     - einops==0.3.0
     - future==0.18.2
     - local-attention==1.1.1
-    - performer-pytorch==0.7.4
+    - performer-pytorch==0.10.0
     - product-key-memory==0.1.10
     - python-graphviz==0.14.2
+    - pytorch-fast-transformers==0.3.0
+    - pyyaml==5.3.1
     - tokenizers==0.9.3
     - torchviz==0.0.1
 prefix: C:\Users\cupof\anaconda3\envs\pytorch_env
-

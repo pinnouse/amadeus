@@ -59,28 +59,20 @@ class Amadeus(nn.Module):
             generalized_attention=True, kernel_fn=kernel_fn, reversible=True, \
             emb_dropout=0.1, ff_dropout=0., attn_dropout=0.1, \
             local_attn_heads=local_attn_heads)
-        enc.to_logits = nn.modules.Identity()
         # dec = ReformerLM(num_tokens=num_tokens, max_seq_len=dec_seq_len, \
         #     n_hashes=4, dim=dims, depth=dec_layers, heads=heads, causal=True)
         dec = PerformerLM(num_tokens=num_tokens, max_seq_len=dec_seq_len, \
             dim=dims, depth=dec_layers, heads=heads, nb_features=nb_features, \
             generalized_attention=True, kernel_fn=kernel_fn, reversible=True, \
+            causal=True, cross_attend=True, \
             emb_dropout=0.1, ff_dropout=0.1, attn_dropout=0.1, ff_glu=True)
 
-        self.enc = AutoregressiveWrapper(enc)
+        self.enc = AutoregressiveWrapper(enc, pad_value=0)
         # self.dec = Autopadder(dec)
         self.dec = AutoregressiveWrapper(dec, ignore_index=0, pad_value=0)
         
         self.in_seq_len = enc.max_seq_len
         self.out_seq_len = dec.max_seq_len
-
-    def copy_weights(self):
-        self.enc.net.fix_projection_matrices_()
-        for i in range(min(len(self.enc.net.performer.net.blocks), len(self.dec.net.performer.net.blocks))):
-            self.dec.net.performer.net.blocks[i].f.net.fn.to_q.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_q.weight
-            self.dec.net.performer.net.blocks[i].f.net.fn.to_k.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_k.weight
-            self.dec.net.performer.net.blocks[i].f.net.fn.to_v.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_v.weight
-            self.dec.net.performer.net.blocks[i].f.net.fn.to_out.weight = self.enc.net.performer.net.blocks[i].f.net.fn.to_out.weight
 
     def eval(self, fix_proj_matrices: bool = True):
         """Set to eval mode"""
@@ -119,10 +111,10 @@ class Amadeus(nn.Module):
             input_seq = input_seq[None, :]
             start_tokens = start_tokens[None, :]
 
-        self.enc(input_seq, mask=mask)
-        self.copy_weights()
+        encodings = self.enc(input_seq, mask=mask, return_encodings=True)
         dec = self.dec.generate(start_tokens, self.out_seq_len, \
-            eos_token=eos_token, temperature=temperature, filter_thres=filter_thresh)
+            eos_token=eos_token, temperature=temperature, filter_thres=filter_thresh, \
+            context=encodings, context_mask=mask)
         if num_dims == 1:
             dec = dec.squeeze(0)
         return dec
@@ -177,10 +169,9 @@ class Amadeus(nn.Module):
         """
 
         mask = kwargs.pop('mask', torch.ones_like(inputs, dtype=bool))
-        self.enc(inputs, mask=mask, **kwargs)
-        self.copy_weights()
+        encodings = self.enc(inputs, mask=mask, return_encodings=True)
 
-        return self.dec(targets, return_loss=return_loss)
+        return self.dec(targets, return_loss=return_loss, context=encodings, context_mask=mask)
 
         # if not return_loss:
         #     return self.dec(targets, keys=enc_keys)
