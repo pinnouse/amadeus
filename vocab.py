@@ -15,7 +15,7 @@ class Vocab:
 
     DEFAULT_CONTEXT = 'default'
 
-    def __init__(self, conversation_depth: int = 4):
+    def __init__(self, max_seq_len: int, conversation_depth: int = 4):
         self.words = {}
         self._context = Vocab.DEFAULT_CONTEXT
         self.conversations = {}
@@ -24,6 +24,7 @@ class Vocab:
         self.longest = 0
         self.longest_tokenized = 0
         self.tokenizer = BertWordPieceTokenizer('data/bert-base-uncased-vocab.txt', lowercase=True)
+        self.tokenizer.enable_truncation(max_seq_len)
 
     def add_word(self, word: str) -> None:
         word = word.lower()
@@ -79,7 +80,7 @@ class Vocab:
 class ConversationIter:
 
     def __init__(self, conversations: List[List[object]], in_seq_len: int, \
-        out_seq_len, tokenizer: BaseTokenizer, batch_size: int = 1):
+        out_seq_len: int, tokenizer: BaseTokenizer, batch_size: int = 1):
         self._contexts = []
         self._conversations = conversations
         self.in_seq_len = in_seq_len
@@ -116,6 +117,8 @@ class ConversationIter:
             t = l[-1]
             i.pad(self.in_seq_len)
             t.pad(self.out_seq_len)
+            i.truncate(self.in_seq_len)
+            t.truncate(self.out_seq_len)
             inputs.append(i)
             targets.append(i)
         self._i += 1

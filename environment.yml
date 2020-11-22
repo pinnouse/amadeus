@@ -10,8 +10,8 @@ dependencies:
   - backcall=0.2.0=py_0
   - blas=1.0=mkl
   - bleach=3.2.1=py_0
-  - ca-certificates=2020.11.8=h5b45459_0
-  - certifi=2020.11.8=py38haa244fe_0
+  - ca-certificates=2020.10.14=0
+  - certifi=2020.6.20=pyhd3eb1b0_3
   - cffi=1.14.3=py38h7a1dbc1_0
   - colorama=0.4.3=py_0
   - cudatoolkit=11.0.221=h74a9793_0
@@ -74,7 +74,6 @@ dependencies:
   - pyrsistent=0.17.3=py38he774522_0
   - python=3.8.5=h5fd99cc_1
   - python-dateutil=2.8.1=py_0
-  - python_abi=3.8=1_cp38
   - pytorch=1.7.0=py3.8_cuda110_cudnn8_0
   - pywin32=227=py38he774522_1
   - pywinpty=0.5.7=py38_0

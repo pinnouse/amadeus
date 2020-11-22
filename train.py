@@ -35,8 +35,8 @@ parser.add_argument('-t', '--validate_every', type=int, dest='validate_every', d
 parser.add_argument('-T', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
 parser.add_argument('-A', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
 
-parser.add_argument('--input_length', type=int, dest='input_length', default=4096, help='Maximum input sequence length')
-parser.add_argument('--output_length', type=int, dest='output_length', default=4096, help='Maximum output sequence length')
+parser.add_argument('--input_length', type=int, dest='input_length', default=1024, help='Maximum input sequence length')
+parser.add_argument('--output_length', type=int, dest='output_length', default=1024, help='Maximum output sequence length')
 
 args, unknown = parser.parse_known_args()
 
@@ -66,7 +66,7 @@ batch_size = max(args.batch_size, 1)
 
 from vocab import Vocab
 
-vocab = Vocab(conversation_depth=4)
+vocab = Vocab(input_length, conversation_depth=4)
 
 
 # In[3]:

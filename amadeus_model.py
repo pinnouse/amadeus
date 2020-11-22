@@ -30,10 +30,10 @@ class Amadeus(nn.Module):
     """
 
 
-    def __init__(self, num_tokens: int, dims: int = 256, \
+    def __init__(self, num_tokens: int, dims: int = 16, \
         enc_seq_len: int = 1024, enc_layers: int = 1, \
-        dec_seq_len: int = 1024, dec_layers: int = 10, \
-        heads: int = 8, local_attn_heads: int = 4, nb_features: int = 256, \
+        dec_seq_len: int = 1024, dec_layers: int = 6, \
+        heads: int = 8, local_attn_heads: int = 4, nb_features: int = 64, \
         kernel_fn: nn.Module = nn.LeakyReLU(), pad_token_id: int = 0):
         """Initializer for Amadeus model
 
@@ -52,8 +52,7 @@ class Amadeus(nn.Module):
         super().__init__()
 
         self.ignore_index = pad_token_id
-        self.in_seq_len = enc_seq_len
-        self.out_seq_len = dec_seq_len
+
         enc = PerformerLM(num_tokens=num_tokens, max_seq_len=enc_seq_len, \
             dim=dims, depth=enc_layers, heads=heads, nb_features=nb_features, \
             generalized_attention=True, kernel_fn=kernel_fn, reversible=True, \
@@ -70,6 +69,9 @@ class Amadeus(nn.Module):
         self.enc = AutoregressiveWrapper(enc, pad_value=0)
         # self.dec = Autopadder(dec)
         self.dec = AutoregressiveWrapper(dec, ignore_index=0, pad_value=0)
+
+        self.auto_enc = nn.Linear(enc_seq_len * dims, dec_seq_len * dims)
+        self.dims = dims
         
         self.in_seq_len = enc.max_seq_len
         self.out_seq_len = dec.max_seq_len
@@ -170,8 +172,12 @@ class Amadeus(nn.Module):
 
         mask = kwargs.pop('mask', torch.ones_like(inputs, dtype=bool))
         encodings = self.enc(inputs, mask=mask, return_encodings=True)
+        encodings = encodings.flatten(1)
+        encodings = self.auto_enc(encodings)
+        encodings = F.softmax(encodings, dim=1)
+        encodings = encodings.reshape((-1, self.out_seq_len, self.dims))
 
-        return self.dec(targets, return_loss=return_loss, context=encodings, context_mask=mask)
+        return self.dec(targets, return_loss=return_loss, context=encodings)
 
         # if not return_loss:
         #     return self.dec(targets, keys=enc_keys)
