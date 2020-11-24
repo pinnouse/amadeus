@@ -61,7 +61,7 @@ class Vocab:
         hc = self._held_conversations[self._context] # Held Conversation
         lc = hc[-1] # Last conversation
         # Same speaker
-        if (len(lc['speaker']) > 0 and lc['speaker'] == conversation['speaker']) or \
+        if (len(lc['speaker']) > 0 and lc['speaker'] == conversation['speaker'] and lc['speaker'] != 'NTP') or \
             (len(lc['speaker']) == 0 and len(conversation['speaker']) == 0 and len(conversation['line']) > 0 and conversation['line'][0].islower()) and \
             conversation['when'] - lc['when'] < 1000 * 60 * 1.5:
             hc[-1]['when'] = conversation['when']
