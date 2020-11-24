@@ -165,18 +165,10 @@ convos = 0
 for k, c in vocab.conversations.items():
     convos += len(c)
 
-i = 1
-while i < vocab.longest_tokenized:
-    i *= 2
-
-j = 1
-while j < vocab.longest_tokenized * (CONVERSATION_DEPTH - 1):
-    j *= 2
-
 if input_length == 0:
-    input_length = i
+    input_length = math.ceil(math.log2(vocab.longest_tokenized))
 if output_length == 0:
-    output_length = j
+    output_length = math.ceil(math.log2(vocab.longest_tokenized * (CONVERSATION_DEPTH - 1)))
 
 print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longest convo: {vocab.longest_tokenized}\n\n')
 
