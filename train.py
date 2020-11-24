@@ -35,8 +35,8 @@ parser.add_argument('-t', '--validate_every', type=int, dest='validate_every', d
 parser.add_argument('-T', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
 parser.add_argument('-A', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
 
-parser.add_argument('--input_length', type=int, dest='input_length', default=1024, help='Maximum input sequence length')
-parser.add_argument('--output_length', type=int, dest='output_length', default=1024, help='Maximum output sequence length')
+parser.add_argument('--input_length', type=int, dest='input_length', default=0, help='Maximum input sequence length')
+parser.add_argument('--output_length', type=int, dest='output_length', default=0, help='Maximum output sequence length')
 
 args, unknown = parser.parse_known_args()
 
@@ -66,18 +66,19 @@ batch_size = max(args.batch_size, 1)
 
 from vocab import Vocab
 
-vocab = Vocab(input_length, conversation_depth=4)
+CONVERSATION_DEPTH = 4
+
+vocab = Vocab(input_length, conversation_depth=CONVERSATION_DEPTH)
 
 
 # In[3]:
 
 
-FOLDERS = [
-    'ditfxx_subs', 'steins_gate_subs', 'guilty_crown_subs',
-    'ngnl_subs', 'rezero_subs', 'promised_neverland_subs', 'your_lie_subs',
-    'shield_hero_subs', 'fate_ubw_subs'
-    ]
-CONVERSATION_DEPTH = 4
+# FOLDERS = [
+#     'ditfxx_subs', 'steins_gate_subs', 'guilty_crown_subs',
+#     'ngnl_subs', 'rezero_subs', 'promised_neverland_subs', 'your_lie_subs',
+#     'shield_hero_subs', 'fate_ubw_subs'
+#     ]
 
 multiplier = [60, 60 * 60, 24 * 60 * 60]
 def get_time(timestr: str) -> int:
@@ -164,6 +165,19 @@ convos = 0
 for k, c in vocab.conversations.items():
     convos += len(c)
 
+i = 1
+while i < vocab.longest_tokenized:
+    i *= 2
+
+j = 1
+while j < vocab.longest_tokenized * (CONVERSATION_DEPTH - 1):
+    j *= 2
+
+if input_length == 0:
+    input_length = i
+if output_length == 0:
+    output_length = j
+
 print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longest convo: {vocab.longest_tokenized}\n\n')
 
 
@@ -178,13 +192,13 @@ from amadeus_model import Amadeus
 
 model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=input_length, dec_seq_len=output_length)
 
+print(input_length, output_length)
+
 
 # # Train the model
 
 # In[5]:
 
-
-# from torchviz import make_dot
 
 in_seq = torch.randint(0, vocab.tokenizer.get_vocab_size(), (1, model.in_seq_len))
 out_seq = torch.randint(0, vocab.tokenizer.get_vocab_size(), (1, model.out_seq_len))
@@ -192,7 +206,11 @@ mask = torch.ones(1, model.in_seq_len).bool()
 
 y = model(in_seq, out_seq, mask=mask)
 
-# make_dot(y.mean(), params=dict(model.named_parameters()))
+try:
+    from torchviz import make_dot
+    display(make_dot(y.mean(), params=dict(model.named_parameters())))
+except Exception:
+    print('Torch graph was not created, continuing.')
 
 
 # In[6]:
