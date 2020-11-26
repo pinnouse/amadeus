@@ -60,10 +60,13 @@ class Vocab:
             return True
         hc = self._held_conversations[self._context] # Held Conversation
         lc = hc[-1] # Last conversation
-        # Same speaker
-        if (len(lc['speaker']) > 0 and lc['speaker'] == conversation['speaker'] and lc['speaker'] != 'NTP') or \
-            (len(lc['speaker']) == 0 and len(conversation['speaker']) == 0 and len(conversation['line']) > 0 and conversation['line'][0].islower()) and \
-            conversation['when'] - lc['when'] < 1000 * 60 * 1.5:
+        
+        same_speaker = len(lc['speaker']) > 0 and lc['speaker'] == conversation['speaker'] and lc['speaker'] != 'NTP'
+        continuing_line = (len(lc['speaker']) == 0 or lc['speaker'] == 'NTP') and \
+            (len(conversation['speaker']) == 0 or conversation['speaker'] == 'NTP') \
+            and len(conversation['line']) > 0 and conversation['line'][0].islower()
+
+        if same_speaker or continuing_line and conversation['when'] - lc['when'] < 1000 * 60 * 1.5:
             hc[-1]['when'] = conversation['when']
             hc[-1]['line'] += f" {conversation['line']}"
             return False
