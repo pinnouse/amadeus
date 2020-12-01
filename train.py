@@ -166,9 +166,9 @@ for k, c in vocab.conversations.items():
     convos += len(c)
 
 if input_length == 0:
-    input_length = 2**math.ceil(math.log2(vocab.longest_tokenized))
+    input_length = 2**math.ceil(math.log2(vocab.longest_tokenized * (CONVERSATION_DEPTH - 1)))
 if output_length == 0:
-    output_length = 2**math.ceil(math.log2(vocab.longest_tokenized * (CONVERSATION_DEPTH - 1)))
+    output_length = 2**math.ceil(math.log2(vocab.longest_tokenized))
 
 print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longest convo: {vocab.longest_tokenized}\n\n')
 

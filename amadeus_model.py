@@ -167,7 +167,7 @@ class Amadeus(nn.Module):
         mask = kwargs.pop('mask', torch.ones_like(inputs, dtype=bool))
         encodings = self.enc(inputs, mask=mask, return_encodings=True)
         if self.out_seq_len < self.in_seq_len:
-            encodings = encodings[:, self.in_seq_len - self.out_seq_len:]
+            encodings = encodings[:, :self.out_seq_len]
 
         return self.dec(targets, return_loss=return_loss, context=encodings)
 

@@ -1,7 +1,7 @@
 # amadeus
 Chatbot using Performers
 
-### For Use:
+### For Use
 Requires (data you download yourself):
 - BERT base uncased tokenizer from Hugging Face
 - your own (*.ass) sub files

@@ -123,7 +123,7 @@ class ConversationIter:
             i.truncate(self.in_seq_len)
             t.truncate(self.out_seq_len)
             inputs.append(i)
-            targets.append(i)
+            targets.append(t)
         self._i += 1
         if min(len(inputs), len(targets)) <= 0:
             raise StopIteration
