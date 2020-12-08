@@ -27,16 +27,17 @@ def str2bool(v):
 
 parser = ArgumentParser()
 parser.add_argument('-o', '--o', dest='output', default='', help='Location of output(s)')
-parser.add_argument('-g', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
+parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
 parser.add_argument('-a', '--artifacts', dest='artifacts', default='', help='Directory to save artifacts such as checkpoints')
 parser.add_argument('-e', '--epochs', type=int, dest='train_epochs', default=10, help='Number of epochs to train on')
 parser.add_argument('-p', '--print_every', type=int, dest='print_every', default=100, help='After how many iterations to print a status')
-parser.add_argument('-t', '--validate_every', type=int, dest='validate_every', default=10, help='After how many epochs to validate loss on test set')
-parser.add_argument('-T', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
-parser.add_argument('-A', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
+parser.add_argument('-v', '--validate_every', type=int, dest='validate_every', default=10, help='After how many epochs to validate loss on test set')
+parser.add_argument('-s', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
+parser.add_argument('-b', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
 
 parser.add_argument('--input_length', type=int, dest='input_length', default=0, help='Maximum input sequence length')
 parser.add_argument('--output_length', type=int, dest='output_length', default=0, help='Maximum output sequence length')
+parser.add_argument('--conversation_depth', type=int, dest="conversation_depth", default=4, help='Depth of conversations, the minimum should be 2.')
 
 args, unknown = parser.parse_known_args()
 
@@ -56,6 +57,8 @@ validate_every = max(args.validate_every, 0)
 save_every = max(args.save_every, 0)
 batch_size = max(args.batch_size, 1)
 
+conversation_depth = max(args.conversation_depth, 2)
+
 
 # # Prepare the Data
 # 
@@ -65,10 +68,7 @@ batch_size = max(args.batch_size, 1)
 
 
 from vocab import Vocab
-
-CONVERSATION_DEPTH = 4
-
-vocab = Vocab(input_length, conversation_depth=CONVERSATION_DEPTH)
+vocab = Vocab(input_length, conversation_depth=conversation_depth)
 
 
 # In[3]:
@@ -166,7 +166,7 @@ for k, c in vocab.conversations.items():
     convos += len(c)
 
 if input_length == 0:
-    input_length = 2**math.ceil(math.log2(vocab.longest_tokenized * (CONVERSATION_DEPTH - 1)))
+    input_length = 2**math.ceil(math.log2(vocab.longest_tokenized * (conversation_depth - 1)))
 if output_length == 0:
     output_length = 2**math.ceil(math.log2(vocab.longest_tokenized))
 
