@@ -39,7 +39,7 @@ class Vocab:
         if self._context in self._held_conversations and len(self._held_conversations[self._context]) > self.conversation_depth:
             self.conversations[self._context].append(self._held_conversations[self._context][
                 -self.conversation_depth:
-            ])
+            ][::-1])
         self._context = new_context
 
     def add_conversation(self, conversation: Dict[str, object]) -> None:
@@ -71,9 +71,11 @@ class Vocab:
             hc[-1]['line'] += f" {conversation['line']}"
             return False
         if len(self._held_conversations[self._context]) >= 2:
-            self.conversations[self._context].append(self._held_conversations[self._context][
+            if self.conversation_depth > 2:
+                self.conversations[self._context].append(hc[-2:][::-1])
+            self.conversations[self._context].append(hc[
                 -min(self.conversation_depth, len(hc)):
-            ])
+            ][::-1])
         hc.append(conversation)
         return True
 
