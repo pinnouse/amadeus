@@ -137,7 +137,9 @@ for folder in os.listdir('data'):
                 except UnicodeDecodeError:
                     print('    Error decoding a line, skipped.')
                 if line.startswith('Format:'):
-                    line = line[len('Format:'):].strip().split(', ')
+                    line = line[len('Format:'):].strip().split(',')
+                    for i in range(len(line)):
+                        line[i] = line[i].strip()
                     current_format = line
                     continue
                 if current_format == False or not line.startswith('Dialogue:'): continue
@@ -146,7 +148,11 @@ for folder in os.listdir('data'):
                 dialogue = dict(zip(current_format, line))
                 if not dialogue['Style'].lower() in ['main', 'default', 'italics', 'flashback', 'ngnl-main']: continue
                 # Extract variables
-                speaker = dialogue['Name']
+                speaker = ''
+                for k in ['Actor', 'Name']:
+                    if k in dialogue:
+                        speaker = dialogue[k]
+                        break
                 text = normalize_text(dialogue['Text'])
                 time = get_time(dialogue['Start'])
                 style = dialogue['Style']
