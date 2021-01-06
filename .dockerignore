@@ -1,0 +1,9 @@
+data/
+__pycache__/
+.vscode/
+.ipynb_checkpoints/
+checkpoints/
+models/
+*.sh
+*.ipynb
+*.cmd

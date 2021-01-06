@@ -144,7 +144,7 @@ for folder in os.listdir('data'):
                 line = line[len('Dialogue:'):].strip().split(',')
                 line[len(current_format)-1] = ','.join(line[len(current_format)-1:])
                 dialogue = dict(zip(current_format, line))
-                if not dialogue['Style'] in ['main', 'Default', 'italics', 'flashback', 'ngnl-main']: continue
+                if not dialogue['Style'].lower() in ['main', 'default', 'italics', 'flashback', 'ngnl-main']: continue
                 # Extract variables
                 speaker = dialogue['Name']
                 text = normalize_text(dialogue['Text'])

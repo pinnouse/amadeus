@@ -8,10 +8,10 @@ __pycache__
 
 gradient_run.cmd
 
-.tar.gz
+*.tar.gz
 
 run.sh
 
 checkpoints/
 models/
-.pt
+*.pt
