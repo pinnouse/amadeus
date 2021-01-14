@@ -190,7 +190,7 @@ from amadeus_model import Amadeus
 
 model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=input_length, dec_seq_len=output_length)
 
-print(input_length, output_length)
+print(f'input size: {input_length} output size: {output_length}')
 
 
 # # Train the model
