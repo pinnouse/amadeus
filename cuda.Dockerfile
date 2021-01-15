@@ -38,7 +38,7 @@ RUN wget -nv \
 ENV PATH $PATH:/root/tools/google-cloud-sdk/bin
 RUN echo '[GoogleCompute]\nservice_account = default' > /etc/boto.cfg
 ENV GCLOUD_ENABLE true
-RUN mkdir /tmp
+RUN mkdir /tmp -p
 
 COPY . .
 
