@@ -6,6 +6,7 @@
 
 import math
 import os, sys
+import subprocess
 import re
 from argparse import ArgumentParser, ArgumentTypeError
 from datetime import datetime
@@ -309,13 +310,25 @@ def validate(conv_iter: ConversationIter):
     return loss.item()
 
 def save_checkpoint(epoch: int):
+    tmp_model_dir = artifacts_dir
+    if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
+            tmp_model_dir = '/tmp'
+    checkpoint_path = os.path.join(tmp_model_dir, 'checkpoints')
+    checkpoint_file = os.path.join(model_path, model_name)
+
     checkpoint_name = f'amadeus-performer-{format_time(start_time)}-{epoch}.pt'
-    Path(os.path.join(artifacts_dir, 'checkpoints')).mkdir(parents=True, exist_ok=True)
+    Path(checkpoint_path).mkdir(parents=True, exist_ok=True)
     torch.save({
         'epoch': epoch,
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict()
-    }, os.path.join(artifacts_dir, 'checkpoints', checkpoint_name))
+    }, checkpoint_file)
+
+    if os.getenv('GCLOUD_ENABLE') and artifacts_dir.startswith('gs://'):
+        subprocess.check_call([
+            'gsutil', 'cp', checkpoint_file,
+            os.path.join(artifacts_dir, checkpoint_name)
+        ])
     print(f'Saved checkpoint: {checkpoint_name}')
 
 
@@ -350,7 +363,20 @@ for epoch in range(train_epochs):
 
     print('\n\n')
 
-Path(os.path.join(model_dir, 'models')).mkdir(parents=True, exist_ok=True)
-torch.save(model.state_dict(), os.path.join(model_dir, 'models', f'amadeus-performer-{format_time(start_time)}.pt'))
+tmp_model_dir = model_dir
+if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
+        tmp_model_dir = '/tmp'
+model_path = os.path.join(tmp_model_dir, 'models')
+model_name = f'amadeus-performer-{format_time(start_time)}.pt'
+model_file = os.path.join(model_path, model_name)
+Path(model_path).mkdir(parents=True, exist_ok=True)
+torch.save(model.state_dict(), model_file)
+
+if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
+    subprocess.check_call([
+        'gsutil', 'cp', model_file,
+        os.path.join(model_dir, model_name)
+    ])
+        
 print('Finished training and saved model in models directory.')
 
