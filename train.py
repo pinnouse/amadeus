@@ -26,7 +26,7 @@ def str2bool(v):
         raise ArgumentTypeError('Boolean value expected.')
 
 parser = ArgumentParser()
-parser.add_argument('-o', '--o', dest='output', default='', help='Location of output(s)')
+parser.add_argument('-o', '--output', dest='output', default='', help='Location of output(s)')
 parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
 parser.add_argument('-a', '--artifacts', dest='artifacts', default='', help='Directory to save artifacts such as checkpoints')
 parser.add_argument('-e', '--epochs', type=int, dest='train_epochs', default=10, help='Number of epochs to train on')

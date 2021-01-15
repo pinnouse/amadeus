@@ -7,3 +7,4 @@ models/
 *.sh
 *.ipynb
 *.cmd
+*.gz
