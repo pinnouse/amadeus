@@ -20,6 +20,7 @@ RUN tar -xf amadeus-data.tar.gz && rm amadeus-data.tar.gz
 RUN pip install torch==1.7.1 torchvision==0.8.2
 
 COPY requirements.txt /root/requirements.txt
+RUN pip install -r /root/requirements.txt
 
 COPY . .
 
