@@ -28,6 +28,7 @@ def str2bool(v):
 
 parser = ArgumentParser()
 parser.add_argument('-o', '--output', dest='output', default='', help='Location of output(s)')
+parser.add_argument('-d', '--debug', type=str2bool, dest='debug', default=True, help='Debug logging specific files and extra verbosity')
 parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
 parser.add_argument('-a', '--artifacts', dest='artifacts', default='', help='Directory to save artifacts such as checkpoints')
 parser.add_argument('-e', '--epochs', type=int, dest='train_epochs', default=10, help='Number of epochs to train on')
@@ -57,6 +58,8 @@ print_every = max(args.print_every, 1)
 validate_every = max(args.validate_every, 0)
 save_every = max(args.save_every, 0)
 batch_size = max(args.batch_size, 1)
+
+debug_mode = args.debug
 
 conversation_depth = max(args.conversation_depth, 2)
 
@@ -117,7 +120,8 @@ for folder in os.listdir('data'):
     for f in dir:
         filepath = os.path.join(os.getcwd(), 'data', folder, f)
         if not os.path.isfile(filepath): continue
-        print(f'  Opening file: {f}')
+        if debug_mode:
+            print(f'  Opening file: {f}')
         with open(filepath, 'r', encoding='utf-8', errors='ignore') as sub_file:
             is_event = False
             line = True

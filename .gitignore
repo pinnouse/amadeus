@@ -13,6 +13,8 @@ gradient_run.cmd
 
 run.sh
 
+config.yml
+
 checkpoints/
 models/
 *.pt
