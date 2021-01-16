@@ -66,7 +66,7 @@ class Vocab:
             (len(conversation['speaker']) == 0 or conversation['speaker'] == 'NTP') \
             and len(conversation['line']) > 0 and conversation['line'][0].islower()
 
-        if same_speaker or continuing_line and conversation['when'] - lc['when'] < 1000 * 60 * 1.5:
+        if same_speaker or continuing_line and conversation['when'] - lc['when'] < 1000 * 8:
             hc[-1]['when'] = conversation['when']
             hc[-1]['line'] += f" {conversation['line']}"
             return False
@@ -82,10 +82,19 @@ class Vocab:
     def get_tokenizer(self) -> BaseTokenizer:
         return self.tokenizer
 
+    def get_conversations(self) -> List[List[Encoding]]:
+        conversations = []
+        for conversation in self.conversations.values():
+            for dialogue in conversation:
+                conversations.append(
+                    [self.tokenizer.encode(y['line']) for y in dialogue]
+                )
+        return conversations
+
 class ConversationIter:
 
-    def __init__(self, conversations: List[List[object]], in_seq_len: int, \
-        out_seq_len: int, tokenizer: BaseTokenizer, batch_size: int = 1):
+    def __init__(self, conversations: List[List[Encoding]], in_seq_len: int, \
+        out_seq_len: int, batch_size: int = 1):
         self._contexts = []
         self._conversations = []
 
@@ -94,20 +103,16 @@ class ConversationIter:
 
         self._batch_size = batch_size
 
-        self._tokenizer = tokenizer
-
         self._i = 0
 
         for conv in conversations:
-            for c in conv:
-                enc_lines = [self._tokenizer.encode(y['line']) for y in c]
-                i = Encoding.merge(enc_lines[:-1])
-                t = enc_lines[-1]
-                i.pad(self.in_seq_len)
-                t.pad(self.out_seq_len)
-                i.truncate(self.in_seq_len)
-                t.truncate(self.out_seq_len)
-                self._conversations.append([i, t])
+            i = Encoding.merge(conv[:-1])
+            t = conv[-1]
+            i.pad(in_seq_len)
+            t.pad(out_seq_len)
+            i.truncate(in_seq_len)
+            t.truncate(out_seq_len)
+            self._conversations.append([i, t])
 
         if len(self._conversations) == 0:
             raise Exception("Not enough conversations in the Vocab, could not make ConversationIter")

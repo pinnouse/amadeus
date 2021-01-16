@@ -69,7 +69,7 @@ conversation_depth = max(args.conversation_depth, 2)
 
 
 from vocab import Vocab
-vocab = Vocab(input_length, conversation_depth=conversation_depth)
+voc = Vocab(input_length, conversation_depth=conversation_depth)
 
 
 # In[3]:
@@ -129,7 +129,7 @@ for folder in os.listdir('data'):
             current_format = False
             current_conversation = []
             
-            vocab.switch_context(f)
+            voc.switch_context(f)
             line = True
             # for line in sub_file.readlines():
             while line:
@@ -160,24 +160,24 @@ for folder in os.listdir('data'):
 
                 if len(text.strip()) == 0: continue
 
-                vocab.add_conversation({
+                voc.add_conversation({
                     'speaker': speaker,
                     'line': text,
                     'when': time,
                     'style': style
                 })
-                vocab.add_sentence(text)
+                voc.add_sentence(text)
 
 convos = 0
-for k, c in vocab.conversations.items():
+for k, c in voc.conversations.items():
     convos += len(c)
 
 if input_length == 0:
-    input_length = 2**math.ceil(math.log2(vocab.longest_tokenized * (conversation_depth - 1)))
+    input_length = 2**math.ceil(math.log2(voc.longest_tokenized * (conversation_depth - 1)))
 if output_length == 0:
-    output_length = 2**math.ceil(math.log2(vocab.longest_tokenized))
+    output_length = 2**math.ceil(math.log2(voc.longest_tokenized))
 
-print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longest convo: {vocab.longest_tokenized}\n\n')
+print(f'Done! Num conversations: {convos}, num words: {len(voc.words)}, longest convo: {voc.longest_tokenized}\n\n')
 
 
 # # Create the Model
@@ -189,7 +189,7 @@ print(f'Done! Num conversations: {convos}, num words: {len(vocab.words)}, longes
 
 from amadeus_model import Amadeus
 
-model = Amadeus(num_tokens=vocab.tokenizer.get_vocab_size(),     enc_seq_len=input_length, dec_seq_len=output_length)
+model = Amadeus(num_tokens=voc.tokenizer.get_vocab_size(),     enc_seq_len=input_length, dec_seq_len=output_length)
 
 print(f'input size: {input_length} output size: {output_length}')
 
@@ -199,8 +199,8 @@ print(f'input size: {input_length} output size: {output_length}')
 # In[5]:
 
 
-in_seq = torch.randint(0, vocab.tokenizer.get_vocab_size(), (1, model.in_seq_len))
-out_seq = torch.randint(0, vocab.tokenizer.get_vocab_size(), (1, model.out_seq_len))
+in_seq = torch.randint(0, voc.tokenizer.get_vocab_size(), (1, model.in_seq_len))
+out_seq = torch.randint(0, voc.tokenizer.get_vocab_size(), (1, model.out_seq_len))
 mask = torch.ones(1, model.in_seq_len).bool()
 
 y = model(in_seq, out_seq, mask=mask)
@@ -210,6 +210,10 @@ try:
     display(make_dot(y.mean(), params=dict(model.named_parameters())))
 except Exception:
     print('Torch graph was not created, continuing.')
+
+in_seq = None
+out_seq = None
+mask = None
 
 
 # In[6]:
@@ -228,13 +232,10 @@ from sklearn.model_selection import train_test_split
 
 from vocab import ConversationIter
 
-conversations = list(vocab.conversations.values())
-conversations = list(filter(lambda c: len(c) > 0, conversations))
+train_set, test_set = train_test_split(voc.get_conversations(), test_size=0.2)
 
-train_set, test_set = train_test_split(conversations, test_size=0.2)
-
-train_set = ConversationIter(train_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, tokenizer=vocab.tokenizer, batch_size=batch_size)
-test_set = ConversationIter(test_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, tokenizer=vocab.tokenizer, batch_size=batch_size)
+train_set = ConversationIter(train_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, batch_size=batch_size)
+test_set = ConversationIter(test_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, batch_size=batch_size)
 
 
 # ## Train the model
@@ -335,7 +336,7 @@ def save_checkpoint(epoch: int):
 # In[9]:
 
 
-print(f'Starting train on device: {device}')
+print(f'\n\nStarting train on device: {device}')
 print(f'Training on {train_epochs} epochs with batch size of {batch_size}')
 print(f'Validating every {validate_every} and saving every {save_every}\n')
 

@@ -42,4 +42,4 @@ RUN mkdir /tmp -p
 
 COPY . .
 
-CMD [ "python3", "train.py" ]
+ENTRYPOINT [ "python3", "train.py" ]

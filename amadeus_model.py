@@ -63,6 +63,8 @@ class Amadeus(nn.Module):
             reversible=True, causal=True, cross_attend=True, \
             emb_dropout=0.1, ff_dropout=0.1, attn_dropout=0.1, ff_glu=True)
 
+        enc.token_emb = dec.token_emb
+
         # self.enc = AutoregressiveWrapper(enc, pad_value=0)
         self.enc = enc
         # self.dec = Autopadder(dec)
