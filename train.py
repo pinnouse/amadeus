@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import math
 import os, sys
 import subprocess
@@ -34,7 +31,9 @@ parser.add_argument('-a', '--artifacts', dest='artifacts', default='', help='Dir
 parser.add_argument('-e', '--epochs', type=int, dest='train_epochs', default=10, help='Number of epochs to train on')
 parser.add_argument('-p', '--print_every', type=int, dest='print_every', default=100, help='After how many iterations to print a status')
 parser.add_argument('-v', '--validate_every', type=int, dest='validate_every', default=10, help='After how many epochs to validate loss on test set')
+parser.add_argument('--validate_amount', type=int, dest='validate_amount', default=4, help='How many entries of the test set to validate on, 0 for all (default 4)')
 parser.add_argument('-s', '--save_every', type=int, dest='save_every', default=0, help='After how many epochs before saving a checkpoint (0 to turn off)')
+parser.add_argument('-t', '--test_split', type=float, dest='test_split', default=0.3, help='How much of the dataset to reserve for test/validate (between 0 and 1 exclusive)')
 parser.add_argument('-b', '--batch_size', type=int, dest='batch_size', default=1, help='Batch size to train on')
 
 parser.add_argument('--input_length', type=int, dest='input_length', default=0, help='Maximum input sequence length')
@@ -58,6 +57,10 @@ print_every = max(args.print_every, 1)
 validate_every = max(args.validate_every, 0)
 save_every = max(args.save_every, 0)
 batch_size = max(args.batch_size, 1)
+test_split = args.test_split
+if test_split <= 0 or test_split >= 1:
+    test_split = 0.3
+validate_amount = max(args.validate_amount, 0)
 
 debug_mode = args.debug
 
@@ -68,14 +71,8 @@ conversation_depth = max(args.conversation_depth, 2)
 # 
 # Create vocabulary and load the data
 
-# In[2]:
-
-
 from vocab import Vocab
 voc = Vocab(input_length, conversation_depth=conversation_depth)
-
-
-# In[3]:
 
 
 # FOLDERS = [
@@ -188,9 +185,6 @@ print(f'Done! Num conversations: {convos}, num words: {len(voc.words)}, longest 
 # 
 # Using preset hyperparameters from Amadeus
 
-# In[4]:
-
-
 from amadeus_model import Amadeus
 
 model = Amadeus(num_tokens=voc.tokenizer.get_vocab_size(),     enc_seq_len=input_length, dec_seq_len=output_length)
@@ -200,27 +194,25 @@ print(f'input size: {input_length} output size: {output_length}')
 
 # # Train the model
 
-# In[5]:
-
-
 in_seq = torch.randint(0, voc.tokenizer.get_vocab_size(), (1, model.in_seq_len))
 out_seq = torch.randint(0, voc.tokenizer.get_vocab_size(), (1, model.out_seq_len))
 mask = torch.ones(1, model.in_seq_len).bool()
 
-y = model(in_seq, out_seq, mask=mask)
-
 try:
     from torchviz import make_dot
+    y = model(in_seq, out_seq, mask=mask)
     display(make_dot(y.mean(), params=dict(model.named_parameters())))
 except Exception:
     print('Torch graph was not created, continuing.')
 
+
+from torchinfo import summary
+
+summary(model, input_size=[in_seq.size(), out_seq.size()], dtypes=[torch.long, torch.long])
+
 in_seq = None
 out_seq = None
 mask = None
-
-
-# In[6]:
 
 
 if use_cuda:
@@ -229,23 +221,17 @@ if use_cuda:
 
 # ## Split train/test data
 
-# In[7]:
-
-
 from sklearn.model_selection import train_test_split
 
 from vocab import ConversationIter
 
-train_set, test_set = train_test_split(voc.get_conversations(), test_size=0.2)
+train_set, test_set = train_test_split(voc.get_conversations(), test_size=test_split)
 
 train_set = ConversationIter(train_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, batch_size=batch_size)
 test_set = ConversationIter(test_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, batch_size=batch_size)
 
 
 # ## Train the model
-
-# In[8]:
-
 
 from adafactor import Adafactor
 
@@ -259,6 +245,8 @@ except ImportError:
 
 optimizer = Adafactor(model.parameters())
 
+scaler = torch.cuda.amp.GradScaler()
+
 start_time = datetime.now()
 
 def format_time(dt: datetime) -> str:
@@ -271,20 +259,24 @@ def train(conv_iter: ConversationIter):
     accrued_loss = 0
     start = datetime.now()
     for i, (inputs, targets) in enumerate(conv_iter):
-        mask = torch.tensor([inp.attention_mask for inp in inputs]).bool()
+        mask = torch.tensor([inp.attention_mask for inp in inputs], device=device, dtype=torch.bool)
 
-        inputs = torch.tensor([inp.ids for inp in inputs])
-        targets = torch.tensor([tar.ids for tar in targets])
+        inputs = torch.tensor([inp.ids for inp in inputs], device=device)
+        targets = torch.tensor([tar.ids for tar in targets], device=device)
 
-        if use_cuda:
-            inputs = inputs.cuda()
-            targets = targets.cuda()
-            mask = mask.cuda()
+        # if use_cuda:
+        #     inputs = inputs.cuda()
+        #     targets = targets.cuda()
+        #     mask = mask.cuda()
 
         optimizer.zero_grad()
-        loss = model(inputs, targets, mask=mask, return_loss=True)
-        loss.mean().backward()
-        optimizer.step()
+
+        with torch.cuda.amp.autocast():
+            loss = model(inputs, targets, mask=mask)
+
+        scaler.scale(loss.mean()).backward()
+        scaler.step(optimizer)
+        scaler.update()
         
         accrued_loss += loss.item()
         total_loss += loss.item()
@@ -300,15 +292,10 @@ def train(conv_iter: ConversationIter):
 def validate(conv_iter: ConversationIter):
     model.eval(False)
     with torch.no_grad():
-        inp, tar = conv_iter.random_sample(pad_in=True)
-        mask = torch.tensor([i.attention_mask for i in inp]).bool()
-        inputs = torch.tensor([i.ids for i in inp])
-        targets = torch.tensor([t.ids for t in tar])
-
-        if use_cuda:
-            inputs = inputs.cuda()
-            targets = targets.cuda()
-            mask = mask.cuda()
+        inp, tar = conv_iter.random_sample(amount=validate_amount)
+        mask = torch.tensor([i.attention_mask for i in inp], device=device, dtype=torch.bool)
+        inputs = torch.tensor([i.ids for i in inp], device=device)
+        targets = torch.tensor([t.ids for t in tar], device=device)
         
         loss = model(inputs, targets, mask=mask, return_loss=True)
         print(f'Validation loss: {loss.item()}')
@@ -319,9 +306,8 @@ def save_checkpoint(epoch: int):
     if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
             tmp_model_dir = '/tmp'
     checkpoint_path = os.path.join(tmp_model_dir, 'checkpoints')
-    checkpoint_file = os.path.join(model_path, model_name)
-
     checkpoint_name = f'amadeus-performer-{format_time(start_time)}-{epoch}.pt'
+    checkpoint_file = os.path.join(checkpoint_path, checkpoint_name)
     Path(checkpoint_path).mkdir(parents=True, exist_ok=True)
     torch.save({
         'epoch': epoch,
@@ -337,16 +323,13 @@ def save_checkpoint(epoch: int):
     print(f'Saved checkpoint: {checkpoint_name}')
 
 
-# In[9]:
-
-
 print(f'\n\nStarting train on device: {device}')
 print(f'Training on {train_epochs} epochs with batch size of {batch_size}')
 print(f'Validating every {validate_every} and saving every {save_every}\n')
 
 for epoch in range(train_epochs):
     prompt = f'Training epoch #{epoch+1} of {train_epochs}:'
-    print(f'{prompt}\n{"=" * len(prompt)}')
+    print(f'{prompt}\n{"=" * (len(prompt) + 8)}')
 
     total = datetime.now()
 
@@ -356,7 +339,7 @@ for epoch in range(train_epochs):
         client.increment('EPOCHS', 1)
         client.gauge('LOSS_PER_EPOCH', total_loss)
 
-    print(f'Epoch {epoch+1} took {(datetime.now()-total).total_seconds():.3f}s')
+    print(f'Epoch {epoch+1} took {(datetime.now()-total).total_seconds():.3f}s (with loss {total_loss})')
 
     if validate_every > 0 and (epoch + 1) % validate_every == 0:
         validate_loss = validate(test_set)
@@ -384,4 +367,5 @@ if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
     ])
         
 print('Finished training and saved model in models directory.')
+print(f'Saved file as: {model_name}')
 

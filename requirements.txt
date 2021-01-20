@@ -1,3 +1,4 @@
-performer-pytorch==0.14.9
+performer-pytorch==0.15.0
 tokenizers==0.9.3
 scikit-learn==0.23.2
+torchinfo==0.0.4

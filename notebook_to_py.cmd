@@ -1,1 +1,1 @@
-jupyter nbconvert --to python train.ipynb
+jupyter nbconvert --no-prompt --to python train.ipynb

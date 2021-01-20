@@ -71,8 +71,6 @@ class Vocab:
             hc[-1]['line'] += f" {conversation['line']}"
             return False
         if len(self._held_conversations[self._context]) >= 2:
-            if self.conversation_depth > 2:
-                self.conversations[self._context].append(hc[-2:][::-1])
             self.conversations[self._context].append(hc[
                 -min(self.conversation_depth, len(hc)):
             ][::-1])
@@ -86,6 +84,10 @@ class Vocab:
         conversations = []
         for conversation in self.conversations.values():
             for dialogue in conversation:
+                if self.conversation_depth > 2:
+                    conversations.append(
+                        [self.tokenizer.encode(y['line']) for y in dialogue[-2:]]
+                    )
                 conversations.append(
                     [self.tokenizer.encode(y['line']) for y in dialogue]
                 )
@@ -95,7 +97,6 @@ class ConversationIter:
 
     def __init__(self, conversations: List[List[Encoding]], in_seq_len: int, \
         out_seq_len: int, batch_size: int = 1):
-        self._contexts = []
         self._conversations = []
 
         self.in_seq_len = in_seq_len
@@ -123,26 +124,7 @@ class ConversationIter:
         return self
 
     def __next__(self) -> Tuple[List[Encoding], List[Encoding]]:
-        # conv = self._conversations[self._context]
-        # if self._i >= len(conv):
-        #     raise StopIteration
-
         inputs, targets = [], []
-        # for context in self._contexts:
-        #     conv = self._conversations[context]
-        #     if self._i >= len(conv):
-        #         continue
-        #     x = conv[self._i]
-        #     l = [self._tokenizer.encode(y['line']) for y in x]
-        #     # i = Encoding.merge()
-        #     i = Encoding.merge(l[:-1])
-        #     t = l[-1]
-        #     i.pad(self.in_seq_len)
-        #     t.pad(self.out_seq_len)
-        #     i.truncate(self.in_seq_len)
-        #     t.truncate(self.out_seq_len)
-        #     inputs.append(i)
-        #     targets.append(t)
         while min(len(inputs), len(targets)) < self._batch_size and self._i < len(self._conversations):
             i, t = self._conversations[self._i]
             inputs.append(i)
@@ -152,36 +134,10 @@ class ConversationIter:
             raise StopIteration
         return inputs, targets
 
-        # for _ in range(self._batch_size):
-        #     try:
-        #         x = conv[self._i]
-        #         l = [self._tokenizer.encode(y['line']) for y in x]
-        #         # i = Encoding.merge()
-        #         i = Encoding.merge(l[:-1])
-        #         t = l[-1]
-        #         i.pad(self.in_seq_len)
-        #         t.pad(self.out_seq_len)
-
-        #         inputs.append(i)
-        #         targets.append(t)
-
-        #         self._i += 1
-        #     except IndexError:
-        #         if min(len(inputs), len(targets)) == 0:
-        #             raise StopIteration
-        #         else:
-        #             return inputs, targets
-        # return inputs, targets
-
-    def random_sample(self, pad_in: bool = False, pad_out: bool = False) -> Tuple[List[Encoding], List[Encoding]]:
-        self._context = random.randrange(0, len(self._conversations))
-        self._i = random.randrange(0, len(self._conversations[self._context]))
-        conv = self._conversations[self._i]
-        l = [self._tokenizer.encode(y['line']) for y in conv]
-        i = Encoding.merge(l[:-1])
-        t = l[-1]
-        if pad_in:
-            i.pad(self.in_seq_len)
-        if pad_out:
-            t.pad(self.out_seq_len)
-        return [i], [t]
+    def random_sample(self, amount: int = 0) -> Tuple[List[Encoding], List[Encoding]]:
+        if amount <= 0:
+            i, t = list(zip(*self._conversations))
+            return i, t
+        indices = random.sample(range(len(self._conversations)), min(amount, len(self._conversations)))
+        i, t = list(zip(*[self._conversations[j] for j in indices]))
+        return i, t

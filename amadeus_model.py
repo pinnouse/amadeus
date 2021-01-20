@@ -73,14 +73,14 @@ class Amadeus(nn.Module):
         self.in_seq_len = enc.max_seq_len
         self.out_seq_len = dec.max_seq_len
 
-    def eval(self, fix_proj_matrices: bool = True):
+    def eval(self, fix_proj_matrices: bool = False):
         """Set to eval mode"""
         super().eval()
         self.enc.eval()
         self.dec.eval()
         
         if fix_proj_matrices:
-            self.enc.net.fix_projection_matrices_() # As of performer-pytorch 0.5.1
+            self.enc.fix_projection_matrices_() # As of performer-pytorch 0.5.1
 
         # https://github.com/lucidrains/performer-pytorch/issues/10
         # for layer in self.dec.performer.performer.net.layers:
@@ -158,7 +158,7 @@ class Amadeus(nn.Module):
         # return out
 
 
-    def forward(self, inputs: torch.Tensor, targets: torch.Tensor, return_loss: bool = False, **kwargs):
+    def forward(self, inputs: torch.Tensor, targets: torch.Tensor, **kwargs):
         """Forward pass calculates loss for model
         
         Args:
@@ -172,15 +172,4 @@ class Amadeus(nn.Module):
         if self.out_seq_len < self.in_seq_len:
             encodings = encodings[:, :self.out_seq_len]
 
-        return self.dec(targets, return_loss=return_loss, context=encodings)
-
-        # if not return_loss:
-        #     return self.dec(targets, keys=enc_keys)
-
-        # # Split to train spitting out next word
-        # xi = targets[:, :-1]
-        # xo = targets[:, 1:]
-        # dec = self.dec(xi, keys=enc_keys)
-
-        # loss = F.cross_entropy(dec.transpose(1, 2), xo, ignore_index=self.ignore_index)
-        # return loss
+        return self.dec(targets, context=encodings)
