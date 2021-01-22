@@ -8,6 +8,7 @@ import re
 from argparse import ArgumentParser, ArgumentTypeError
 from datetime import datetime
 from pathlib import Path
+import logging
 
 import torch
 import torch.nn as nn
@@ -22,6 +23,8 @@ def str2bool(v):
         return False
     else:
         raise ArgumentTypeError('Boolean value expected.')
+
+logger = logging.getLogger(__name__)
 
 parser = ArgumentParser()
 parser.add_argument('-o', '--output', dest='output', default='', help='Location of output(s)')
@@ -178,7 +181,7 @@ if input_length == 0:
 if output_length == 0:
     output_length = 2**math.ceil(math.log2(voc.longest_tokenized))
 
-print(f'Done! Num conversations: {convos}, num words: {len(voc.words)}, longest convo: {voc.longest_tokenized}\n\n')
+logger.info(f'Data loaded! Num conversations: {convos}, num words: {len(voc.words)}, longest convo: {voc.longest_tokenized}\n\n')
 
 
 # # Create the Model
@@ -274,7 +277,7 @@ def train(conv_iter: ConversationIter):
         scaler.scale(loss).backward()
 
         scaler.unscale_(optimizer)
-        torch.nn.utils.clip_grad_norm_(model.parameteres(), 0.5)
+        nn.utils.clip_grad_norm_(model.parameters(), 0.5)
 
         scaler.step(optimizer)
         scaler.update()
@@ -300,6 +303,7 @@ def validate(conv_iter: ConversationIter):
         
         loss = model(inputs, targets, mask=mask, return_loss=True)
         print(f'Validation loss: {loss.item()}')
+        logger.info(f'Validation loss: {loss.item()}')
     return loss.item()
 
 def save_checkpoint(epoch: int):
@@ -318,7 +322,9 @@ def save_checkpoint(epoch: int):
 
     if os.getenv('GCLOUD_ENABLE') and artifacts_dir.startswith('gs://'):
         subprocess.check_call([
-            'gsutil', 'cp', checkpoint_file,
+            'gsutil',
+            '-o', 'GSUtil:parallel_composite_upload_threshold=600M',
+            'cp', checkpoint_file,
             os.path.join(artifacts_dir, gs_folder, checkpoint_name)
         ])
     print(f'Saved checkpoint: {checkpoint_name}')
@@ -331,6 +337,7 @@ print(f'Validating every {validate_every} and saving every {save_every}\n')
 for epoch in range(train_epochs):
     prompt = f'Training epoch #{epoch+1} of {train_epochs}:'
     print(f'{prompt}\n{"=" * (len(prompt) + 8)}')
+    logger.info(prompt)
 
     total = datetime.now()
 
@@ -363,10 +370,12 @@ torch.save(model.state_dict(), model_file)
 
 if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
     subprocess.check_call([
-        'gsutil', 'cp', model_file,
+        'gsutil',
+        '-o', 'GSUtil:parallel_composite_upload_threshold=600M',
+        'cp', model_file,
         os.path.join(model_dir, gsfolder, model_name)
     ])
-        
+
 print('Finished training and saved model in models directory.')
 print(f'Saved file as: {model_name}')
 
