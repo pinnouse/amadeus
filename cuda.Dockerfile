@@ -50,6 +50,7 @@ RUN pip install -r /root/requirements.txt
 RUN mkdir /tmp -p
 
 ENV PYTHONIOENCODING utf8
+ENV TOKENIZERS_PARALLELISM false
 
 COPY . .
 

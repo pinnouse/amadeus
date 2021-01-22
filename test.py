@@ -5,12 +5,13 @@ from amadeus_model import Amadeus
 
 tokenizer = BertWordPieceTokenizer('data/bert-base-uncased-vocab.txt', lowercase=True)
 
-model = Amadeus(num_tokens=tokenizer.get_vocab_size(), enc_seq_len=1024, dec_seq_len=512)
-checkpoint = torch.load('checkpoints/amadeus-performer-2020-11-25-00.20.57-300.pt')
+model = Amadeus(num_tokens=tokenizer.get_vocab_size(), enc_seq_len=2048, dec_seq_len=512)
+checkpoint = torch.load('checkpoints/amadeus-performer-2021-01-20-20.21.27-1.pt')
 model.eval(True)
 # model.load_state_dict(torch.load('models/amadeus-performer-2020-11-06-12.47.52.pt'))
 model.load_state_dict(checkpoint['model_state_dict'])
 model.cuda()
+model.eval()
 
 run = True
 

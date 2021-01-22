@@ -252,6 +252,8 @@ start_time = datetime.now()
 def format_time(dt: datetime) -> str:
     return format(dt, '%Y-%m-%d-%H.%M.%S')
 
+gs_folder = f'amadeus-model-{format_time(start_time)}'
+
 def train(conv_iter: ConversationIter):
     model.train()
     total_loss = 0
@@ -264,17 +266,16 @@ def train(conv_iter: ConversationIter):
         inputs = torch.tensor([inp.ids for inp in inputs], device=device)
         targets = torch.tensor([tar.ids for tar in targets], device=device)
 
-        # if use_cuda:
-        #     inputs = inputs.cuda()
-        #     targets = targets.cuda()
-        #     mask = mask.cuda()
-
         optimizer.zero_grad()
 
         with torch.cuda.amp.autocast():
             loss = model(inputs, targets, mask=mask)
 
-        scaler.scale(loss.mean()).backward()
+        scaler.scale(loss).backward()
+
+        scaler.unscale_(optimizer)
+        torch.nn.utils.clip_grad_norm_(model.parameteres(), 0.5)
+
         scaler.step(optimizer)
         scaler.update()
         
@@ -306,7 +307,7 @@ def save_checkpoint(epoch: int):
     if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
             tmp_model_dir = '/tmp'
     checkpoint_path = os.path.join(tmp_model_dir, 'checkpoints')
-    checkpoint_name = f'amadeus-performer-{format_time(start_time)}-{epoch}.pt'
+    checkpoint_name = f'amadeus-performer-{format_time(start_time)}-e{epoch}.chkpt'
     checkpoint_file = os.path.join(checkpoint_path, checkpoint_name)
     Path(checkpoint_path).mkdir(parents=True, exist_ok=True)
     torch.save({
@@ -318,7 +319,7 @@ def save_checkpoint(epoch: int):
     if os.getenv('GCLOUD_ENABLE') and artifacts_dir.startswith('gs://'):
         subprocess.check_call([
             'gsutil', 'cp', checkpoint_file,
-            os.path.join(artifacts_dir, checkpoint_name)
+            os.path.join(artifacts_dir, gs_folder, checkpoint_name)
         ])
     print(f'Saved checkpoint: {checkpoint_name}')
 
@@ -363,7 +364,7 @@ torch.save(model.state_dict(), model_file)
 if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
     subprocess.check_call([
         'gsutil', 'cp', model_file,
-        os.path.join(model_dir, model_name)
+        os.path.join(model_dir, gsfolder, model_name)
     ])
         
 print('Finished training and saved model in models directory.')
