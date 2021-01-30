@@ -24,9 +24,6 @@ RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="-
 
 WORKDIR /root
 
-ADD https://amadeus-pinnouse.s3.ca-central-1.amazonaws.com/amadeus-data.tar.gz /root
-RUN tar -xf amadeus-data.tar.gz && rm amadeus-data.tar.gz
-
 RUN wget -nv \
     https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz && \
     mkdir /root/tools && \
@@ -44,8 +41,11 @@ ENV PATH $PATH:/root/tools/google-cloud-sdk/bin
 RUN echo '[GoogleCompute]\nservice_account = default' > /etc/boto.cfg
 ENV GCLOUD_ENABLE true
 
-COPY requirements.txt /root/requirements.txt
-RUN pip install -r /root/requirements.txt
+COPY requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt
+
+ADD https://amadeus-pinnouse.s3.ca-central-1.amazonaws.com/amadeus-data.tar.gz /root
+RUN tar -xf amadeus-data.tar.gz && rm amadeus-data.tar.gz
 
 RUN mkdir /tmp -p
 

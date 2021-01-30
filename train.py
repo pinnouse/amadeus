@@ -30,6 +30,7 @@ parser = ArgumentParser()
 parser.add_argument('-o', '--output', dest='output', default='', help='Location of output(s)')
 parser.add_argument('-d', '--debug', type=str2bool, dest='debug', default=True, help='Debug logging specific files and extra verbosity')
 parser.add_argument('-c', '--use_cuda', type=str2bool, dest='use_cuda', default=True, help='Use cuda if cuda supported')
+parser.add_argument('--use_half', type=str2bool, dest='use_half', default=True, help='Use half precision on training (half precision seems to produce NaN\'s)')
 parser.add_argument('-a', '--artifacts', dest='artifacts', default='', help='Directory to save artifacts such as checkpoints')
 parser.add_argument('-e', '--epochs', type=int, dest='train_epochs', default=10, help='Number of epochs to train on')
 parser.add_argument('-p', '--print_every', type=int, dest='print_every', default=100, help='After how many iterations to print a status')
@@ -46,6 +47,8 @@ parser.add_argument('--conversation_depth', type=int, dest="conversation_depth",
 args, unknown = parser.parse_known_args()
 
 use_cuda = args.use_cuda and torch.has_cuda
+
+use_half = args.use_half
 
 device = 'cuda' if use_cuda else 'cpu'
 
@@ -88,14 +91,14 @@ multiplier = [60, 60 * 60, 24 * 60 * 60]
 def get_time(timestr: str) -> int:
     time = timestr.split(':')
     final_time = 0
-    ms = float(time[-1]) * 1000
+    ms = float(time[-1]) * 100 #ssa/ass uses hundredths
     final_time += int(ms)
     for i in range(len(time)-2):
         t = time[-2-i]
         final_time += multiplier[i] * int(t)
     return final_time
 
-normalize_pattern = re.compile(r'(\{[\\\*][\w\(\)\\\,\*]*|\})', re.M)
+normalize_pattern = re.compile(r'(\{[\\\*][\w\s\(\)\.\,\*\&\\]*|\})', re.M | re.I)
 sub_space = re.compile(r'(\{|\\[nN])', re.M)
 insert_space = re.compile(r'([\w\"])([\.\!\,\?\W])')
 def normalize_text(text: str) -> str:
@@ -151,7 +154,8 @@ for folder in os.listdir('data'):
                 line = line[len('Dialogue:'):].strip().split(',')
                 line[len(current_format)-1] = ','.join(line[len(current_format)-1:])
                 dialogue = dict(zip(current_format, line))
-                if not dialogue['Style'].lower() in ['main', 'default', 'italics', 'flashback', 'ngnl-main']: continue
+                if not dialogue['Style'].lower() in ['main', 'default', 'italics', 'flashback', 'ngnl-main'] and                     not 'main' in dialogue['Style'].lower() and not 'default' in dialogue['Style'].lower():
+                    continue
                 # Extract variables
                 speaker = ''
                 for k in ['Actor', 'Name']:
@@ -228,10 +232,13 @@ from sklearn.model_selection import train_test_split
 
 from vocab import ConversationIter
 
-train_set, test_set = train_test_split(voc.get_conversations(), test_size=test_split)
+train_set, test_set = train_test_split(voc.get_conversations(model.in_seq_len, model.out_seq_len), test_size=test_split)
+voc = None
+print(f'Training data on {len(train_set) + len(test_set)} conversations.')
+print(f'Train: {len(train_set)}, Test: {len(test_set)}')
 
-train_set = ConversationIter(train_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, batch_size=batch_size)
-test_set = ConversationIter(test_set, in_seq_len=model.in_seq_len,     out_seq_len=model.out_seq_len, batch_size=batch_size)
+train_set = ConversationIter(train_set, batch_size=batch_size)
+test_set = ConversationIter(test_set, batch_size=batch_size)
 
 
 # ## Train the model
@@ -242,13 +249,13 @@ has_gradient = False
 try:
     from gradient_statsd import Client
     has_gradient = True
-    client = Client()
+    gradient_client = Client()
 except ImportError:
     print('gradient_statsd package is not installed, not using gradient metrics.')
 
 optimizer = Adafactor(model.parameters())
 
-scaler = torch.cuda.amp.GradScaler()
+scaler = torch.cuda.amp.GradScaler(enabled=use_half)
 
 start_time = datetime.now()
 
@@ -263,15 +270,15 @@ def train(conv_iter: ConversationIter):
     counter = 0
     accrued_loss = 0
     start = datetime.now()
-    for i, (inputs, targets) in enumerate(conv_iter):
-        mask = torch.tensor([inp.attention_mask for inp in inputs], device=device, dtype=torch.bool)
+    for i, (inputs, targets, mask) in enumerate(conv_iter):
+        mask = torch.tensor(mask, device=device, dtype=torch.bool)
 
-        inputs = torch.tensor([inp.ids for inp in inputs], device=device)
-        targets = torch.tensor([tar.ids for tar in targets], device=device)
+        inputs = torch.tensor(inputs, device=device)
+        targets = torch.tensor(targets, device=device)
 
         optimizer.zero_grad()
 
-        with torch.cuda.amp.autocast():
+        with torch.cuda.amp.autocast(enabled=use_half):
             loss = model(inputs, targets, mask=mask)
 
         scaler.scale(loss).backward()
@@ -296,10 +303,10 @@ def train(conv_iter: ConversationIter):
 def validate(conv_iter: ConversationIter):
     model.eval(False)
     with torch.no_grad():
-        inp, tar = conv_iter.random_sample(amount=validate_amount)
-        mask = torch.tensor([i.attention_mask for i in inp], device=device, dtype=torch.bool)
-        inputs = torch.tensor([i.ids for i in inp], device=device)
-        targets = torch.tensor([t.ids for t in tar], device=device)
+        inputs, targets, masks = conv_iter.random_sample(amount=validate_amount)
+        masks = torch.tensor(masks, device=device, dtype=torch.bool)
+        inputs = torch.tensor(inputs, device=device)
+        targets = torch.tensor(targets, device=device)
         
         loss = model(inputs, targets, mask=mask, return_loss=True)
         print(f'Validation loss: {loss.item()}')
@@ -344,15 +351,15 @@ for epoch in range(train_epochs):
     total_loss = train(train_set)
 
     if has_gradient:
-        client.increment('EPOCHS', 1)
-        client.gauge('LOSS_PER_EPOCH', total_loss)
+        gradient_client.increment('EPOCHS', 1)
+        gradient_client.gauge('LOSS_PER_EPOCH', total_loss)
 
     print(f'Epoch {epoch+1} took {(datetime.now()-total).total_seconds():.3f}s (with loss {total_loss})')
 
     if validate_every > 0 and (epoch + 1) % validate_every == 0:
         validate_loss = validate(test_set)
         if has_gradient:
-            client.gauge('VALIDATE_LOSS', validate_loss)
+            gradient_client.gauge('VALIDATE_LOSS', validate_loss)
 
     if save_every > 0 and (epoch + 1) % save_every == 0:
         save_checkpoint(epoch + 1)
@@ -373,7 +380,7 @@ if os.getenv('GCLOUD_ENABLE') and model_dir.startswith('gs://'):
         'gsutil',
         '-o', 'GSUtil:parallel_composite_upload_threshold=600M',
         'cp', model_file,
-        os.path.join(model_dir, gsfolder, model_name)
+        os.path.join(model_dir, gs_folder, model_name)
     ])
 
 print('Finished training and saved model in models directory.')

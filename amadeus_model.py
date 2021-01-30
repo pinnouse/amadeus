@@ -7,9 +7,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from performer_pytorch import PerformerLM, AutoregressiveWrapper
-from torch.nn.functional import pad
-# from reformer_pytorch import ReformerLM
-# from reformer_pytorch.autopadder import Autopadder
 
 def top_k(logits, thresh = 0.9):
     k = int((1 - thresh) * logits.shape[-1])
@@ -31,8 +28,8 @@ class Amadeus(nn.Module):
 
 
     def __init__(self, num_tokens: int, dims: int = 512, \
-        enc_seq_len: int = 1024, enc_layers: int = 2, \
-        dec_seq_len: int = 1024, dec_layers: int = 4, \
+        enc_seq_len: int = 1024, enc_layers: int = 1, \
+        dec_seq_len: int = 1024, dec_layers: int = 10, \
         heads: int = 8, nb_features: int = 64, \
         pad_token_id: int = 0):
         """Initializer for Amadeus model
@@ -117,45 +114,6 @@ class Amadeus(nn.Module):
         if num_dims == 1:
             dec = dec.squeeze(0)
         return dec
-        # num_dims = len(input_seq.shape)
-
-        # if num_dims == 1:
-        #     input_seq = input_seq[None, :]
-        #     start_tokens = start_tokens[None, :]
-
-        # self.enc.eval()
-        # self.dec.eval()
-
-        # b, t = start_tokens.shape
-
-        # enc_keys = self.enc(input_seq)
-
-        # out = start_tokens
-
-        # if mask is None:
-        #     mask = torch.full_like(out, True, dtype=torch.bool, device=out.device)
-
-        # for _ in range(self.out_seq_len):
-        #     x = out[:, -self.out_seq_len:]
-        #     mask = mask[:, -self.out_seq_len:]
-
-        #     logits = self.dec(x, input_mask=mask, keys=enc_keys)[:, -1, :] # Get the last predicted element's probabilities
-        #     filtered_logits = top_k(logits, thresh=filter_thresh)
-        #     probs = F.softmax(filtered_logits / temperature, dim=1)
-        #     sample = torch.multinomial(probs, 1)
-
-        #     out = torch.cat((out, sample), dim=-1)
-        #     mask = F.pad(mask, (0, 1), value=True)
-
-        #     if eos_token >= 0 and (sample == eos_token).all():
-        #         break
-        
-        # out = out[:, t:] # Truncate the start
-
-        # if num_dims == 1:
-        #     out = out.squeeze(0)
-
-        # return out
 
 
     def forward(self, inputs: torch.Tensor, targets: torch.Tensor, **kwargs):

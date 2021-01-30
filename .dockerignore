@@ -8,3 +8,4 @@ models/
 *.ipynb
 *.cmd
 *.gz
+test.py
