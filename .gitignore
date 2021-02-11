@@ -18,3 +18,7 @@ config.yml
 checkpoints/
 models/
 *.pt
+
+train.py
+test.py
+main.py
