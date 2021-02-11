@@ -54,10 +54,6 @@ class Vocab:
             self.longest = len(line)
         tokenized = self.tokenizer.encode(lc['line'])
         if len(tokenized.ids) > self.longest_tokenized:
-            print(f'Longest with {len(tokenized.ids)} in {self._context}')
-            print(lc['speaker'])
-            print(conversation)
-            # print(lc['line'])
             self.longest_tokenized = len(tokenized.ids)
     
     def add_line(self, conversation: Dict[str, object]) -> bool:
